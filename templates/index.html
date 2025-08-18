@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>AskMe - AI-Powered Marketing Validation Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/styles.css') }}?v={{ range(1, 1000) | random }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <span class="brand-text">AskMe</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link">Analytics</a>
+                <a href="#" class="nav-link">Templates</a>
+                <a href="#" class="nav-link">Team</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-secondary">
+                    <i class="fas fa-plus"></i>
+                    New Project
+                </button>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="User" class="profile-avatar">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Quick Actions</h3>
+            </div>
+            <div class="sidebar-menu">
+                <a href="#" class="sidebar-item active">
+                    <i class="fas fa-rocket"></i>
+                    <span>Content Validation</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Performance Analytics</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-users"></i>
+                    <span>Persona Library</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-value">2,847</span>
+                        <span class="stat-label">Validations</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-value">94.2%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <h1>Content Validation Dashboard</h1>
+                        <p>Validate your marketing content with AI-powered persona simulations and get instant insights</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            Export Report
+                        </button>
+                        <button class="btn-outline">
+                            <i class="fas fa-share"></i>
+                            Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <div class="section-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <div class="title-icon">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <div>
+                                    <h2>Content Input</h2>
+                                    <p>Describe your creative content for validation</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form id="creativeForm" class="content-form">
+                            <div class="form-group">
+                                <label for="creativeText">
+                                    <i class="fas fa-bullhorn"></i>
+                                    Content Description
+                                </label>
+                                <textarea 
+                                    id="creativeText" 
+                                    name="creativeText" 
+                                    placeholder="Describe your creative content, ad copy, or marketing message in detail..."
+                                    required
+                                ></textarea>
+                                <div class="form-helper">
+                                    <i class="fas fa-lightbulb"></i>
+                                    Be specific about your target audience and campaign goals
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imageDescription">
+                                    <i class="fas fa-image"></i>
+                                    Visual Elements (Optional)
+                                </label>
+                                <textarea 
+                                    id="imageDescription" 
+                                    name="imageDescription" 
+                                    placeholder="Describe any images, videos, or visual elements that accompany your content..."
+                                ></textarea>
+                                <div class="form-helper">
+                                    <i class="fas fa-info-circle"></i>
+                                    Visual context helps personas better understand your message
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary" id="simulateBtn">
+                                    <i class="fas fa-play"></i>
+                                    <span>Run Validation</span>
+                                    <div class="btn-loading">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section">
+                    <div class="section-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <div class="title-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h2>Persona Validation</h2>
+                                    <p>AI-powered insights from diverse perspectives</p>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn-icon" title="Refresh">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="btn-icon" title="Settings">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="personas-container">
+                            <div class="personas-grid" id="personasGrid">
+                                <!-- Personas will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="simulation-summary" id="simulationSummary" style="display: none;">
+                            <div class="summary-header">
+                                <h3>Validation Summary</h3>
+                                <div class="summary-badge success">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Ready for Launch</span>
+                                </div>
+                            </div>
+                            <div class="summary-stats">
+                                <div class="summary-stat">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Total Personas</span>
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <span class="stat-value" id="totalPersonas">0</span>
+                                </div>
+                                <div class="summary-stat">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Would Click</span>
+                                        <i class="fas fa-thumbs-up"></i>
+                                    </div>
+                                    <span class="stat-value" id="willClickCount">0</span>
+                                </div>
+                                <div class="summary-stat">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Confidence</span>
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <span class="stat-value" id="averageConfidence">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="loading-animation">
+                    <div class="loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <h3>Running AI Validation</h3>
+                <p>Our advanced AI agents are analyzing your content from multiple perspectives</p>
+            </div>
+            <div class="modal-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Processing personas...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='/js/app.js') }}?v={{ range(1, 1000) | random }}"></script>
+</body>
+</html>
