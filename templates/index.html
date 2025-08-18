@@ -42,7 +42,7 @@
 
     <!-- Main Container -->
     <div class="main-container">
-        <!-- Sidebar -->
+        <!-- Left Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h3>Quick Actions</h3>
@@ -65,27 +65,6 @@
                     <span>Settings</span>
                 </a>
             </div>
-            
-            <div class="sidebar-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="stat-content">
-                        <span class="stat-value">2,847</span>
-                        <span class="stat-label">Validations</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-arrow-up"></i>
-                    </div>
-                    <div class="stat-content">
-                        <span class="stat-value">94.2%</span>
-                        <span class="stat-label">Success Rate</span>
-                    </div>
-                </div>
-            </div>
         </aside>
 
         <!-- Main Content Area -->
@@ -95,7 +74,7 @@
                 <div class="header-content">
                     <div class="header-left">
                         <h1>Content Validation Dashboard</h1>
-                        <p>Validate your marketing content with AI-powered persona simulations and get instant insights</p>
+                        <p>Validate your marketing content with AI-powered persona simulations</p>
                     </div>
                     <div class="header-actions">
                         <button class="btn-outline">
@@ -110,72 +89,10 @@
                 </div>
             </div>
 
-            <!-- Content Grid -->
-            <div class="content-grid">
-                <!-- Input Section -->
-                <div class="input-section">
-                    <div class="section-card">
-                        <div class="card-header">
-                            <div class="card-title">
-                                <div class="title-icon">
-                                    <i class="fas fa-edit"></i>
-                                </div>
-                                <div>
-                                    <h2>Content Input</h2>
-                                    <p>Describe your creative content for validation</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <form id="creativeForm" class="content-form">
-                            <div class="form-group">
-                                <label for="creativeText">
-                                    <i class="fas fa-bullhorn"></i>
-                                    Content Description
-                                </label>
-                                <textarea 
-                                    id="creativeText" 
-                                    name="creativeText" 
-                                    placeholder="Describe your creative content, ad copy, or marketing message in detail..."
-                                    required
-                                ></textarea>
-                                <div class="form-helper">
-                                    <i class="fas fa-lightbulb"></i>
-                                    Be specific about your target audience and campaign goals
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="imageDescription">
-                                    <i class="fas fa-image"></i>
-                                    Visual Elements (Optional)
-                                </label>
-                                <textarea 
-                                    id="imageDescription" 
-                                    name="imageDescription" 
-                                    placeholder="Describe any images, videos, or visual elements that accompany your content..."
-                                ></textarea>
-                                <div class="form-helper">
-                                    <i class="fas fa-info-circle"></i>
-                                    Visual context helps personas better understand your message
-                                </div>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="submit" class="btn-primary" id="simulateBtn">
-                                    <i class="fas fa-play"></i>
-                                    <span>Run Validation</span>
-                                    <div class="btn-loading">
-                                        <i class="fas fa-spinner fa-spin"></i>
-                                    </div>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Results Section -->
-                <div class="results-section">
+            <!-- Main Content Grid -->
+            <div class="main-content-grid">
+                <!-- Left Side - Avatar Map -->
+                <div class="avatar-map-section">
                     <div class="section-card">
                         <div class="card-header">
                             <div class="card-title">
@@ -187,14 +104,6 @@
                                     <p>AI-powered insights from diverse perspectives</p>
                                 </div>
                             </div>
-                            <div class="card-actions">
-                                <button class="btn-icon" title="Refresh">
-                                    <i class="fas fa-sync-alt"></i>
-                                </button>
-                                <button class="btn-icon" title="Settings">
-                                    <i class="fas fa-cog"></i>
-                                </button>
-                            </div>
                         </div>
                         
                         <div class="personas-container">
@@ -202,40 +111,108 @@
                                 <!-- Personas will be populated here -->
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="simulation-summary" id="simulationSummary" style="display: none;">
-                            <div class="summary-header">
-                                <h3>Validation Summary</h3>
-                                <div class="summary-badge success">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Ready for Launch</span>
+                <!-- Right Side - Metrics -->
+                <div class="metrics-section">
+                    <div class="section-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <div class="title-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div>
+                                    <h2>Validation Metrics</h2>
+                                    <p>Real-time performance insights</p>
                                 </div>
                             </div>
-                            <div class="summary-stats">
-                                <div class="summary-stat">
-                                    <div class="stat-header">
-                                        <span class="stat-label">Total Personas</span>
-                                        <i class="fas fa-users"></i>
+                        </div>
+                        
+                        <div class="metrics-content">
+                            <!-- Quick Stats -->
+                            <div class="quick-stats">
+                                <div class="stat-item">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-check-circle"></i>
                                     </div>
-                                    <span class="stat-value" id="totalPersonas">0</span>
+                                    <div class="stat-info">
+                                        <span class="stat-value">2,847</span>
+                                        <span class="stat-label">Total Validations</span>
+                                    </div>
                                 </div>
-                                <div class="summary-stat">
-                                    <div class="stat-header">
-                                        <span class="stat-label">Would Click</span>
-                                        <i class="fas fa-thumbs-up"></i>
+                                <div class="stat-item">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-arrow-up"></i>
                                     </div>
-                                    <span class="stat-value" id="willClickCount">0</span>
+                                    <div class="stat-info">
+                                        <span class="stat-value">94.2%</span>
+                                        <span class="stat-label">Success Rate</span>
+                                    </div>
                                 </div>
-                                <div class="summary-stat">
-                                    <div class="stat-header">
-                                        <span class="stat-label">Confidence</span>
-                                        <i class="fas fa-chart-line"></i>
+                            </div>
+
+                            <!-- Validation Summary -->
+                            <div class="validation-summary" id="simulationSummary" style="display: none;">
+                                <div class="summary-header">
+                                    <h3>Current Validation</h3>
+                                    <div class="summary-badge success">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Ready for Launch</span>
                                     </div>
-                                    <span class="stat-value" id="averageConfidence">0%</span>
+                                </div>
+                                <div class="summary-stats">
+                                    <div class="summary-stat">
+                                        <div class="stat-header">
+                                            <span class="stat-label">Total Personas</span>
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <span class="stat-value" id="totalPersonas">0</span>
+                                    </div>
+                                    <div class="summary-stat">
+                                        <div class="stat-header">
+                                            <span class="stat-label">Would Click</span>
+                                            <i class="fas fa-thumbs-up"></i>
+                                        </div>
+                                        <span class="stat-value" id="willClickCount">0</span>
+                                    </div>
+                                    <div class="summary-stat">
+                                        <div class="stat-header">
+                                            <span class="stat-label">Confidence</span>
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <span class="stat-value" id="averageConfidence">0%</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Chat Input Section - Fixed at bottom -->
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <div class="chat-input-area">
+                        <div class="input-controls">
+                            <button type="button" class="upload-btn" id="uploadBtn" title="Upload image">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="text-input-container">
+                            <textarea 
+                                id="chatInput" 
+                                placeholder="Describe your creative content, ad copy, or marketing message..."
+                                rows="1"
+                                maxlength="4000"
+                            ></textarea>
+                            <button type="button" class="send-btn" id="sendBtn" disabled>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="uploaded-images" id="uploadedImages"></div>
                 </div>
             </div>
         </main>

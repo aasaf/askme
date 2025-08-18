@@ -13,22 +13,213 @@ function getPersonaAvatar(personaKey) {
 
 class AskMeValidator {
     constructor() {
+        this.uploadedImages = [];
         this.initializeEventListeners();
         this.loadPersonas();
         this.initializeAnimations();
     }
 
     initializeEventListeners() {
-        const form = document.getElementById('creativeForm');
-        if (form) {
-            form.addEventListener('submit', (e) => this.handleFormSubmit(e));
-        }
+        // Chat input functionality
+        this.initializeChatInput();
+        
+        // Image upload functionality
+        this.initializeImageUpload();
 
         // Add navigation interactions
         this.initializeNavigation();
         
         // Add sidebar interactions
         this.initializeSidebar();
+    }
+
+    initializeChatInput() {
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        if (chatInput && sendBtn) {
+            // Auto-resize textarea
+            chatInput.addEventListener('input', () => {
+                this.adjustTextareaHeight(chatInput);
+                this.updateSendButtonState();
+            });
+
+            // Handle Enter key (Shift+Enter for new line, Enter to send)
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    this.handleSendMessage();
+                }
+            });
+
+            // Send button click
+            sendBtn.addEventListener('click', () => {
+                this.handleSendMessage();
+            });
+        }
+    }
+
+    initializeImageUpload() {
+        const uploadBtn = document.getElementById('uploadBtn');
+        const imageInput = document.getElementById('imageInput');
+
+        if (uploadBtn && imageInput) {
+            uploadBtn.addEventListener('click', () => {
+                imageInput.click();
+            });
+
+            imageInput.addEventListener('change', (e) => {
+                this.handleImageUpload(e.target.files);
+            });
+        }
+    }
+
+    adjustTextareaHeight(textarea) {
+        textarea.style.height = 'auto';
+        textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+    }
+
+    updateSendButtonState() {
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+        
+        if (chatInput && sendBtn) {
+            const hasText = chatInput.value.trim().length > 0;
+            const hasImages = this.uploadedImages.length > 0;
+            
+            sendBtn.disabled = !(hasText || hasImages);
+        }
+    }
+
+    handleImageUpload(files) {
+        Array.from(files).forEach(file => {
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.addUploadedImage(e.target.result, file.name);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    addUploadedImage(imageData, fileName) {
+        const imageId = 'img_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        
+        this.uploadedImages.push({
+            id: imageId,
+            data: imageData,
+            name: fileName
+        });
+
+        this.renderUploadedImages();
+        this.updateSendButtonState();
+    }
+
+    removeUploadedImage(imageId) {
+        this.uploadedImages = this.uploadedImages.filter(img => img.id !== imageId);
+        this.renderUploadedImages();
+        this.updateSendButtonState();
+    }
+
+    renderUploadedImages() {
+        const container = document.getElementById('uploadedImages');
+        if (!container) return;
+
+        container.innerHTML = '';
+        
+        this.uploadedImages.forEach(image => {
+            const imageElement = document.createElement('div');
+            imageElement.className = 'uploaded-image';
+            imageElement.innerHTML = `
+                <img src="${image.data}" alt="${image.name}" title="${image.name}">
+                <button type="button" class="remove-btn" data-image-id="${image.id}">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+            // Add remove button event listener
+            const removeBtn = imageElement.querySelector('.remove-btn');
+            removeBtn.addEventListener('click', () => {
+                this.removeUploadedImage(image.id);
+            });
+
+            container.appendChild(imageElement);
+        });
+    }
+
+    handleSendMessage() {
+        const chatInput = document.getElementById('chatInput');
+        const message = chatInput.value.trim();
+        
+        if (!message && this.uploadedImages.length === 0) {
+            return;
+        }
+
+        // Clear input
+        chatInput.value = '';
+        this.adjustTextareaHeight(chatInput);
+        
+        // Clear images
+        this.uploadedImages = [];
+        this.renderUploadedImages();
+        
+        // Update button state
+        this.updateSendButtonState();
+        
+        // Process the message (this would integrate with your existing validation logic)
+        this.processContentValidation(message);
+    }
+
+    processContentValidation(content) {
+        // Show loading modal
+        this.showLoadingModal();
+        
+        // Simulate processing (replace with actual API call)
+        setTimeout(() => {
+            this.hideLoadingModal();
+            this.runSimulation(content);
+        }, 2000);
+    }
+
+    showLoadingModal() {
+        const modal = document.getElementById('loadingModal');
+        if (modal) {
+            modal.style.display = 'flex';
+        }
+    }
+
+    hideLoadingModal() {
+        const modal = document.getElementById('loadingModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    async runSimulation(content) {
+        try {
+            // Reset personas grid
+            this.resetPersonasGrid();
+            
+            // Simulate API call delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Generate mock results
+            const results = await this.simulatePersonas({
+                text: content,
+                image_description: this.uploadedImages.length > 0 ? `${this.uploadedImages.length} image(s) uploaded` : ''
+            });
+            
+            // Display results
+            this.displayResults(results);
+            
+            // Show success notification
+            this.showNotification('Content validation completed successfully!', 'success');
+            
+        } catch (error) {
+            console.error('Simulation error:', error);
+            this.showNotification('An error occurred during validation. Please try again.', 'error');
+        }
     }
 
     initializeNavigation() {
@@ -155,85 +346,115 @@ class AskMeValidator {
 
     initializePersonaPopups() {
         const personaCards = document.querySelectorAll('.persona-card');
+        let currentPopup = null;
+        let popupTimeout = null;
+
         personaCards.forEach(card => {
+            const popup = card.querySelector('.persona-popup');
+            if (!popup) return;
+
+            // Mouse enter - show popup
             card.addEventListener('mouseenter', (e) => {
-                const popup = card.querySelector('.persona-popup');
-                if (popup) {
-                    // Debug positioning
-                    console.log('Card hovered:', card);
-                    console.log('Popup found:', popup);
-                    
-                    // Use absolute positioning (CSS handles the positioning)
-                    popup.style.position = 'absolute';
-                    
-                    // Ensure popup is visible above the card
-                    popup.style.opacity = '1';
-                    popup.style.visibility = 'visible';
-                    popup.style.pointerEvents = 'auto';
-                    
-                    // Ensure popup is above navbar and other elements
-                    popup.style.zIndex = '10000';
-                    
-                    // Debug final popup state
-                    console.log('Popup visible:', popup.style.opacity, popup.style.visibility);
+                // Clear any existing timeout
+                if (popupTimeout) {
+                    clearTimeout(popupTimeout);
+                    popupTimeout = null;
                 }
+
+                // Hide any other open popup
+                if (currentPopup && currentPopup !== popup) {
+                    currentPopup.style.opacity = '0';
+                    currentPopup.style.visibility = 'hidden';
+                    currentPopup.style.pointerEvents = 'none';
+                }
+
+                // Position and show popup
+                this.positionPopup(popup, card);
+                popup.style.opacity = '1';
+                popup.style.visibility = 'visible';
+                popup.style.pointerEvents = 'auto';
+                
+                currentPopup = popup;
             });
 
-            card.addEventListener('mouseleave', () => {
-                const popup = card.querySelector('.persona-popup');
-                if (popup) {
+            // Mouse leave - hide popup with delay
+            card.addEventListener('mouseleave', (e) => {
+                // Add small delay to prevent flickering
+                popupTimeout = setTimeout(() => {
                     popup.style.opacity = '0';
                     popup.style.visibility = 'hidden';
                     popup.style.pointerEvents = 'none';
+                    
+                    if (currentPopup === popup) {
+                        currentPopup = null;
+                    }
+                }, 100);
+            });
+
+            // Also handle popup hover to keep it visible
+            popup.addEventListener('mouseenter', () => {
+                if (popupTimeout) {
+                    clearTimeout(popupTimeout);
+                    popupTimeout = null;
                 }
             });
+
+            popup.addEventListener('mouseleave', () => {
+                popupTimeout = setTimeout(() => {
+                    popup.style.opacity = '0';
+                    popup.style.visibility = 'hidden';
+                    popup.style.pointerEvents = 'none';
+                    
+                    if (currentPopup === popup) {
+                        currentPopup = null;
+                    }
+                }, 100);
+            });
         });
-
-        // Remove resize handler since we're using absolute positioning
     }
 
-    async handleFormSubmit(event) {
-        event.preventDefault();
+    positionPopup(popup, card) {
+        const cardRect = card.getBoundingClientRect();
+        const popupRect = popup.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
         
-        const formData = new FormData(event.target);
-        const content = {
-            text: formData.get('creativeText'),
-            image_description: formData.get('imageDescription')
-        };
-
-        if (!content.text.trim()) {
-            this.showNotification('Please enter creative content to validate.', 'error');
-            return;
-        }
-
-        // Show loading state
-        this.showLoadingModal();
-        this.setButtonLoadingState(true);
-        this.resetPersonasGrid();
+        // Calculate initial position (above the card)
+        let top = cardRect.top - popupRect.height - 12;
+        let left = cardRect.left + (cardRect.width / 2) - (popupRect.width / 2);
         
-        try {
-            const results = await this.simulatePersonas(content);
-            this.displayResults(results);
-            this.showNotification('Validation completed successfully!', 'success');
-        } catch (error) {
-            console.error('Simulation error:', error);
-            this.showNotification('An error occurred during validation. Please try again.', 'error');
-        } finally {
-            this.hideLoadingModal();
-            this.setButtonLoadingState(false);
+        // Check if popup goes off-screen to the left
+        if (left < 16) {
+            left = 16;
         }
-    }
-
-    setButtonLoadingState(loading) {
-        const submitBtn = document.getElementById('simulateBtn');
-        if (submitBtn) {
-            if (loading) {
-                submitBtn.classList.add('loading');
-                submitBtn.disabled = true;
-            } else {
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-            }
+        
+        // Check if popup goes off-screen to the right
+        if (left + popupRect.width > viewportWidth - 16) {
+            left = viewportWidth - popupRect.width - 16;
+        }
+        
+        // Check if popup goes off-screen to the top
+        if (top < 16) {
+            // Position below the card instead
+            top = cardRect.bottom + 12;
+        }
+        
+        // Apply positioning
+        popup.style.top = `${top}px`;
+        popup.style.left = `${left}px`;
+        
+        // Adjust arrow position based on popup position relative to card
+        const arrow = popup.querySelector('::after');
+        if (top < cardRect.top) {
+            // Popup is above card - arrow points down
+            popup.style.setProperty('--arrow-top', '100%');
+            popup.style.setProperty('--arrow-border-top', '8px solid white');
+            popup.style.setProperty('--arrow-border-bottom', 'none');
+        } else {
+            // Popup is below card - arrow points up
+            popup.style.setProperty('--arrow-top', '0');
+            popup.style.setProperty('--arrow-border-bottom', '8px solid white');
+            popup.style.setProperty('--arrow-border-top', 'none');
         }
     }
 
@@ -349,26 +570,6 @@ class AskMeValidator {
 
         summaryElement.style.display = 'block';
         summaryElement.classList.add('slide-in');
-    }
-
-    showLoadingModal() {
-        const modal = document.getElementById('loadingModal');
-        if (modal) {
-            modal.style.display = 'flex';
-            
-            // Start progress animation
-            const progressFill = modal.querySelector('.progress-fill');
-            if (progressFill) {
-                progressFill.style.animation = 'progressFill 2s ease-in-out infinite';
-            }
-        }
-    }
-
-    hideLoadingModal() {
-        const modal = document.getElementById('loadingModal');
-        if (modal) {
-            modal.style.display = 'none';
-        }
     }
 
     showNotification(message, type = 'info') {
