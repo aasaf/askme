@@ -308,154 +308,20 @@ class AskMeValidator {
                 <div class="avatar-image">
                     <img src="${getPersonaAvatar(persona.key)}" alt="${persona.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
                 </div>
+                <div class="persona-info">
+                    <div class="persona-name">${persona.name}</div>
+                    <div class="persona-description">${persona.description}</div>
+                </div>
                 <div class="avatar-status" style="display: none;">
                     <i class="fas fa-spinner fa-spin"></i>
                 </div>
                 <div class="click-result" style="display: none;">
                     <div class="click-icon"></div>
                 </div>
-                
-                <!-- Enhanced Popup -->
-                <div class="persona-popup">
-                    <div class="popup-header">
-                        <div class="popup-avatar">
-                            <img src="${getPersonaAvatar(persona.key)}" alt="${persona.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
-                        </div>
-                        <div class="popup-info">
-                            <div class="popup-name">${persona.name}</div>
-                            <div class="popup-description">${persona.description}</div>
-                        </div>
-                    </div>
-                    <div class="popup-confidence">
-                        <div class="confidence-label">Confidence Score:</div>
-                        <div class="confidence-bar">
-                            <div class="confidence-fill" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    <div class="popup-reasoning">
-                        <div class="reasoning-label">AI Analysis:</div>
-                        <div class="reasoning-content"></div>
-                    </div>
-                </div>
             </div>
         `).join('');
 
-        // Add hover effects for popups
-        this.initializePersonaPopups();
-    }
-
-    initializePersonaPopups() {
-        const personaCards = document.querySelectorAll('.persona-card');
-        let currentPopup = null;
-        let popupTimeout = null;
-
-        personaCards.forEach(card => {
-            const popup = card.querySelector('.persona-popup');
-            if (!popup) return;
-
-            // Mouse enter - show popup
-            card.addEventListener('mouseenter', (e) => {
-                // Clear any existing timeout
-                if (popupTimeout) {
-                    clearTimeout(popupTimeout);
-                    popupTimeout = null;
-                }
-
-                // Hide any other open popup
-                if (currentPopup && currentPopup !== popup) {
-                    currentPopup.style.opacity = '0';
-                    currentPopup.style.visibility = 'hidden';
-                    currentPopup.style.pointerEvents = 'none';
-                }
-
-                // Position and show popup
-                this.positionPopup(popup, card);
-                popup.style.opacity = '1';
-                popup.style.visibility = 'visible';
-                popup.style.pointerEvents = 'auto';
-                
-                currentPopup = popup;
-            });
-
-            // Mouse leave - hide popup with delay
-            card.addEventListener('mouseleave', (e) => {
-                // Add small delay to prevent flickering
-                popupTimeout = setTimeout(() => {
-                    popup.style.opacity = '0';
-                    popup.style.visibility = 'hidden';
-                    popup.style.pointerEvents = 'none';
-                    
-                    if (currentPopup === popup) {
-                        currentPopup = null;
-                    }
-                }, 100);
-            });
-
-            // Also handle popup hover to keep it visible
-            popup.addEventListener('mouseenter', () => {
-                if (popupTimeout) {
-                    clearTimeout(popupTimeout);
-                    popupTimeout = null;
-                }
-            });
-
-            popup.addEventListener('mouseleave', () => {
-                popupTimeout = setTimeout(() => {
-                    popup.style.opacity = '0';
-                    popup.style.visibility = 'hidden';
-                    popup.style.pointerEvents = 'none';
-                    
-                    if (currentPopup === popup) {
-                        currentPopup = null;
-                    }
-                }, 100);
-            });
-        });
-    }
-
-    positionPopup(popup, card) {
-        const cardRect = card.getBoundingClientRect();
-        const popupRect = popup.getBoundingClientRect();
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        
-        // Calculate initial position (above the card)
-        let top = cardRect.top - popupRect.height - 12;
-        let left = cardRect.left + (cardRect.width / 2) - (popupRect.width / 2);
-        
-        // Check if popup goes off-screen to the left
-        if (left < 16) {
-            left = 16;
-        }
-        
-        // Check if popup goes off-screen to the right
-        if (left + popupRect.width > viewportWidth - 16) {
-            left = viewportWidth - popupRect.width - 16;
-        }
-        
-        // Check if popup goes off-screen to the top
-        if (top < 16) {
-            // Position below the card instead
-            top = cardRect.bottom + 12;
-        }
-        
-        // Apply positioning
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
-        
-        // Adjust arrow position based on popup position relative to card
-        const arrow = popup.querySelector('::after');
-        if (top < cardRect.top) {
-            // Popup is above card - arrow points down
-            popup.style.setProperty('--arrow-top', '100%');
-            popup.style.setProperty('--arrow-border-top', '8px solid white');
-            popup.style.setProperty('--arrow-border-bottom', 'none');
-        } else {
-            // Popup is below card - arrow points up
-            popup.style.setProperty('--arrow-top', '0');
-            popup.style.setProperty('--arrow-border-bottom', '8px solid white');
-            popup.style.setProperty('--arrow-border-top', 'none');
-        }
+        // No need for popup initialization since text is now in the card
     }
 
     async simulatePersonas(content) {
@@ -516,7 +382,7 @@ class AskMeValidator {
 
         const avatarStatus = card.querySelector('.avatar-status');
         const clickResult = card.querySelector('.click-result');
-        const popup = card.querySelector('.persona-popup');
+        // const popup = card.querySelector('.persona-popup'); // No longer needed
 
         // Hide avatar status
         if (avatarStatus) {
@@ -539,18 +405,18 @@ class AskMeValidator {
         }
 
         // Update popup content
-        if (popup) {
-            const confidenceFill = popup.querySelector('.confidence-fill');
-            const reasoningContent = popup.querySelector('.reasoning-content');
+        // if (popup) { // No longer needed
+        //     const confidenceFill = popup.querySelector('.confidence-fill');
+        //     const reasoningContent = popup.querySelector('.reasoning-content');
             
-            if (confidenceFill) {
-                confidenceFill.style.width = `${(result.confidence / 10) * 100}%`;
-            }
+        //     if (confidenceFill) {
+        //         confidenceFill.style.width = `${(result.confidence / 10) * 100}%`;
+        //     }
             
-            if (reasoningContent) {
-                reasoningContent.textContent = result.reasoning;
-            }
-        }
+        //     if (reasoningContent) {
+        //         reasoningContent.textContent = result.reasoning;
+        //     }
+        // }
 
         // Add animation
         card.classList.add('fade-in');
