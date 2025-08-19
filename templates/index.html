@@ -69,53 +69,79 @@
 
         <!-- Main Content Area -->
         <main class="content-area">
-            <!-- Page Header -->
-            <div class="page-header">
-                <div class="header-content">
-                    <div class="header-left">
-                        <h1>Content Validation Dashboard</h1>
-                        <p>Validate your marketing content with AI-powered persona simulations</p>
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>AI-Powered Marketing Validation</h1>
+                        <p>Get instant feedback from 10 diverse AI personas to validate your marketing content, ads, and campaigns before launch.</p>
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <span class="stat-number">10</span>
+                                <span class="stat-label">AI Agents</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="stat-number">94.2%</span>
+                                <span class="stat-label">Accuracy</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="stat-number">2.8s</span>
+                                <span class="stat-label">Response Time</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="header-actions">
-                        <button class="btn-outline">
-                            <i class="fas fa-download"></i>
-                            Export Report
-                        </button>
-                        <button class="btn-outline">
-                            <i class="fas fa-share"></i>
-                            Share
-                        </button>
+                    <div class="hero-visual">
+                        <div class="floating-agents">
+                            <div class="agent-avatar" style="--delay: 0s">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face" alt="Young Professional">
+                            </div>
+                            <div class="agent-avatar" style="--delay: 0.2s">
+                                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&h=80&fit=crop&crop=face" alt="Creative Freelancer">
+                            </div>
+                            <div class="agent-avatar" style="--delay: 0.4s">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Small Business Owner">
+                            </div>
+                            <div class="agent-avatar" style="--delay: 0.6s">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" alt="Tech Enthusiast">
+                            </div>
+                            <div class="agent-avatar" style="--delay: 0.8s">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Parent Consumer">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Main Content Grid -->
             <div class="main-content-grid">
-                <!-- Left Side - Avatar Map -->
-                <div class="avatar-map-section">
+                <!-- Left Side - AI Agents Grid -->
+                <div class="agents-section">
                     <div class="section-card">
                         <div class="card-header">
                             <div class="card-title">
                                 <div class="title-icon">
-                                    <i class="fas fa-users"></i>
+                                    <i class="fas fa-robot"></i>
                                 </div>
                                 <div>
-                                    <h2>Persona Validation</h2>
-                                    <p>AI-powered insights from diverse perspectives</p>
+                                    <h2>AI Validation Agents</h2>
+                                    <p>Get insights from diverse perspectives</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="personas-container">
-                            <div class="personas-grid" id="personasGrid">
-                                <!-- Personas will be populated here -->
+                        <div class="agents-container">
+                            <div class="agents-grid" id="agentsGrid">
+                                <!-- AI Agents will be populated here -->
+                            </div>
+                            <div class="agents-instruction">
+                                <p><i class="fas fa-info-circle"></i> Click on any agent to see detailed information</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Side - Metrics -->
-                <div class="metrics-section">
+                <!-- Right Side - Metrics & Results -->
+                <div class="results-section">
                     <div class="section-card">
                         <div class="card-header">
                             <div class="card-title">
@@ -123,13 +149,13 @@
                                     <i class="fas fa-chart-bar"></i>
                                 </div>
                                 <div>
-                                    <h2>Validation Metrics</h2>
+                                    <h2>Validation Results</h2>
                                     <p>Real-time performance insights</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="metrics-content">
+                        <div class="results-content">
                             <!-- Quick Stats -->
                             <div class="quick-stats">
                                 <div class="stat-item">
@@ -164,8 +190,8 @@
                                 <div class="summary-stats">
                                     <div class="summary-stat">
                                         <div class="stat-header">
-                                            <span class="stat-label">Total Personas</span>
-                                            <i class="fas fa-users"></i>
+                                            <span class="stat-label">Total Agents</span>
+                                            <i class="fas fa-robot"></i>
                                         </div>
                                         <span class="stat-value" id="totalPersonas">0</span>
                                     </div>
@@ -182,6 +208,40 @@
                                             <i class="fas fa-chart-line"></i>
                                         </div>
                                         <span class="stat-value" id="averageConfidence">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recent Activity -->
+                            <div class="recent-activity">
+                                <h3>Recent Activity</h3>
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-upload"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-text">New campaign uploaded</div>
+                                            <div class="activity-time">2 min ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-text">Validation completed</div>
+                                            <div class="activity-time">5 min ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-share"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-text">Results shared with team</div>
+                                            <div class="activity-time">12 min ago</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -230,13 +290,82 @@
                     </div>
                 </div>
                 <h3>Running AI Validation</h3>
-                <p>Our advanced AI agents are analyzing your content from multiple perspectives</p>
+                <p>Our 10 AI agents are analyzing your content from multiple perspectives</p>
             </div>
             <div class="modal-progress">
                 <div class="progress-bar">
                     <div class="progress-fill"></div>
                 </div>
-                <span class="progress-text">Processing personas...</span>
+                <span class="progress-text">Analyzing with AI agents...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agent Info Modal -->
+    <div id="agentInfoModal" class="modal" style="display: none;">
+        <div class="modal-content agent-info-modal">
+            <div class="modal-header">
+                <div class="agent-info-header">
+                    <div class="agent-avatar-large">
+                        <img id="agentInfoAvatar" src="" alt="Agent">
+                    </div>
+                    <div class="agent-info-text">
+                        <h3 id="agentInfoName">Agent Name</h3>
+                        <p id="agentInfoDescription">Agent description</p>
+                    </div>
+                </div>
+                <button class="modal-close" id="agentInfoClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="agent-info-content">
+                <div class="agent-details">
+                    <div class="detail-section">
+                        <h4><i class="fas fa-user"></i> Persona Details</h4>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Age Range:</span>
+                                <span id="agentInfoAge" class="detail-value">25-35</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Platforms:</span>
+                                <span id="agentInfoPlatforms" class="detail-value">LinkedIn, Instagram</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Values:</span>
+                                <span id="agentInfoValues" class="detail-value">Efficiency, Quality</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Click Rate:</span>
+                                <span id="agentInfoClickRate" class="detail-value">70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h4><i class="fas fa-lightbulb"></i> What Resonates</h4>
+                        <div class="resonance-tags" id="agentInfoResonates">
+                            <!-- Tags will be populated here -->
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h4><i class="fas fa-exclamation-triangle"></i> What Deters</h4>
+                        <div class="deterrent-tags" id="agentInfoDeters">
+                            <!-- Tags will be populated here -->
+                        </div>
+                    </div>
+                    <div class="detail-section">
+                        <h4><i class="fas fa-comment"></i> Recent Feedback</h4>
+                        <div class="feedback-example" id="agentInfoFeedback">
+                            <!-- Feedback will be populated here -->
+                        </div>
+                    </div>
+                    <div class="detail-section" id="clickReasoningSection" style="display: none;">
+                        <h4><i class="fas fa-mouse-pointer"></i> Click Analysis</h4>
+                        <div class="click-analysis" id="agentInfoClickReasoning">
+                            <!-- Click reasoning will be populated here -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

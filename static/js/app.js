@@ -1,21 +1,141 @@
 // AskMe - AI-Powered Marketing Validation Platform
-// Helper function to get persona avatar images
-function getPersonaAvatar(personaKey) {
+// Helper function to get agent avatar images
+function getAgentAvatar(agentKey) {
     const avatars = {
         'young_professional': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
         'creative_freelancer': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
         'small_business_owner': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
         'tech_enthusiast': 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-        'parent_consumer': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
+        'parent_consumer': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        'senior_executive': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+        'millennial_shopper': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+        'entrepreneur': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
+        'digital_native': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+        'influencer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face'
     };
-    return avatars[personaKey] || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face';
+    return avatars[agentKey] || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face';
 }
+
+// Detailed agent information
+const AGENT_DETAILS = {
+    'young_professional': {
+        name: 'Young Professional',
+        description: 'Career-focused, tech-savvy, values efficiency',
+        age: '25-35',
+        platforms: 'LinkedIn, Instagram',
+        values: 'Efficiency, Quality, ROI',
+        clickRate: '70%',
+        resonates: ['Professional Growth', 'Efficiency', 'ROI', 'Problem Solving', 'Quality'],
+        deters: ['Overly Promotional', 'Hype', 'Unprofessional', 'Waste of Time'],
+        feedback: '"I appreciate content that shows clear value and professional benefits. This feels genuine and addresses my career needs."'
+    },
+    'creative_freelancer': {
+        name: 'Creative Freelancer',
+        description: 'Artistic, independent, values authenticity',
+        age: '22-30',
+        platforms: 'Instagram, TikTok, Pinterest',
+        values: 'Authenticity, Creative Expression',
+        clickRate: '60%',
+        resonates: ['Authentic Stories', 'Creative Expression', 'Human Connection', 'Visual Appeal', 'Emotional Resonance'],
+        deters: ['Corporate Messaging', 'Generic Content', 'Salesy Approach', 'Impersonal'],
+        feedback: '"I love when brands feel human and relatable. This content speaks to my creative soul and feels genuine."'
+    },
+    'small_business_owner': {
+        name: 'Small Business Owner',
+        description: 'Practical, budget-conscious, values ROI',
+        age: '35-50',
+        platforms: 'Facebook, LinkedIn',
+        values: 'ROI, Practical Solutions',
+        clickRate: '80%',
+        resonates: ['Practical Benefits', 'Proven Results', 'ROI', 'Time Saving', 'Cost Effective'],
+        deters: ['Hype', 'Expensive', 'Unproven', 'Complicated'],
+        feedback: '"I need solutions that work and provide measurable results. This feels practical and business-focused."'
+    },
+    'tech_enthusiast': {
+        name: 'Tech Enthusiast',
+        description: 'Early adopter, values innovation',
+        age: '18-28',
+        platforms: 'Twitter, Reddit, YouTube',
+        values: 'Innovation, Efficiency',
+        clickRate: '75%',
+        resonates: ['Innovation', 'Cutting-edge', 'Technical Specs', 'Efficiency', 'Transparency'],
+        deters: ['Outdated', 'Basic', 'Unclear', 'Limited'],
+        feedback: '"I\'m always excited about new tech. This feels innovative and transparent about capabilities."'
+    },
+    'parent_consumer': {
+        name: 'Parent Consumer',
+        description: 'Family-oriented, values safety & convenience',
+        age: '30-45',
+        platforms: 'Facebook, Instagram, Pinterest',
+        values: 'Safety, Convenience',
+        clickRate: '65%',
+        resonates: ['Family Safe', 'Convenient', 'Time Saving', 'Cost Effective', 'Authentic'],
+        deters: ['Unsafe', 'Complicated', 'Expensive', 'Fake'],
+        feedback: '"As a parent, I need solutions that are safe and convenient for my family. This feels trustworthy."'
+    },
+    'senior_executive': {
+        name: 'Senior Executive',
+        description: 'Strategic thinker, values leadership & growth',
+        age: '45-60',
+        platforms: 'LinkedIn, Industry Publications',
+        values: 'Strategic Thinking, Leadership',
+        clickRate: '70%',
+        resonates: ['Strategic Value', 'Leadership', 'Growth', 'Business Challenges', 'Credibility'],
+        deters: ['Tactical', 'Basic', 'Uncredible', 'Superficial'],
+        feedback: '"I look for content that demonstrates strategic thinking and addresses real business challenges."'
+    },
+    'millennial_shopper': {
+        name: 'Millennial Shopper',
+        description: 'Value-conscious, socially aware, mobile-first',
+        age: '28-38',
+        platforms: 'Instagram, TikTok, Mobile Apps',
+        values: 'Authenticity, Social Responsibility',
+        clickRate: '60%',
+        resonates: ['Authentic', 'Socially Responsible', 'Good Value', 'Aligned Values', 'Mobile Friendly'],
+        deters: ['Fake', 'Irresponsible', 'Overpriced', 'Misaligned'],
+        feedback: '"I want brands that align with my values and feel genuine. This content resonates with my priorities."'
+    },
+    'entrepreneur': {
+        name: 'Entrepreneur',
+        description: 'Risk-taker, values innovation & growth',
+        age: '25-45',
+        platforms: 'LinkedIn, Twitter, Startup Communities',
+        values: 'Innovation, Growth',
+        clickRate: '80%',
+        resonates: ['Innovation', 'Disruptive', 'Growth Potential', 'Bold', 'Inspiring'],
+        deters: ['Conventional', 'Safe', 'Limited Growth', 'Boring'],
+        feedback: '"I\'m drawn to content that challenges the status quo and inspires action. This feels bold and innovative."'
+    },
+    'digital_native': {
+        name: 'Digital Native',
+        description: 'Born online, values speed & connectivity',
+        age: '18-25',
+        platforms: 'TikTok, Instagram, Emerging Platforms',
+        values: 'Speed, Connectivity',
+        clickRate: '70%',
+        resonates: ['Digital Native', 'Authentic', 'Fast', 'Engaging', 'Shareable'],
+        deters: ['Forced', 'Fake', 'Slow', 'Boring', 'Unshareable'],
+        feedback: '"This feels native to digital platforms and resonates with my generation. It\'s fast and engaging."'
+    },
+    'influencer': {
+        name: 'Influencer',
+        description: 'Content creator, values engagement & authenticity',
+        age: '22-35',
+        platforms: 'Multiple Social Platforms',
+        values: 'Engagement, Authenticity',
+        clickRate: '65%',
+        resonates: ['Authentic', 'Engaging', 'Creative', 'Storytelling', 'Shareable'],
+        deters: ['Fake', 'Boring', 'Uncreative', 'Unshareable'],
+        feedback: '"I can tell this would resonate with my audience. It feels authentic and tells a compelling story."'
+    }
+};
 
 class AskMeValidator {
     constructor() {
         this.uploadedImages = [];
+        this.currentValidationResults = []; // Store current validation results
         this.initializeEventListeners();
-        this.loadPersonas();
+        this.loadAgents();
         this.initializeAnimations();
     }
 
@@ -31,6 +151,9 @@ class AskMeValidator {
         
         // Add sidebar interactions
         this.initializeSidebar();
+
+        // Add agent info modal functionality
+        this.initializeAgentInfoModal();
     }
 
     initializeChatInput() {
@@ -175,11 +298,11 @@ class AskMeValidator {
         // Show loading modal
         this.showLoadingModal();
         
-        // Simulate processing (replace with actual API call)
+        // Simulate processing (using placeholder results - much faster)
         setTimeout(() => {
             this.hideLoadingModal();
             this.runSimulation(content);
-        }, 2000);
+        }, 800); // Reduced from 2000ms to 800ms for better UX
     }
 
     showLoadingModal() {
@@ -198,14 +321,14 @@ class AskMeValidator {
 
     async runSimulation(content) {
         try {
-            // Reset personas grid
-            this.resetPersonasGrid();
+            // Reset agents grid
+            this.resetAgentsGrid();
             
-            // Simulate API call delay
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // Simulate API call delay (reduced for placeholder results)
+            await new Promise(resolve => setTimeout(resolve, 400)); // Reduced from 1000ms to 400ms
             
             // Generate mock results
-            const results = await this.simulatePersonas({
+            const results = await this.simulateAgents({
                 text: content,
                 image_description: this.uploadedImages.length > 0 ? `${this.uploadedImages.length} image(s) uploaded` : ''
             });
@@ -288,29 +411,25 @@ class AskMeValidator {
         });
     }
 
-    async loadPersonas() {
+    async loadAgents() {
         try {
             const response = await fetch('/personas');
             const data = await response.json();
-            this.renderPersonasGrid(data.personas);
+            this.renderAgentsGrid(data.personas);
         } catch (error) {
-            console.error('Error loading personas:', error);
-            this.showNotification('Failed to load personas. Please refresh the page.', 'error');
+            console.error('Error loading agents:', error);
+            this.showNotification('Failed to load agents. Please refresh the page.', 'error');
         }
     }
 
-    renderPersonasGrid(personas) {
-        const grid = document.getElementById('personasGrid');
+    renderAgentsGrid(agents) {
+        const grid = document.getElementById('agentsGrid');
         if (!grid) return;
 
-        grid.innerHTML = personas.map(persona => `
-            <div class="persona-card" data-persona="${persona.key}">
+        grid.innerHTML = agents.map(agent => `
+            <div class="agent-card" data-agent="${agent.key}" title="Click to see ${agent.name} details">
                 <div class="avatar-image">
-                    <img src="${getPersonaAvatar(persona.key)}" alt="${persona.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
-                </div>
-                <div class="persona-info">
-                    <div class="persona-name">${persona.name}</div>
-                    <div class="persona-description">${persona.description}</div>
+                    <img src="${getAgentAvatar(agent.key)}" alt="${agent.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
                 </div>
                 <div class="avatar-status" style="display: none;">
                     <i class="fas fa-spinner fa-spin"></i>
@@ -321,10 +440,19 @@ class AskMeValidator {
             </div>
         `).join('');
 
-        // No need for popup initialization since text is now in the card
+        // Add click event listeners to agent cards
+        const agentCards = document.querySelectorAll('.agent-card');
+        agentCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const agentKey = card.dataset.agent;
+                if (agentKey) {
+                    this.showAgentInfoModal(agentKey);
+                }
+            });
+        });
     }
 
-    async simulatePersonas(content) {
+    async simulateAgents(content) {
         const response = await fetch('/simulate', {
             method: 'POST',
             headers: {
@@ -340,9 +468,9 @@ class AskMeValidator {
         return await response.json();
     }
 
-    resetPersonasGrid() {
-        const personaCards = document.querySelectorAll('.persona-card');
-        personaCards.forEach(card => {
+    resetAgentsGrid() {
+        const agentCards = document.querySelectorAll('.agent-card');
+        agentCards.forEach(card => {
             const avatarStatus = card.querySelector('.avatar-status');
             const clickResult = card.querySelector('.click-result');
             
@@ -363,10 +491,13 @@ class AskMeValidator {
     displayResults(data) {
         const { results, summary } = data;
         
-        // Update each persona card with animation delay
+        // Store current validation results for agent info modal
+        this.currentValidationResults = results;
+        
+        // Update each agent card with animation delay
         results.forEach((result, index) => {
             setTimeout(() => {
-                this.updatePersonaCard(result);
+                this.updateAgentCard(result);
             }, index * 200); // Stagger the animations
         });
 
@@ -376,13 +507,12 @@ class AskMeValidator {
         }, results.length * 200 + 300);
     }
 
-    updatePersonaCard(result) {
-        const card = document.querySelector(`[data-persona="${result.persona}"]`);
+    updateAgentCard(result) {
+        const card = document.querySelector(`[data-agent="${result.persona}"]`);
         if (!card) return;
 
         const avatarStatus = card.querySelector('.avatar-status');
         const clickResult = card.querySelector('.click-result');
-        // const popup = card.querySelector('.persona-popup'); // No longer needed
 
         // Hide avatar status
         if (avatarStatus) {
@@ -403,20 +533,6 @@ class AskMeValidator {
             
             clickResult.style.display = 'flex';
         }
-
-        // Update popup content
-        // if (popup) { // No longer needed
-        //     const confidenceFill = popup.querySelector('.confidence-fill');
-        //     const reasoningContent = popup.querySelector('.reasoning-content');
-            
-        //     if (confidenceFill) {
-        //         confidenceFill.style.width = `${(result.confidence / 10) * 100}%`;
-        //     }
-            
-        //     if (reasoningContent) {
-        //         reasoningContent.textContent = result.reasoning;
-        //     }
-        // }
 
         // Add animation
         card.classList.add('fade-in');
@@ -499,6 +615,124 @@ class AskMeValidator {
                 setTimeout(() => notification.remove(), 300);
             }
         }, 5000);
+    }
+
+    initializeAgentInfoModal() {
+        // Close button functionality
+        const closeBtn = document.getElementById('agentInfoClose');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                this.hideAgentInfoModal();
+            });
+        }
+
+        // Close modal when clicking outside
+        const modal = document.getElementById('agentInfoModal');
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    this.hideAgentInfoModal();
+                }
+            });
+        }
+    }
+
+    showAgentInfoModal(agentKey) {
+        const agentData = AGENT_DETAILS[agentKey];
+        if (!agentData) return;
+
+        const modal = document.getElementById('agentInfoModal');
+        if (!modal) return;
+
+        // Populate modal content
+        const avatar = document.getElementById('agentInfoAvatar');
+        const name = document.getElementById('agentInfoName');
+        const description = document.getElementById('agentInfoDescription');
+        const age = document.getElementById('agentInfoAge');
+        const platforms = document.getElementById('agentInfoPlatforms');
+        const values = document.getElementById('agentInfoValues');
+        const clickRate = document.getElementById('agentInfoClickRate');
+        const resonates = document.getElementById('agentInfoResonates');
+        const deters = document.getElementById('agentInfoDeters');
+        const feedback = document.getElementById('agentInfoFeedback');
+        const clickReasoningSection = document.getElementById('clickReasoningSection');
+        const clickReasoning = document.getElementById('agentInfoClickReasoning');
+
+        if (avatar) avatar.src = getAgentAvatar(agentKey);
+        if (name) name.textContent = agentData.name || agentKey.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+        if (description) description.textContent = agentData.description || '';
+        if (age) age.textContent = agentData.age || '';
+        if (platforms) platforms.textContent = agentData.platforms || '';
+        if (values) values.textContent = agentData.values || '';
+        if (clickRate) clickRate.textContent = agentData.clickRate || '';
+        
+        if (resonates) {
+            resonates.innerHTML = agentData.resonates.map(tag => 
+                `<span class="tag">${tag}</span>`
+            ).join('');
+        }
+        
+        if (deters) {
+            deters.innerHTML = agentData.deters.map(tag => 
+                `<span class="tag">${tag}</span>`
+            ).join('');
+        }
+        
+        if (feedback) {
+            feedback.textContent = agentData.feedback || '';
+        }
+
+        // Check if we have current validation results for this agent
+        const currentResults = this.getCurrentValidationResults();
+        const agentResult = currentResults.find(result => result.persona === agentKey);
+        
+        if (agentResult && clickReasoningSection && clickReasoning) {
+            // Show click reasoning section
+            clickReasoningSection.style.display = 'block';
+            
+            const willClick = agentResult.will_click;
+            const reasoning = agentResult.reasoning;
+            const confidence = agentResult.confidence;
+            
+            clickReasoning.innerHTML = `
+                <div class="click-analysis-content">
+                    <div class="click-indicator ${willClick ? 'will-click' : 'wont-click'}">
+                        <i class="fas fa-${willClick ? 'check' : 'times'}"></i>
+                    </div>
+                    <div class="click-reasoning">
+                        <strong>${willClick ? 'Would Click' : 'Would Not Click'}</strong><br>
+                        ${reasoning}
+                    </div>
+                </div>
+                <div class="click-confidence">
+                    <span class="confidence-label">Confidence:</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: ${(confidence / 10) * 100}%"></div>
+                    </div>
+                    <span class="confidence-value">${confidence}/10</span>
+                </div>
+            `;
+        } else if (clickReasoningSection) {
+            // Hide click reasoning section if no current results
+            clickReasoningSection.style.display = 'none';
+        }
+
+        // Show modal
+        modal.style.display = 'flex';
+    }
+
+    getCurrentValidationResults() {
+        // This method would return the current validation results
+        // For now, we'll return an empty array - this would be populated
+        // when the user runs a validation and we want to show the results
+        return this.currentValidationResults;
+    }
+
+    hideAgentInfoModal() {
+        const modal = document.getElementById('agentInfoModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
     }
 }
 
