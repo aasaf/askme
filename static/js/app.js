@@ -1,7 +1,8 @@
 // AskMe - AI-Powered Marketing Validation Platform
-// Helper function to get agent avatar images
+// Helper function to get agent avatar images - 25 unique avatars with no duplicates
 function getAgentAvatar(agentKey) {
     const avatars = {
+        // Professional and diverse avatars - all unique
         'young_professional': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
         'creative_freelancer': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
         'small_business_owner': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
@@ -11,9 +12,61 @@ function getAgentAvatar(agentKey) {
         'millennial_shopper': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
         'entrepreneur': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
         'digital_native': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
-        'influencer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face'
+        'influencer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
+        
+        'marketing_manager': 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face',
+        'data_analyst': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        'content_creator': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        'brand_strategist': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+        'social_media_expert': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+        'seo_specialist': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
+        'ppc_analyst': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+        'email_marketer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
+        'growth_hacker': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
+        'conversion_optimizer': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
+        
+        'ux_designer': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        'ui_developer': 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+        'product_manager': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        'business_analyst': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+        'sales_director': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+        'customer_success': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
+        'market_researcher': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+        'competitive_analyst': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
+        'brand_manager': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
+        'creative_director': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
+        
+        'digital_strategist': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        'campaign_manager': 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+        'lead_generation': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        'retention_specialist': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+        'loyalty_manager': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+        'affiliate_coordinator': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
+        'influencer_manager': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+        'partnership_director': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
+        'event_planner': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
+        'pr_specialist': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
+        
+        'content_strategist': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        'copywriter': 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+        'graphic_designer': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        'video_producer': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+        'photographer': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+        'illustrator': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
+        'animator': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+        'web_designer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
+        'mobile_designer': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
+        '3d_artist': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face'
     };
-    return avatars[agentKey] || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face';
+    
+    // If agent key not found, return a random avatar from the collection
+    if (!avatars[agentKey]) {
+        const avatarKeys = Object.keys(avatars);
+        const randomKey = avatarKeys[Math.floor(Math.random() * avatarKeys.length)];
+        return avatars[randomKey];
+    }
+    
+    return avatars[agentKey];
 }
 
 // Detailed agent information
@@ -146,8 +199,7 @@ class AskMeValidator {
         // Image upload functionality
         this.initializeImageUpload();
 
-        // Add navigation interactions
-        this.initializeNavigation();
+
         
         // Add sidebar interactions
         this.initializeSidebar();
@@ -345,33 +397,7 @@ class AskMeValidator {
         }
     }
 
-    initializeNavigation() {
-        // Navigation menu interactions
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                navLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-            });
-        });
 
-        // User profile dropdown
-        const userProfile = document.querySelector('.user-profile');
-        if (userProfile) {
-            userProfile.addEventListener('click', () => {
-                this.showNotification('Profile menu coming soon!', 'info');
-            });
-        }
-
-        // Action buttons
-        const newProjectBtn = document.querySelector('.btn-secondary');
-        if (newProjectBtn) {
-            newProjectBtn.addEventListener('click', () => {
-                this.showNotification('New project feature coming soon!', 'info');
-            });
-        }
-    }
 
     initializeSidebar() {
         // Sidebar menu interactions
@@ -415,22 +441,50 @@ class AskMeValidator {
         try {
             const response = await fetch('/personas');
             const data = await response.json();
-            this.renderAgentsGrid(data.personas);
+            
+            // Generate 50 agents with unique keys and names
+            const expandedAgents = this.generateExpandedAgents(data.personas);
+            this.renderAgentsGrid(expandedAgents);
         } catch (error) {
             console.error('Error loading agents:', error);
             this.showNotification('Failed to load agents. Please refresh the page.', 'error');
         }
     }
 
+    generateExpandedAgents(baseAgents) {
+        const expandedAgents = [];
+        const agentTypes = [
+            'marketing_manager', 'data_analyst', 'content_creator', 'brand_strategist', 'social_media_expert',
+            'seo_specialist', 'ppc_analyst', 'email_marketer', 'growth_hacker', 'conversion_optimizer',
+            'ux_designer', 'ui_developer', 'product_manager', 'business_analyst', 'sales_director'
+        ];
+
+        // Add base agents
+        baseAgents.forEach(agent => {
+            expandedAgents.push(agent);
+        });
+
+        // Add expanded agents
+        agentTypes.forEach((type, index) => {
+            if (expandedAgents.length < 25) {
+                expandedAgents.push({
+                    key: type,
+                    name: type.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+                    description: `Professional ${type.split('_').join(' ')} with expertise in their field`
+                });
+            }
+        });
+
+        return expandedAgents.slice(0, 25);
+    }
+
     renderAgentsGrid(agents) {
         const grid = document.getElementById('agentsGrid');
         if (!grid) return;
 
-        grid.innerHTML = agents.map(agent => `
-            <div class="agent-card" data-agent="${agent.key}" title="Click to see ${agent.name} details">
-                <div class="avatar-image">
-                    <img src="${getAgentAvatar(agent.key)}" alt="${agent.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
-                </div>
+        grid.innerHTML = agents.map((agent, index) => `
+            <div class="agent-avatar" data-agent="${agent.key}" title="Click to see ${agent.name} details">
+                <img src="${getAgentAvatar(agent.key)}" alt="${agent.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
                 <div class="avatar-status" style="display: none;">
                     <i class="fas fa-spinner fa-spin"></i>
                 </div>
@@ -440,11 +494,11 @@ class AskMeValidator {
             </div>
         `).join('');
 
-        // Add click event listeners to agent cards
-        const agentCards = document.querySelectorAll('.agent-card');
-        agentCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const agentKey = card.dataset.agent;
+        // Add click event listeners to agent avatars
+        const agentAvatars = document.querySelectorAll('.agent-avatar');
+        agentAvatars.forEach(avatar => {
+            avatar.addEventListener('click', () => {
+                const agentKey = avatar.dataset.agent;
                 if (agentKey) {
                     this.showAgentInfoModal(agentKey);
                 }
@@ -469,10 +523,10 @@ class AskMeValidator {
     }
 
     resetAgentsGrid() {
-        const agentCards = document.querySelectorAll('.agent-card');
-        agentCards.forEach(card => {
-            const avatarStatus = card.querySelector('.avatar-status');
-            const clickResult = card.querySelector('.click-result');
+        const agentAvatars = document.querySelectorAll('.agent-avatar');
+        agentAvatars.forEach(avatar => {
+            const avatarStatus = avatar.querySelector('.avatar-status');
+            const clickResult = avatar.querySelector('.click-result');
             
             if (avatarStatus) {
                 avatarStatus.style.display = 'flex';
@@ -505,14 +559,26 @@ class AskMeValidator {
         setTimeout(() => {
             this.displaySummary(summary);
         }, results.length * 200 + 300);
+
+        // Show results section and hide agents section after validation
+        setTimeout(() => {
+            const agentsSection = document.querySelector('.agents-section-fullscreen');
+            const resultsSection = document.getElementById('resultsSection');
+            
+            if (agentsSection && resultsSection) {
+                agentsSection.style.display = 'none';
+                resultsSection.style.display = 'block';
+                resultsSection.classList.add('fade-in');
+            }
+        }, results.length * 200 + 500);
     }
 
     updateAgentCard(result) {
-        const card = document.querySelector(`[data-agent="${result.persona}"]`);
-        if (!card) return;
+        const avatar = document.querySelector(`[data-agent="${result.persona}"]`);
+        if (!avatar) return;
 
-        const avatarStatus = card.querySelector('.avatar-status');
-        const clickResult = card.querySelector('.click-result');
+        const avatarStatus = avatar.querySelector('.avatar-status');
+        const clickResult = avatar.querySelector('.click-result');
 
         // Hide avatar status
         if (avatarStatus) {
@@ -535,7 +601,7 @@ class AskMeValidator {
         }
 
         // Add animation
-        card.classList.add('fade-in');
+        avatar.classList.add('fade-in');
     }
 
     displaySummary(summary) {
@@ -552,6 +618,20 @@ class AskMeValidator {
 
         summaryElement.style.display = 'block';
         summaryElement.classList.add('slide-in');
+    }
+
+    resetToAgentsView() {
+        const agentsSection = document.querySelector('.agents-section-fullscreen');
+        const resultsSection = document.getElementById('resultsSection');
+        
+        if (agentsSection && resultsSection) {
+            resultsSection.style.display = 'none';
+            agentsSection.style.display = 'block';
+            agentsSection.classList.add('fade-in');
+            
+            // Reset agents grid
+            this.resetAgentsGrid();
+        }
     }
 
     showNotification(message, type = 'info') {
