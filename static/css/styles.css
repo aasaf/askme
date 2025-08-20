@@ -1834,34 +1834,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: var(--font-size-sm);
     font-weight: 700;
 }
 
 .floating-agents-section .agent-avatar .click-result.click-yes {
-    background: var(--success-500);
+    /* Background color set dynamically in JavaScript */
 }
 
 .floating-agents-section .agent-avatar .click-result.click-no {
-    background: var(--error-500);
+    /* Background color set dynamically in JavaScript */
 }
 
-.floating-agents-section .agent-avatar .click-result .click-icon {
+.floating-agents-section .agent-avatar .click-result .click-indicator {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-sm);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.floating-agents-section .agent-avatar .click-result.click-yes .click-icon::before {
-    content: '✓';
-}
-
-.floating-agents-section .agent-avatar .click-result.click-no .click-icon::before {
-    content: '✗';
+/* Ensure these styles override any others */
+.floating-agents-section .agent-avatar .click-result .click-indicator[style*="background-color"] {
+    border: 3px solid !important;
 }
 
 /* Simple floating animations for 28 agents - clean and organized */
@@ -2125,11 +2123,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-lg);
-    color: white;
     transition: all var(--transition-normal);
     z-index: 3;
-    border: 2px solid white;
+    border: 3px solid white;
     box-shadow: var(--shadow-lg);
 }
 
@@ -2167,6 +2163,25 @@ body {
     0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
     25% { transform: translate(-50%, -50%) rotate(-5deg); }
     75% { transform: translate(-50%, -50%) rotate(5deg); }
+}
+
+/* Decision circles for modal */
+.decision-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.decision-circle.yes {
+    background-color: #22c55e;
+    border-color: #16a34a;
+}
+
+.decision-circle.no {
+    background-color: #ef4444;
+    border-color: #dc2626;
 }
 
 /* Subtle glow effect for floating agents */

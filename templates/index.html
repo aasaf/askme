@@ -9,14 +9,14 @@
     <title>AskMe - AI-Powered Marketing Validation Platform</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="{{ url_for('static', path='/css/styles.css') }}?v={{ range(1, 1000) | random }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/styles.css') }}?v={{ range(1, 10000) | random }}" rel="stylesheet">
 </head>
 <body>
 
 
     <!-- Main Container -->
     <div class="main-container">
-        <!-- Left Sidebar - Ask Lovable Chat -->
+        <!-- Left Sidebar - AskMe Chat -->
         <aside class="chat-sidebar">
             <div class="chat-sidebar-header">
                 <div class="chat-brand">
@@ -24,7 +24,7 @@
                         <i class="fas fa-comments"></i>
                     </div>
                     <div class="chat-title">
-                        <h3>Ask Lovable</h3>
+                        <h3>AskMe</h3>
                         <p>AI Marketing Validation</p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="message-content">
-                        <p>Hi! I'm Lovable, your AI marketing validation assistant. Describe your creative content, ad copy, or marketing message, and I'll help you validate it with our team of AI personas.</p>
+                        <p>Hi! I'm AskMe, your AI marketing validation assistant. Describe your creative content, ad copy, or marketing message, and I'll help you validate it with our team of AI personas.</p>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                                 <p>Real-time performance insights</p>
                             </div>
                         </div>
-                        <button class="btn-back-to-agents" onclick="app.resetToAgentsView()">
+                        <button class="btn-back-to-agents" id="backToAgentsBtn">
                             <i class="fas fa-arrow-left"></i>
                             Back to Agents
                         </button>
@@ -303,6 +303,6 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', path='/js/app.js') }}?v={{ range(1, 1000) | random }}"></script>
+    <script src="{{ url_for('static', path='/js/app.js') }}?v={{ range(1, 10000) | random }}"></script>
 </body>
 </html>

@@ -199,13 +199,14 @@ class AskMeValidator {
         // Image upload functionality
         this.initializeImageUpload();
 
-
-        
         // Add sidebar interactions
         this.initializeSidebar();
 
         // Add agent info modal functionality
         this.initializeAgentInfoModal();
+        
+        // Add back to agents button functionality
+        this.initializeBackToAgentsButton();
     }
 
     initializeChatInput() {
@@ -448,6 +449,14 @@ class AskMeValidator {
         } catch (error) {
             console.error('Error loading agents:', error);
             this.showNotification('Failed to load agents. Please refresh the page.', 'error');
+            
+            // Fallback: try to render with default agents if API fails
+            try {
+                const fallbackAgents = this.generateExpandedAgents([]);
+                this.renderAgentsGrid(fallbackAgents);
+            } catch (fallbackError) {
+                console.error('Fallback agent loading also failed:', fallbackError);
+            }
         }
     }
 
@@ -495,20 +504,38 @@ class AskMeValidator {
                     <i class="fas fa-spinner fa-spin"></i>
                 </div>
                 <div class="click-result" style="display: none;">
-                    <div class="click-icon"></div>
+                    <div class="click-indicator"></div>
                 </div>
             </div>
         `).join('');
 
         // Add click event listeners to agent avatars
+        if (typeof this.addAgentClickListeners === 'function') {
+            this.addAgentClickListeners();
+        } else {
+            console.error('addAgentClickListeners method not found');
+        }
+    }
+
+    addAgentClickListeners() {
+        // Add click event listeners to agent avatars
         const agentAvatars = document.querySelectorAll('.agent-avatar');
         agentAvatars.forEach(avatar => {
-            avatar.addEventListener('click', () => {
+            // Remove existing listeners to avoid duplicates
+            if (avatar.clickHandler) {
+                avatar.removeEventListener('click', avatar.clickHandler);
+            }
+            
+            // Create new click handler
+            avatar.clickHandler = () => {
                 const agentKey = avatar.dataset.agent;
                 if (agentKey) {
                     this.showAgentInfoModal(agentKey);
                 }
-            });
+            };
+            
+            // Add new listener
+            avatar.addEventListener('click', avatar.clickHandler);
         });
     }
 
@@ -575,6 +602,11 @@ class AskMeValidator {
                 agentsSection.style.display = 'none';
                 resultsSection.style.display = 'block';
                 resultsSection.classList.add('fade-in');
+                
+                // Re-add click event listeners to agent avatars in results view
+                if (typeof this.addAgentClickListeners === 'function') {
+                    this.addAgentClickListeners();
+                }
             }
         }, results.length * 200 + 500);
     }
@@ -591,19 +623,31 @@ class AskMeValidator {
             avatarStatus.style.display = 'none';
         }
 
-        // Update click result
+        // Update click result with colored circle
         if (clickResult) {
-            const clickIcon = clickResult.querySelector('.click-icon');
+            const clickIndicator = clickResult.querySelector('.click-indicator');
             
-            if (result.will_click) {
-                clickIcon.innerHTML = '<i class="fas fa-check"></i>';
-                clickResult.className = 'click-result click-yes';
+            if (clickIndicator) {
+                if (result.will_click) {
+                    clickResult.className = 'click-result click-yes';
+                    clickIndicator.style.backgroundColor = '#22c55e'; // Green
+                    clickIndicator.style.borderColor = '#16a34a';
+                    clickIndicator.style.border = '3px solid #16a34a';
+                    console.log('Updated agent card to green:', result.persona, clickIndicator);
+                } else {
+                    clickResult.className = 'click-result click-no';
+                    clickIndicator.style.backgroundColor = '#ef4444'; // Red
+                    clickIndicator.style.borderColor = '#dc2626';
+                    clickIndicator.style.border = '3px solid #dc2626';
+                    console.log('Updated agent card to red:', result.persona, clickIndicator);
+                }
+                
+                clickResult.style.display = 'flex';
             } else {
-                clickIcon.innerHTML = '<i class="fas fa-times"></i>';
-                clickResult.className = 'click-result click-no';
+                console.error('Click indicator not found for agent:', result.persona);
             }
-            
-            clickResult.style.display = 'flex';
+        } else {
+            console.error('Click result not found for agent:', result.persona);
         }
 
         // Add animation
@@ -637,6 +681,11 @@ class AskMeValidator {
             
             // Reset agents grid
             this.resetAgentsGrid();
+            
+            // Re-add click listeners to agents
+            if (typeof this.addAgentClickListeners === 'function') {
+                this.addAgentClickListeners();
+            }
         }
     }
 
@@ -723,6 +772,15 @@ class AskMeValidator {
         }
     }
 
+    initializeBackToAgentsButton() {
+        const backBtn = document.getElementById('backToAgentsBtn');
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                this.resetToAgentsView();
+            });
+        }
+    }
+
     showAgentInfoModal(agentKey) {
         const agentData = AGENT_DETAILS[agentKey];
         if (!agentData) return;
@@ -783,7 +841,7 @@ class AskMeValidator {
             clickReasoning.innerHTML = `
                 <div class="click-analysis-content">
                     <div class="click-indicator ${willClick ? 'will-click' : 'wont-click'}">
-                        <i class="fas fa-${willClick ? 'check' : 'times'}"></i>
+                        <div class="decision-circle ${willClick ? 'yes' : 'no'}"></div>
                     </div>
                     <div class="click-reasoning">
                         <strong>${willClick ? 'Would Click' : 'Would Not Click'}</strong><br>
