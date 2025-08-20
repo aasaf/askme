@@ -187,6 +187,7 @@ class AskMeValidator {
     constructor() {
         this.uploadedImages = [];
         this.currentValidationResults = []; // Store current validation results
+        this.previousAgentsState = null; // Store previous agents state
         this.initializeEventListeners();
         this.loadAgents();
         this.initializeAnimations();
@@ -539,6 +540,44 @@ class AskMeValidator {
         });
     }
 
+    saveAgentsState() {
+        // Save the current state of all agent avatars
+        const agentAvatars = document.querySelectorAll('.agent-avatar');
+        this.previousAgentsState = Array.from(agentAvatars).map(avatar => {
+            const clickResult = avatar.querySelector('.click-result');
+            return {
+                agentKey: avatar.dataset.agent,
+                hasClickResult: clickResult && clickResult.style.display !== 'none',
+                clickResultHTML: clickResult ? clickResult.outerHTML : null,
+                className: avatar.className
+            };
+        });
+    }
+
+    restoreAgentsState() {
+        // Restore the previous state of all agent avatars
+        if (!this.previousAgentsState) return;
+        
+        const agentAvatars = document.querySelectorAll('.agent-avatar');
+        agentAvatars.forEach(avatar => {
+            const agentKey = avatar.dataset.agent;
+            const savedState = this.previousAgentsState.find(state => state.agentKey === agentKey);
+            
+            if (savedState) {
+                // Restore click result if it existed
+                if (savedState.hasClickResult && savedState.clickResultHTML) {
+                    const existingClickResult = avatar.querySelector('.click-result');
+                    if (existingClickResult) {
+                        existingClickResult.outerHTML = savedState.clickResultHTML;
+                    }
+                }
+                
+                // Restore avatar class
+                avatar.className = savedState.className;
+            }
+        });
+    }
+
     async simulateAgents(content) {
         const response = await fetch('/simulate', {
             method: 'POST',
@@ -599,6 +638,9 @@ class AskMeValidator {
             const resultsSection = document.getElementById('resultsSection');
             
             if (agentsSection && resultsSection) {
+                // Save current agents state before hiding
+                this.saveAgentsState();
+                
                 agentsSection.style.display = 'none';
                 resultsSection.style.display = 'block';
                 resultsSection.classList.add('fade-in');
@@ -677,8 +719,8 @@ class AskMeValidator {
             agentsSection.style.display = 'block';
             agentsSection.classList.add('fade-in');
             
-            // Reset agents grid
-            this.resetAgentsGrid();
+            // Restore previous agents state instead of resetting
+            this.restoreAgentsState();
             
             // Re-add click listeners to agents
             if (typeof this.addAgentClickListeners === 'function') {
