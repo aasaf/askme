@@ -1732,7 +1732,7 @@ body {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     border: 3px solid white;
     box-shadow: var(--shadow-xl);
     animation: float 3s ease-in-out infinite;
@@ -1808,6 +1808,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .floating-agents-section .agent-avatar .avatar-status {
@@ -1826,15 +1827,20 @@ body {
 
 .floating-agents-section .agent-avatar .click-result {
     position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 30px;
-    height: 30px;
+    top: -15px;
+    right: -15px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 100;
+    transition: all 0.3s ease;
+    /* Ensure it's completely outside the avatar circle */
+    transform: translate(0, 0);
 }
 
 .floating-agents-section .agent-avatar .click-result.click-yes {
@@ -1849,17 +1855,39 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 3px solid transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Ensure these styles override any others */
-.floating-agents-section .agent-avatar .click-result .click-indicator[style*="background-color"] {
-    border: 3px solid !important;
+/* Clean status indicators */
+.floating-agents-section .agent-avatar .click-result.click-yes {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
+    border: 2px solid white;
+}
+
+.floating-agents-section .agent-avatar .click-result.click-no {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+    border: 2px solid white;
+}
+
+/* Hover effects */
+.floating-agents-section .agent-avatar:hover .click-result {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effects for better UX */
+.floating-agents-section .agent-avatar:hover .click-result .click-indicator {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
 }
 
 /* Simple floating animations for 28 agents - clean and organized */
@@ -2165,23 +2193,28 @@ body {
     75% { transform: translate(-50%, -50%) rotate(5deg); }
 }
 
-/* Decision circles for modal */
+/* Clean decision indicators for modal */
 .decision-circle {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .decision-circle.yes {
-    background-color: #22c55e;
-    border-color: #16a34a;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
 }
 
 .decision-circle.no {
-    background-color: #ef4444;
-    border-color: #dc2626;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
 }
 
 /* Subtle glow effect for floating agents */

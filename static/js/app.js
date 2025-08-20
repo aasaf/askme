@@ -623,23 +623,21 @@ class AskMeValidator {
             avatarStatus.style.display = 'none';
         }
 
-        // Update click result with colored circle
+        // Update click result with clean status indicator
         if (clickResult) {
             const clickIndicator = clickResult.querySelector('.click-indicator');
             
             if (clickIndicator) {
                 if (result.will_click) {
                     clickResult.className = 'click-result click-yes';
-                    clickIndicator.style.backgroundColor = '#22c55e'; // Green
-                    clickIndicator.style.borderColor = '#16a34a';
-                    clickIndicator.style.border = '3px solid #16a34a';
-                    console.log('Updated agent card to green:', result.persona, clickIndicator);
+                    clickIndicator.textContent = '✓';
+                    clickIndicator.style.color = 'white';
+                    console.log('Updated agent card to success:', result.persona);
                 } else {
                     clickResult.className = 'click-result click-no';
-                    clickIndicator.style.backgroundColor = '#ef4444'; // Red
-                    clickIndicator.style.borderColor = '#dc2626';
-                    clickIndicator.style.border = '3px solid #dc2626';
-                    console.log('Updated agent card to red:', result.persona, clickIndicator);
+                    clickIndicator.textContent = '✗';
+                    clickIndicator.style.color = 'white';
+                    console.log('Updated agent card to error:', result.persona);
                 }
                 
                 clickResult.style.display = 'flex';
@@ -841,7 +839,9 @@ class AskMeValidator {
             clickReasoning.innerHTML = `
                 <div class="click-analysis-content">
                     <div class="click-indicator ${willClick ? 'will-click' : 'wont-click'}">
-                        <div class="decision-circle ${willClick ? 'yes' : 'no'}"></div>
+                        <div class="decision-circle ${willClick ? 'yes' : 'no'}">
+                            ${willClick ? '✓' : '✗'}
+                        </div>
                     </div>
                     <div class="click-reasoning">
                         <strong>${willClick ? 'Would Click' : 'Would Not Click'}</strong><br>
