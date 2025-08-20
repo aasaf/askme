@@ -456,7 +456,13 @@ class AskMeValidator {
         const agentTypes = [
             'marketing_manager', 'data_analyst', 'content_creator', 'brand_strategist', 'social_media_expert',
             'seo_specialist', 'ppc_analyst', 'email_marketer', 'growth_hacker', 'conversion_optimizer',
-            'ux_designer', 'ui_developer', 'product_manager', 'business_analyst', 'sales_director'
+            'ux_designer', 'ui_developer', 'product_manager', 'business_analyst', 'sales_director',
+            'customer_success', 'market_researcher', 'competitive_analyst', 'brand_manager', 'creative_director',
+            'digital_strategist', 'campaign_manager', 'lead_generation', 'retention_specialist', 'loyalty_manager',
+            'affiliate_coordinator', 'influencer_manager', 'partnership_director', 'event_planner', 'pr_specialist',
+            'content_strategist', 'copywriter', 'graphic_designer', 'video_producer', 'photographer',
+            'illustrator', 'animator', 'web_designer', 'mobile_designer', '3d_artist', 'art_director',
+            'creative_consultant', 'brand_consultant', 'marketing_consultant', 'growth_consultant'
         ];
 
         // Add base agents
@@ -466,7 +472,7 @@ class AskMeValidator {
 
         // Add expanded agents
         agentTypes.forEach((type, index) => {
-            if (expandedAgents.length < 25) {
+            if (expandedAgents.length < 28) {
                 expandedAgents.push({
                     key: type,
                     name: type.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
@@ -475,7 +481,7 @@ class AskMeValidator {
             }
         });
 
-        return expandedAgents.slice(0, 25);
+        return expandedAgents.slice(0, 28);
     }
 
     renderAgentsGrid(agents) {
