@@ -180,6 +180,446 @@ const AGENT_DETAILS = {
         resonates: ['Authentic', 'Engaging', 'Creative', 'Storytelling', 'Shareable'],
         deters: ['Fake', 'Boring', 'Uncreative', 'Unshareable'],
         feedback: '"I can tell this would resonate with my audience. It feels authentic and tells a compelling story."'
+    },
+    'marketing_manager': {
+        name: 'Marketing Manager',
+        description: 'Strategic marketer, values ROI & brand consistency',
+        age: '30-45',
+        platforms: 'LinkedIn, Marketing Publications, Industry Events',
+        values: 'ROI, Brand Consistency, Measurable Results',
+        clickRate: '75%',
+        resonates: ['ROI', 'Brand Consistency', 'Measurable', 'Strategic', 'Conversion', 'Targeted'],
+        deters: ['Unmeasurable', 'Off-brand', 'Unstrategic', 'Untargeted'],
+        feedback: '"This aligns with our brand guidelines and has clear conversion potential. It\'s strategic and measurable."'
+    },
+    'data_analyst': {
+        name: 'Data Analyst',
+        description: 'Data-driven, values metrics & insights',
+        age: '25-40',
+        platforms: 'LinkedIn, Data Science Communities, Analytics Platforms',
+        values: 'Data-driven Insights, Measurable Performance, Statistical Significance',
+        clickRate: '80%',
+        resonates: ['Data-driven', 'Metrics', 'Insights', 'Measurable', 'Statistical', 'Actionable'],
+        deters: ['Anecdotal', 'Unmeasurable', 'Unsubstantiated', 'Vague'],
+        feedback: '"This provides clear metrics and actionable insights. The data supports the claims effectively."'
+    },
+    'content_creator': {
+        name: 'Content Creator',
+        description: 'Creative professional, values originality & engagement',
+        age: '22-35',
+        platforms: 'Instagram, TikTok, YouTube, Content Creation Communities',
+        values: 'Originality, Creativity, Audience Engagement',
+        clickRate: '70%',
+        resonates: ['Original', 'Creative', 'Engaging', 'Storytelling', 'Fresh', 'Shareable'],
+        deters: ['Derivative', 'Uncreative', 'Boring', 'Unoriginal'],
+        feedback: '"This feels fresh and original. I can see my audience engaging with this content."'
+    },
+    'brand_strategist': {
+        name: 'Brand Strategist',
+        description: 'Brand expert, values positioning & differentiation',
+        age: '30-50',
+        platforms: 'LinkedIn, Branding Publications, Industry Conferences',
+        values: 'Brand Consistency, Differentiation, Strategic Positioning',
+        clickRate: '75%',
+        resonates: ['Differentiated', 'Strategic', 'Brand-aligned', 'Positioning', 'Unique', 'Consistent'],
+        deters: ['Generic', 'Undifferentiated', 'Inconsistent', 'Diluted'],
+        feedback: '"This strengthens our brand positioning and differentiates us from competitors effectively."'
+    },
+    'social_media_expert': {
+        name: 'Social Media Expert',
+        description: 'Platform specialist, values engagement & trends',
+        age: '25-40',
+        platforms: 'All Major Social Platforms',
+        values: 'Engagement, Platform Optimization, Trend Awareness',
+        clickRate: '70%',
+        resonates: ['Platform-optimized', 'Trending', 'Engaging', 'Shareable', 'Platform-specific', 'Viral'],
+        deters: ['Platform-agnostic', 'Outdated', 'Unengaging', 'Unshareable'],
+        feedback: '"This is perfectly optimized for the platform and leverages current trends. It will drive engagement."'
+    },
+    'seo_specialist': {
+        name: 'SEO Specialist',
+        description: 'Search expert, values visibility & optimization',
+        age: '25-40',
+        platforms: 'SEO Communities, Search Engine Blogs, Digital Marketing Forums',
+        values: 'Search Visibility, Keyword Optimization, User Intent Alignment',
+        clickRate: '75%',
+        resonates: ['Search-optimized', 'Keyword-targeted', 'User Intent', 'Valuable', 'Rankable', 'Optimized'],
+        deters: ['Unoptimized', 'Keyword-stuffed', 'Low-value', 'Unrankable'],
+        feedback: '"This targets relevant keywords and satisfies user search intent. It will rank well."'
+    },
+    'ppc_analyst': {
+        name: 'PPC Analyst',
+        description: 'Paid advertising expert, values conversion & efficiency',
+        age: '25-40',
+        platforms: 'PPC Communities, Advertising Platforms, Digital Marketing Forums',
+        values: 'Conversion Rates, Cost Efficiency, Campaign Performance',
+        clickRate: '80%',
+        resonates: ['Converting', 'Campaign-aligned', 'Relevant', 'Cost-effective', 'Targeted', 'Performance-driven'],
+        deters: ['Non-converting', 'Misaligned', 'Irrelevant', 'Expensive'],
+        feedback: '"This aligns perfectly with our campaign goals and will drive conversions cost-effectively."'
+    },
+    'email_marketer': {
+        name: 'Email Marketer',
+        description: 'Email specialist, values deliverability & engagement',
+        age: '25-40',
+        platforms: 'Email Marketing Communities, Deliverability Forums, Marketing Automation Platforms',
+        values: 'Deliverability, Open Rates, Click-through Rates',
+        clickRate: '70%',
+        resonates: ['Deliverable', 'Engaging', 'Clickable', 'Relevant', 'Personalized', 'Converting'],
+        deters: ['Undeliverable', 'Unengaging', 'Unclickable', 'Irrelevant'],
+        feedback: '"This will improve our email performance and engage subscribers effectively."'
+    },
+    'growth_hacker': {
+        name: 'Growth Hacker',
+        description: 'Growth specialist, values rapid scaling & experimentation',
+        age: '22-35',
+        platforms: 'Growth Communities, Startup Forums, Experimentation Platforms',
+        values: 'Rapid Iteration, Data-driven Decisions, Scalable Growth Tactics',
+        clickRate: '80%',
+        resonates: ['Growth-driven', 'Testable', 'Experimental', 'Scalable', 'Conversion-optimized', 'Iterative'],
+        deters: ['Growth-limiting', 'Untestable', 'Unscalable', 'Static'],
+        feedback: '"This supports our growth objectives and is perfect for A/B testing. It\'s scalable and conversion-focused."'
+    },
+    'conversion_optimizer': {
+        name: 'Conversion Optimizer',
+        description: 'CRO expert, values testing & optimization',
+        age: '25-40',
+        platforms: 'CRO Communities, Testing Platforms, User Experience Forums',
+        values: 'A/B Testing, User Experience Optimization, Conversion Improvement',
+        clickRate: '80%',
+        resonates: ['Conversion-focused', 'Testable', 'User-friendly', 'Friction-free', 'Optimized', 'Performance-driven'],
+        deters: ['Conversion-limiting', 'Untestable', 'User-unfriendly', 'Friction-heavy'],
+        feedback: '"This addresses key friction points and will improve our conversion rates significantly."'
+    },
+    'ux_designer': {
+        name: 'UX Designer',
+        description: 'User experience designer, values usability & accessibility',
+        age: '25-40',
+        platforms: 'Design Communities, UX Forums, Accessibility Platforms',
+        values: 'User Research, Usability Testing, Accessibility Standards',
+        clickRate: '75%',
+        resonates: ['User-friendly', 'Accessible', 'Usability-focused', 'Design-principled', 'Problem-solving', 'Intuitive'],
+        deters: ['User-unfriendly', 'Inaccessible', 'Usability-poor', 'Design-flawed'],
+        feedback: '"This follows UX best practices and addresses real user needs effectively."'
+    },
+    'ui_developer': {
+        name: 'UI Developer',
+        description: 'Interface developer, values functionality & performance',
+        age: '25-40',
+        platforms: 'Development Communities, Coding Forums, Performance Optimization Platforms',
+        values: 'Clean Code, Performance Optimization, Cross-platform Compatibility',
+        clickRate: '70%',
+        resonates: ['Functional', 'Performant', 'Cross-platform', 'Best Practices', 'Maintainable', 'Technically-sound'],
+        deters: ['Dysfunctional', 'Slow', 'Platform-limited', 'Poor Practices'],
+        feedback: '"This is technically feasible and follows development best practices. It will perform well."'
+    },
+    'product_manager': {
+        name: 'Product Manager',
+        description: 'Product strategist, values user value & business impact',
+        age: '28-45',
+        platforms: 'Product Management Communities, Business Forums, User Research Platforms',
+        values: 'User Value, Business Impact, Strategic Alignment',
+        clickRate: '75%',
+        resonates: ['User Value', 'Business Impact', 'Strategic', 'Measurable', 'Market Fit', 'Goal-aligned'],
+        deters: ['Low Value', 'No Impact', 'Unstrategic', 'Unmeasurable'],
+        feedback: '"This creates clear user value and aligns with our product strategy effectively."'
+    },
+    'business_analyst': {
+        name: 'Business Analyst',
+        description: 'Business strategist, values insights & decision support',
+        age: '28-45',
+        platforms: 'Business Intelligence Communities, Analytics Platforms, Strategic Planning Forums',
+        values: 'Data-driven Insights, Strategic Analysis, Decision Support',
+        clickRate: '80%',
+        resonates: ['Insightful', 'Data-driven', 'Decision Support', 'Strategic', 'Actionable', 'Analytical'],
+        deters: ['Uninsightful', 'Data-poor', 'No Decision Support', 'Unactionable'],
+        feedback: '"This provides actionable business insights that will support strategic decision-making."'
+    },
+    'sales_director': {
+        name: 'Sales Director',
+        description: 'Sales leader, values pipeline & revenue generation',
+        age: '35-55',
+        platforms: 'Sales Communities, Business Development Forums, Revenue Optimization Platforms',
+        values: 'Pipeline Growth, Conversion Rates, Revenue Generation',
+        clickRate: '80%',
+        resonates: ['Sales Support', 'Conversion-driving', 'Lead-generating', 'Pipeline-aligned', 'Revenue-focused', 'Sales Process'],
+        deters: ['Sales-limiting', 'Non-converting', 'No Leads', 'Pipeline-misaligned'],
+        feedback: '"This will support our sales objectives and improve conversion rates effectively."'
+    },
+    'customer_success': {
+        name: 'Customer Success',
+        description: 'Customer advocate, values satisfaction & retention',
+        age: '25-40',
+        platforms: 'Customer Success Communities, Support Forums, Customer Experience Platforms',
+        values: 'Customer Satisfaction, Retention Rates, Positive Experiences',
+        clickRate: '75%',
+        resonates: ['Customer-focused', 'Satisfaction-improving', 'Retention-supporting', 'Problem-solving', 'Experience-enhancing', 'Relationship-building'],
+        deters: ['Customer-ignoring', 'Satisfaction-reducing', 'Retention-hurting', 'Problem-creating'],
+        feedback: '"This will improve customer experience and support our retention goals effectively."'
+    },
+    'market_researcher': {
+        name: 'Market Researcher',
+        description: 'Research specialist, values insights & data quality',
+        age: '28-45',
+        platforms: 'Research Communities, Data Quality Forums, Market Intelligence Platforms',
+        values: 'Research Quality, Data Accuracy, Actionable Insights',
+        clickRate: '80%',
+        resonates: ['Research-based', 'High-quality Data', 'Insightful', 'Methodologically-sound', 'Actionable', 'Data-driven'],
+        deters: ['Anecdotal', 'Low-quality Data', 'Uninsightful', 'Methodologically-weak'],
+        feedback: '"This provides valuable market insights with high-quality data and sound methodology."'
+    },
+    'competitive_analyst': {
+        name: 'Competitive Analyst',
+        description: 'Competitive intelligence expert, values differentiation & positioning',
+        age: '28-45',
+        platforms: 'Competitive Intelligence Communities, Market Analysis Forums, Strategic Planning Platforms',
+        values: 'Competitive Differentiation, Market Positioning, Strategic Insights',
+        clickRate: '75%',
+        resonates: ['Differentiated', 'Competitive Advantage', 'Positioning-improving', 'Unique', 'Gap-addressing', 'Market-leading'],
+        deters: ['Undifferentiated', 'Competitive Disadvantage', 'Positioning-weak', 'Generic'],
+        feedback: '"This differentiates us from competitors and improves our market positioning effectively."'
+    },
+    'brand_manager': {
+        name: 'Brand Manager',
+        description: 'Brand custodian, values consistency & reputation',
+        age: '30-45',
+        platforms: 'Brand Management Communities, Reputation Forums, Brand Strategy Platforms',
+        values: 'Brand Consistency, Reputation Management, Strategic Positioning',
+        clickRate: '80%',
+        resonates: ['Brand-strengthening', 'Identity-consistent', 'Reputation-improving', 'Value-aligned', 'On-brand', 'Brand-building'],
+        deters: ['Brand-weakening', 'Identity-inconsistent', 'Reputation-hurting', 'Value-misaligned'],
+        feedback: '"This strengthens our brand identity and maintains consistency with our values."'
+    },
+    'creative_director': {
+        name: 'Creative Director',
+        description: 'Creative leader, values innovation & artistic excellence',
+        age: '35-55',
+        platforms: 'Creative Communities, Design Forums, Artistic Platforms',
+        values: 'Creative Innovation, Artistic Excellence, Brand Expression',
+        clickRate: '75%',
+        resonates: ['Creatively-innovative', 'Artistically-excellent', 'Brand-expressive', 'Visually-compelling', 'Inspiring', 'Creative Vision'],
+        deters: ['Creatively-uninnovative', 'Artistically-poor', 'Brand-unexpressive', 'Visually-uncompelling'],
+        feedback: '"This demonstrates creative excellence and innovative thinking that will inspire our audience."'
+    },
+    'digital_strategist': {
+        name: 'Digital Strategist',
+        description: 'Digital transformation expert, values innovation & integration',
+        age: '30-50',
+        platforms: 'Digital Strategy Communities, Transformation Forums, Technology Integration Platforms',
+        values: 'Digital Innovation, Technology Integration, Strategic Transformation',
+        clickRate: '80%',
+        resonates: ['Digitally-innovative', 'Technologically-integrated', 'Innovation-driving', 'Strategically-aligned', 'Future-ready', 'Transformation-supporting'],
+        deters: ['Digitally-uninnovative', 'Technologically-disintegrated', 'Innovation-limiting', 'Strategically-misaligned'],
+        feedback: '"This supports our digital transformation strategy and integrates technology effectively."'
+    },
+    'campaign_manager': {
+        name: 'Campaign Manager',
+        description: 'Campaign specialist, values performance & coordination',
+        age: '25-40',
+        platforms: 'Campaign Management Communities, Marketing Automation Forums, Performance Optimization Platforms',
+        values: 'Campaign Performance, Channel Coordination, Measurable Results',
+        clickRate: '75%',
+        resonates: ['Campaign-improving', 'Coordination-supporting', 'Measurable', 'Objective-aligned', 'Channel-optimized', 'Performance-driven'],
+        deters: ['Campaign-hurting', 'Coordination-limiting', 'Unmeasurable', 'Objective-misaligned'],
+        feedback: '"This will improve our campaign performance and support cross-channel coordination."'
+    },
+    'lead_generation': {
+        name: 'Lead Generation',
+        description: 'Lead specialist, values quality & conversion',
+        age: '25-40',
+        platforms: 'Lead Generation Communities, Sales Forums, Lead Nurturing Platforms',
+        values: 'Lead Quality, Conversion Rates, Pipeline Growth',
+        clickRate: '80%',
+        resonates: ['Lead-generating', 'Qualified Leads', 'Conversion-improving', 'Nurturing-supporting', 'Targeted', 'Pipeline-growing'],
+        deters: ['No Leads', 'Unqualified Leads', 'Conversion-limiting', 'Nurturing-hurting'],
+        feedback: '"This will generate qualified leads and improve our conversion rates effectively."'
+    },
+    'retention_specialist': {
+        name: 'Retention Specialist',
+        description: 'Retention expert, values loyalty & lifetime value',
+        age: '25-40',
+        platforms: 'Retention Communities, Loyalty Forums, Customer Experience Platforms',
+        values: 'Customer Loyalty, Retention Rates, Lifetime Value',
+        clickRate: '75%',
+        resonates: ['Retention-improving', 'Loyalty-building', 'Lifetime Value-increasing', 'Customer-focused', 'Relationship-supporting', 'Satisfaction-enhancing'],
+        deters: ['Retention-hurting', 'Loyalty-reducing', 'Lifetime Value-decreasing', 'Customer-ignoring'],
+        feedback: '"This will improve customer retention and build long-term loyalty effectively."'
+    },
+    'loyalty_manager': {
+        name: 'Loyalty Manager',
+        description: 'Loyalty program expert, values engagement & rewards',
+        age: '28-45',
+        platforms: 'Loyalty Communities, Engagement Forums, Rewards Platforms',
+        values: 'Customer Engagement, Loyalty Program Performance, Reward Optimization',
+        clickRate: '75%',
+        resonates: ['Loyalty-engaging', 'Satisfaction-increasing', 'Rewards-supporting', 'Engaging', 'Relationship-building', 'Loyalty-driving'],
+        deters: ['Loyalty-disengaging', 'Satisfaction-decreasing', 'Rewards-limiting', 'Unengaging'],
+        feedback: '"This will increase loyalty program engagement and improve customer satisfaction."'
+    },
+    'affiliate_coordinator': {
+        name: 'Affiliate Coordinator',
+        description: 'Affiliate program manager, values partnerships & performance',
+        age: '25-40',
+        platforms: 'Affiliate Communities, Partnership Forums, Performance Optimization Platforms',
+        values: 'Partnership Relationships, Affiliate Performance, Program Growth',
+        clickRate: '80%',
+        resonates: ['Affiliate-supporting', 'Performance-improving', 'Partnership-strengthening', 'Partner-friendly', 'Results-driving', 'Affiliate-optimized'],
+        deters: ['Affiliate-limiting', 'Performance-hurting', 'Partnership-weakening', 'Partner-unfriendly'],
+        feedback: '"This will support our affiliate partners and improve program performance effectively."'
+    },
+    'influencer_manager': {
+        name: 'Influencer Manager',
+        description: 'Influencer partnership expert, values authenticity & reach',
+        age: '25-40',
+        platforms: 'Influencer Communities, Partnership Forums, Social Media Platforms',
+        values: 'Authentic Partnerships, Reach Expansion, Engagement Quality',
+        clickRate: '75%',
+        resonates: ['Influencer-supporting', 'Collaboration-improving', 'Reach-expanding', 'Authentic', 'Audience-engaging', 'Partnership-optimized'],
+        deters: ['Influencer-limiting', 'Collaboration-hurting', 'Reach-limiting', 'Inauthentic'],
+        feedback: '"This will support our influencer partnerships and expand our reach authentically."'
+    },
+    'partnership_director': {
+        name: 'Partnership Director',
+        description: 'Strategic partnership leader, values collaboration & growth',
+        age: '35-55',
+        platforms: 'Partnership Communities, Business Development Forums, Collaboration Platforms',
+        values: 'Strategic Collaboration, Partnership Growth, Mutual Value Creation',
+        clickRate: '80%',
+        resonates: ['Partnership-supporting', 'Collaboration-improving', 'Mutual Value-creating', 'Strategic', 'Growth-driving', 'Partnership-optimized'],
+        deters: ['Partnership-limiting', 'Collaboration-hurting', 'No Mutual Value', 'Unstrategic'],
+        feedback: '"This will strengthen our strategic partnerships and create mutual value for all parties."'
+    },
+    'event_planner': {
+        name: 'Event Planner',
+        description: 'Event specialist, values engagement & experience',
+        age: '25-40',
+        platforms: 'Event Planning Communities, Experience Design Forums, Engagement Platforms',
+        values: 'Attendee Engagement, Experience Quality, Event Success',
+        clickRate: '75%',
+        resonates: ['Event-improving', 'Engagement-increasing', 'Experience-enhancing', 'Event-focused', 'Attendance-driving', 'Experience-optimized'],
+        deters: ['Event-hurting', 'Engagement-decreasing', 'Experience-limiting', 'Non-event-focused'],
+        feedback: '"This will improve our event experiences and increase attendee engagement effectively."'
+    },
+    'pr_specialist': {
+        name: 'PR Specialist',
+        description: 'Public relations expert, values reputation & media coverage',
+        age: '25-40',
+        platforms: 'PR Communities, Media Relations Forums, Reputation Management Platforms',
+        values: 'Positive Media Coverage, Reputation Management, Stakeholder Communication',
+        clickRate: '75%',
+        resonates: ['Media Coverage-improving', 'Reputation-enhancing', 'PR Objective-supporting', 'Newsworthy', 'Effective Communication', 'PR-optimized'],
+        deters: ['Media Coverage-hurting', 'Reputation-damaging', 'PR Objective-limiting', 'Unnewsworthy'],
+        feedback: '"This will improve our media coverage and enhance our reputation effectively."'
+    },
+    'content_strategist': {
+        name: 'Content Strategist',
+        description: 'Content planning expert, values strategy & consistency',
+        age: '28-45',
+        platforms: 'Content Strategy Communities, Editorial Forums, Content Planning Platforms',
+        values: 'Strategic Planning, Content Consistency, Audience Alignment',
+        clickRate: '80%',
+        resonates: ['Strategy-supporting', 'Plan-consistent', 'Audience-aligned', 'Strategic', 'Objective-driving', 'Strategy-optimized'],
+        deters: ['Strategy-limiting', 'Plan-inconsistent', 'Audience-misaligned', 'Unstrategic'],
+        feedback: '"This aligns with our content strategy and maintains consistency with our editorial plan."'
+    },
+    'copywriter': {
+        name: 'Copywriter',
+        description: 'Writing specialist, values messaging & persuasion',
+        age: '25-40',
+        platforms: 'Copywriting Communities, Writing Forums, Persuasion Platforms',
+        values: 'Compelling Messaging, Persuasive Writing, Conversion Optimization',
+        clickRate: '75%',
+        resonates: ['Compelling', 'Persuasive', 'Clear Messaging', 'Action-driving', 'Well-written', 'Copy-optimized'],
+        deters: ['Uncompelling', 'Unpersuasive', 'Unclear Messaging', 'Non-action-driving'],
+        feedback: '"The copy is compelling and persuasive. It will drive action effectively."'
+    },
+    'graphic_designer': {
+        name: 'Graphic Designer',
+        description: 'Visual designer, values aesthetics & brand consistency',
+        age: '25-40',
+        platforms: 'Design Communities, Visual Arts Forums, Brand Design Platforms',
+        values: 'Visual Aesthetics, Brand Consistency, Design Quality',
+        clickRate: '70%',
+        resonates: ['Visually-appealing', 'Brand-aligned', 'Aesthetically-pleasing', 'Objective-supporting', 'Well-designed', 'Design-optimized'],
+        deters: ['Visually-unappealing', 'Brand-misaligned', 'Aesthetically-unpleasing', 'Objective-limiting'],
+        feedback: '"The visual design is appealing and aligns perfectly with our brand guidelines."'
+    },
+    'video_producer': {
+        name: 'Video Producer',
+        description: 'Video content creator, values storytelling & production quality',
+        age: '25-40',
+        platforms: 'Video Production Communities, Storytelling Forums, Content Creation Platforms',
+        values: 'Storytelling Quality, Production Value, Audience Engagement',
+        clickRate: '75%',
+        resonates: ['Compelling Storytelling', 'High Production Quality', 'Viewer-engaging', 'Story-telling', 'Well-produced', 'Video-optimized'],
+        deters: ['Uncompelling Storytelling', 'Low Production Quality', 'Viewer-unengaging', 'Non-story-telling'],
+        feedback: '"The storytelling is compelling and the production quality is excellent. It will engage viewers effectively."'
+    },
+    'photographer': {
+        name: 'Photographer',
+        description: 'Visual storyteller, values composition & emotional impact',
+        age: '25-40',
+        platforms: 'Photography Communities, Visual Arts Forums, Storytelling Platforms',
+        values: 'Visual Composition, Emotional Impact, Storytelling Quality',
+        clickRate: '70%',
+        resonates: ['Strong Composition', 'Emotional Impact', 'Visual Storytelling', 'Compelling', 'Well-captured', 'Photography-optimized'],
+        deters: ['Weak Composition', 'No Emotional Impact', 'Non-visual Storytelling', 'Uncompelling'],
+        feedback: '"The composition is strong and creates emotional impact. It tells a compelling visual story."'
+    },
+    'illustrator': {
+        name: 'Illustrator',
+        description: 'Artistic creator, values creativity & visual expression',
+        age: '22-35',
+        platforms: 'Illustration Communities, Artistic Forums, Creative Platforms',
+        values: 'Artistic Creativity, Visual Expression, Creative Vision',
+        clickRate: '70%',
+        resonates: ['Artistically-creative', 'Visual Creativity', 'Strong Illustration', 'Vision-showing', 'Artistically-valuable', 'Illustration-optimized'],
+        deters: ['Artistically-uncreative', 'Visual Creativity-lacking', 'Weak Illustration', 'No Vision'],
+        feedback: '"The illustration shows strong artistic creativity and visual expression. It demonstrates clear creative vision."'
+    },
+    'animator': {
+        name: 'Animator',
+        description: 'Motion graphics expert, values movement & visual flow',
+        age: '22-35',
+        platforms: 'Animation Communities, Motion Graphics Forums, Creative Platforms',
+        values: 'Smooth Movement, Visual Flow, Animation Quality',
+        clickRate: '70%',
+        resonates: ['Smooth Animation', 'Good Visual Flow', 'Engaging Movement', 'Content Life-bringing', 'Well-animated', 'Animation-optimized'],
+        deters: ['Rough Animation', 'Poor Visual Flow', 'Unengaging Movement', 'Content Life-limiting'],
+        feedback: '"The animation is smooth with excellent visual flow. It brings the content to life effectively."'
+    },
+    'web_designer': {
+        name: 'Web Designer',
+        description: 'Digital interface designer, values usability & aesthetics',
+        age: '25-40',
+        platforms: 'Web Design Communities, Interface Forums, Digital Design Platforms',
+        values: 'Usability, Visual Aesthetics, Digital Functionality',
+        clickRate: '75%',
+        resonates: ['Strong Web Design', 'User-friendly', 'Good-looking', 'Functional', 'Web Principles-following', 'Web-optimized'],
+        deters: ['Weak Web Design', 'User-unfriendly', 'Bad-looking', 'Dysfunctional'],
+        feedback: '"The web design is strong and follows best practices. It\'s both functional and visually appealing."'
+    },
+    'mobile_designer': {
+        name: 'Mobile Designer',
+        description: 'Mobile interface specialist, values mobile-first & touch optimization',
+        age: '25-40',
+        platforms: 'Mobile Design Communities, Interface Forums, Mobile Optimization Platforms',
+        values: 'Mobile-first Design, Touch Optimization, Mobile User Experience',
+        clickRate: '75%',
+        resonates: ['Mobile-optimized', 'Mobile-working', 'Touch-friendly', 'Mobile User-considering', 'Mobile-first', 'Mobile-optimized'],
+        deters: ['Mobile-unoptimized', 'Mobile-not-working', 'Touch-unfriendly', 'Mobile User-ignoring'],
+        feedback: '"This is perfectly optimized for mobile users with excellent touch interaction and mobile-first design."'
+    },
+    '3d_artist': {
+        name: '3D Artist',
+        description: 'Three-dimensional creator, values depth & visual impact',
+        age: '22-35',
+        platforms: '3D Art Communities, Digital Arts Forums, Creative Platforms',
+        values: 'Three-dimensional Depth, Visual Impact, Creative Expression',
+        clickRate: '70%',
+        resonates: ['Good 3D Depth', 'Strong Visual Impact', 'High 3D Quality', 'Depth-showing', 'Well-rendered', '3D-optimized'],
+        deters: ['Poor 3D Depth', 'Weak Visual Impact', 'Low 3D Quality', 'No Depth'],
+        feedback: '"The 3D work shows excellent depth and visual impact. The rendering quality is outstanding."'
     }
 };
 
@@ -471,26 +911,30 @@ class AskMeValidator {
             'digital_strategist', 'campaign_manager', 'lead_generation', 'retention_specialist', 'loyalty_manager',
             'affiliate_coordinator', 'influencer_manager', 'partnership_director', 'event_planner', 'pr_specialist',
             'content_strategist', 'copywriter', 'graphic_designer', 'video_producer', 'photographer',
-            'illustrator', 'animator', 'web_designer', 'mobile_designer', '3d_artist', 'art_director',
-            'creative_consultant', 'brand_consultant', 'marketing_consultant', 'growth_consultant'
+            'illustrator', 'animator', 'web_designer', 'mobile_designer', '3d_artist'
         ];
 
-        // Add base agents
+        // Add base agents from backend first
         baseAgents.forEach(agent => {
             expandedAgents.push(agent);
         });
 
-        // Add expanded agents
-        agentTypes.forEach((type, index) => {
-            if (expandedAgents.length < 28) {
+        // Add expanded agents to fill exactly 28 slots
+        let agentIndex = 0;
+        while (expandedAgents.length < 28 && agentIndex < agentTypes.length) {
+            const type = agentTypes[agentIndex];
+            // Check if this agent type is not already in baseAgents
+            if (!baseAgents.find(agent => agent.key === type)) {
                 expandedAgents.push({
                     key: type,
                     name: type.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
                     description: `Professional ${type.split('_').join(' ')} with expertise in their field`
                 });
             }
-        });
+            agentIndex++;
+        }
 
+        // Ensure we have exactly 28 agents
         return expandedAgents.slice(0, 28);
     }
 
