@@ -81,15 +81,85 @@
                                 <p>Get insights from diverse perspectives</p>
                             </div>
                         </div>
+                        <div class="card-actions">
+                            <button class="btn-icon" id="configAgentsBtn" title="Configure Agent Count">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                        </div>
                     </div>
                     
-                    <div class="agents-container">
-                        <div class="floating-agents-section">
-                            <div class="floating-agents" id="agentsGrid">
-                                <!-- AI Agents will be populated here as floating avatars -->
+                    <!-- Tabs Navigation in Agents Section -->
+                    <div class="agents-tabs-section" id="agentsTabsSection">
+                        <button class="results-tab active" data-tab="agents" id="tabAgentsView">
+                            <i class="fas fa-robot"></i>
+                            <span>Agents</span>
+                        </button>
+                        <button class="results-tab" data-tab="statistics" id="tabStatisticsView">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Statistics</span>
+                        </button>
+                    </div>
+                    
+                    <div class="agents-tab-content-section">
+                        <!-- Agents Tab Content -->
+                        <div class="tab-content active" id="tabAgentsViewContent">
+                            <div class="agents-container">
+                                <div class="floating-agents-section">
+                                    <div class="floating-agents" id="agentsGrid">
+                                        <!-- AI Agents will be populated here -->
+                                    </div>
+                                    <div class="agents-instruction">
+                                        <p><i class="fas fa-info-circle"></i> Click on any agent to see detailed validation insights</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="agents-instruction">
-                                <p><i class="fas fa-info-circle"></i> Click on any agent to see detailed information</p>
+                        </div>
+                        
+                        <!-- Statistics Tab Content -->
+                        <div class="tab-content" id="tabStatisticsViewContent">
+                            <div class="results-content" style="padding: var(--spacing-6);">
+                                <!-- Empty State for Statistics -->
+                                <div class="empty-state" style="display: block; text-align: center; padding: var(--spacing-8);">
+                                    <div style="font-size: 3rem; color: var(--secondary-300); margin-bottom: var(--spacing-4);">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                    <h3 style="color: var(--secondary-700); margin-bottom: var(--spacing-2);">No Validation Yet</h3>
+                                    <p style="color: var(--secondary-500);">Submit your content to see statistics here</p>
+                                </div>
+                                
+                                <!-- Validation Summary -->
+                                <div class="validation-summary" id="agentsSectionSummary" style="display: none;">
+                                    <div class="summary-header">
+                                        <h3>Current Validation</h3>
+                                        <div class="summary-badge success">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Ready for Launch</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-stats">
+                                        <div class="summary-stat">
+                                            <div class="stat-header">
+                                                <span class="stat-label">Total Agents</span>
+                                                <i class="fas fa-robot"></i>
+                                            </div>
+                                            <span class="stat-value" id="agentsTotalPersonas">0</span>
+                                        </div>
+                                        <div class="summary-stat">
+                                            <div class="stat-header">
+                                                <span class="stat-label">Would Click</span>
+                                                <i class="fas fa-thumbs-up"></i>
+                                            </div>
+                                            <span class="stat-value" id="agentsWillClickCount">0</span>
+                                        </div>
+                                        <div class="summary-stat">
+                                            <div class="stat-header">
+                                                <span class="stat-label">Confidence</span>
+                                                <i class="fas fa-chart-line"></i>
+                                            </div>
+                                            <span class="stat-value" id="agentsAverageConfidence">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -115,93 +185,109 @@
                         </button>
                     </div>
                     
-                    <div class="results-content">
-                        <!-- Quick Stats -->
-                        <div class="quick-stats">
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-check-circle"></i>
+                    <!-- Results Tabs Navigation -->
+                    <div class="results-tabs" id="resultsTabs">
+                        <button class="results-tab active" data-tab="statistics" id="tabStatistics">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Statistics</span>
+                        </button>
+                        <button class="results-tab" data-tab="agents" id="tabAgents">
+                            <i class="fas fa-robot"></i>
+                            <span>Agents</span>
+                        </button>
+                    </div>
+                    
+                    <div class="results-tab-content">
+                        <!-- Statistics Tab -->
+                        <div class="tab-content active" id="tabStatisticsContent">
+                            <div class="results-content" style="padding: var(--spacing-6);">
+                                <!-- Empty State -->
+                                <div class="empty-state" id="emptyState" style="display: block; text-align: center; padding: var(--spacing-8);">
+                                    <div style="font-size: 3rem; color: var(--secondary-300); margin-bottom: var(--spacing-4);">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                    <h3 style="color: var(--secondary-700); margin-bottom: var(--spacing-2);">No Validation Yet</h3>
+                                    <p style="color: var(--secondary-500);">Submit your content to see statistics here</p>
                                 </div>
-                                <div class="stat-info">
-                                    <span class="stat-value">2,847</span>
-                                    <span class="stat-label">Total Validations</span>
+                                
+                                <!-- Validation Summary -->
+                                <div class="validation-summary" id="simulationSummary" style="display: none;">
+                                    <div class="summary-header">
+                                        <h3>Current Validation</h3>
+                                        <div class="summary-badge success">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Ready for Launch</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-stats">
+                                        <div class="summary-stat">
+                                            <div class="stat-header">
+                                                <span class="stat-label">Total Agents</span>
+                                                <i class="fas fa-robot"></i>
+                                            </div>
+                                            <span class="stat-value" id="totalPersonas">0</span>
+                                        </div>
+                                        <div class="summary-stat">
+                                            <div class="stat-header">
+                                                <span class="stat-label">Would Click</span>
+                                                <i class="fas fa-thumbs-up"></i>
+                                            </div>
+                                            <span class="stat-value" id="willClickCount">0</span>
+                                        </div>
+                                        <div class="summary-stat">
+                                            <div class="stat-header">
+                                                <span class="stat-label">Confidence</span>
+                                                <i class="fas fa-chart-line"></i>
+                                            </div>
+                                            <span class="stat-value" id="averageConfidence">0%</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-icon">
-                                    <i class="fas fa-arrow-up"></i>
-                                </div>
-                                <div class="stat-info">
-                                    <span class="stat-value">94.2%</span>
-                                    <span class="stat-label">Success Rate</span>
+
+                                <!-- Recent Activity -->
+                                <div class="recent-activity">
+                                    <h3>Recent Activity</h3>
+                                    <div class="activity-list">
+                                        <div class="activity-item">
+                                            <div class="activity-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-text">New campaign uploaded</div>
+                                                <div class="activity-time">2 min ago</div>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-icon">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-text">Validation completed</div>
+                                                <div class="activity-time">5 min ago</div>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-icon">
+                                                <i class="fas fa-share"></i>
+                                            </div>
+                                            <div class="activity-content">
+                                                <div class="activity-text">Results shared with team</div>
+                                                <div class="activity-time">12 min ago</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Validation Summary -->
-                        <div class="validation-summary" id="simulationSummary" style="display: none;">
-                            <div class="summary-header">
-                                <h3>Current Validation</h3>
-                                <div class="summary-badge success">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>Ready for Launch</span>
+                        
+                        <!-- Agents Tab -->
+                        <div class="tab-content" id="tabAgentsContent">
+                            <div class="agents-container" style="padding: var(--spacing-6);">
+                                <div class="agents-grid" id="resultsAgentsGrid">
+                                    <!-- AI Agents with validation results will be populated here -->
                                 </div>
-                            </div>
-                            <div class="summary-stats">
-                                <div class="summary-stat">
-                                    <div class="stat-header">
-                                        <span class="stat-label">Total Agents</span>
-                                        <i class="fas fa-robot"></i>
-                                    </div>
-                                    <span class="stat-value" id="totalPersonas">0</span>
-                                </div>
-                                <div class="summary-stat">
-                                    <div class="stat-header">
-                                        <span class="stat-label">Would Click</span>
-                                        <i class="fas fa-thumbs-up"></i>
-                                    </div>
-                                    <span class="stat-value" id="willClickCount">0</span>
-                                </div>
-                                <div class="summary-stat">
-                                    <div class="stat-header">
-                                        <span class="stat-label">Confidence</span>
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <span class="stat-value" id="averageConfidence">0%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Recent Activity -->
-                        <div class="recent-activity">
-                            <h3>Recent Activity</h3>
-                            <div class="activity-list">
-                                <div class="activity-item">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <div class="activity-text">New campaign uploaded</div>
-                                        <div class="activity-time">2 min ago</div>
-                                    </div>
-                                </div>
-                                <div class="activity-item">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <div class="activity-text">Validation completed</div>
-                                        <div class="activity-time">5 min ago</div>
-                                    </div>
-                                </div>
-                                <div class="activity-item">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-share"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <div class="activity-text">Results shared with team</div>
-                                        <div class="activity-time">12 min ago</div>
-                                    </div>
+                                <div class="agents-instruction">
+                                    <p><i class="fas fa-info-circle"></i> Click on any agent to see detailed validation insights</p>
                                 </div>
                             </div>
                         </div>
@@ -234,6 +320,45 @@
         </div>
     </div>
 
+    <!-- Config Agents Modal -->
+    <div id="configAgentsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Configure Agent Count</h3>
+                <p>Select how many agents will participate in validation (max 28)</p>
+            </div>
+            <div class="config-content">
+                <div class="agent-count-selector">
+                    <label for="agentCountSlider">Number of Agents: <strong id="agentCountDisplay">28</strong></label>
+                    <input 
+                        type="range" 
+                        id="agentCountSlider" 
+                        min="5" 
+                        max="28" 
+                        value="28"
+                        step="1"
+                    >
+                    <div class="slider-labels">
+                        <span>5</span>
+                        <span>28</span>
+                    </div>
+                    <p class="config-note">
+                        <i class="fas fa-info-circle"></i>
+                        Validation performance is optimized for all agents
+                    </p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" id="saveConfigBtn">
+                    <span>Save Configuration</span>
+                </button>
+                <button class="btn-outline" id="cancelConfigBtn">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Agent Info Modal -->
     <div id="agentInfoModal" class="modal" style="display: none;">
         <div class="modal-content agent-info-modal">
@@ -251,51 +376,73 @@
                     <i class="fas fa-times"></i>
                 </button>
             </div>
+            <!-- Tab Navigation -->
+            <div class="agent-tabs" id="agentTabs" style="display: none;">
+                <button class="agent-tab active" data-tab="decision" id="tabDecision">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <span>Click Decision</span>
+                </button>
+                <button class="agent-tab" data-tab="details" id="tabDetails">
+                    <i class="fas fa-user"></i>
+                    <span>Agent Details</span>
+                </button>
+            </div>
+            
             <div class="agent-info-content">
-                <div class="agent-details">
-                    <div class="detail-section">
-                        <h4><i class="fas fa-user"></i> Persona Details</h4>
-                        <div class="detail-grid">
-                            <div class="detail-item">
-                                <span class="detail-label">Age Range:</span>
-                                <span id="agentInfoAge" class="detail-value">25-35</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Platforms:</span>
-                                <span id="agentInfoPlatforms" class="detail-value">LinkedIn, Instagram</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Values:</span>
-                                <span id="agentInfoValues" class="detail-value">Efficiency, Quality</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Click Rate:</span>
-                                <span id="agentInfoClickRate" class="detail-value">70%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail-section">
-                        <h4><i class="fas fa-lightbulb"></i> What Resonates</h4>
-                        <div class="resonance-tags" id="agentInfoResonates">
-                            <!-- Tags will be populated here -->
-                        </div>
-                    </div>
-                    <div class="detail-section">
-                        <h4><i class="fas fa-exclamation-triangle"></i> What Deters</h4>
-                        <div class="deterrent-tags" id="agentInfoDeters">
-                            <!-- Tags will be populated here -->
-                        </div>
-                    </div>
-                    <div class="detail-section">
-                        <h4><i class="fas fa-comment"></i> Recent Feedback</h4>
-                        <div class="feedback-example" id="agentInfoFeedback">
-                            <!-- Feedback will be populated here -->
-                        </div>
-                    </div>
-                    <div class="detail-section" id="clickReasoningSection" style="display: none;">
-                        <h4><i class="fas fa-mouse-pointer"></i> Click Analysis</h4>
+                <!-- Click Decision Tab -->
+                <div class="tab-content active" id="tabDecisionContent">
+                    <div class="click-analysis-section" id="clickReasoningSection" style="display: none;">
                         <div class="click-analysis" id="agentInfoClickReasoning">
                             <!-- Click reasoning will be populated here -->
+                        </div>
+                    </div>
+                    <div class="no-results-message" id="noResultsMessage" style="display: none;">
+                        <i class="fas fa-info-circle"></i>
+                        <p>No validation results available yet. Submit content to see click analysis.</p>
+                    </div>
+                </div>
+                
+                <!-- Agent Details Tab -->
+                <div class="tab-content" id="tabDetailsContent">
+                    <div class="agent-details">
+                        <div class="detail-section">
+                            <h4><i class="fas fa-user"></i> Persona Details</h4>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Age Range:</span>
+                                    <span id="agentInfoAge" class="detail-value">25-35</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Platforms:</span>
+                                    <span id="agentInfoPlatforms" class="detail-value">LinkedIn, Instagram</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Values:</span>
+                                    <span id="agentInfoValues" class="detail-value">Efficiency, Quality</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Click Rate:</span>
+                                    <span id="agentInfoClickRate" class="detail-value">70%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h4><i class="fas fa-lightbulb"></i> What Resonates</h4>
+                            <div class="resonance-tags" id="agentInfoResonates">
+                                <!-- Tags will be populated here -->
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h4><i class="fas fa-exclamation-triangle"></i> What Deters</h4>
+                            <div class="deterrent-tags" id="agentInfoDeters">
+                                <!-- Tags will be populated here -->
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h4><i class="fas fa-comment"></i> Recent Feedback</h4>
+                            <div class="feedback-example" id="agentInfoFeedback">
+                                <!-- Feedback will be populated here -->
+                            </div>
                         </div>
                     </div>
                 </div>

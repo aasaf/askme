@@ -15,48 +15,48 @@ function getAgentAvatar(agentKey) {
         'influencer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
         
         'marketing_manager': 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face',
-        'data_analyst': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-        'content_creator': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-        'brand_strategist': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-        'social_media_expert': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-        'seo_specialist': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
-        'ppc_analyst': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
-        'email_marketer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
-        'growth_hacker': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
-        'conversion_optimizer': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
+        'data_analyst': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face',
+        'content_creator': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=150&h=150&fit=crop&crop=face',
+        'brand_strategist': 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&h=150&fit=crop&crop=face',
+        'social_media_expert': 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=150&h=150&fit=crop&crop=face',
+        'seo_specialist': 'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=150&h=150&fit=crop&crop=face',
+        'ppc_analyst': 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop&crop=face',
+        'email_marketer': 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face',
+        'growth_hacker': 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=150&h=150&fit=crop&crop=face',
+        'conversion_optimizer': 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=150&h=150&fit=crop&crop=face',
         
-        'ux_designer': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-        'ui_developer': 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-        'product_manager': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-        'business_analyst': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-        'sales_director': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-        'customer_success': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
-        'market_researcher': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
-        'competitive_analyst': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
-        'brand_manager': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
-        'creative_director': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
+        'ux_designer': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
+        'ui_developer': 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face',
+        'product_manager': 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=150&h=150&fit=crop&crop=face',
+        'business_analyst': 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
+        'sales_director': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+        'customer_success': 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&h=150&fit=crop&crop=face',
+        'market_researcher': 'https://images.unsplash.com/photo-1502764613149-7f1d229e230f?w=150&h=150&fit=crop&crop=face',
+        'competitive_analyst': 'https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?w=150&h=150&fit=crop&crop=face',
+        'brand_manager': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+        'creative_director': 'https://images.unsplash.com/photo-1499996860823-5214fccb8fa8?w=150&h=150&fit=crop&crop=face',
         
-        'digital_strategist': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-        'campaign_manager': 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-        'lead_generation': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-        'retention_specialist': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-        'loyalty_manager': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-        'affiliate_coordinator': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
-        'influencer_manager': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
-        'partnership_director': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
-        'event_planner': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
-        'pr_specialist': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
+        'digital_strategist': 'https://images.unsplash.com/photo-1489424731084-a5d8b49a3d95?w=150&h=150&fit=crop&crop=face',
+        'campaign_manager': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
+        'lead_generation': 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face',
+        'retention_specialist': 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
+        'loyalty_manager': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
+        'affiliate_coordinator': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        'influencer_manager': 'https://images.unsplash.com/photo-1542596594-649edbc13630?w=150&h=150&fit=crop&crop=face',
+        'partnership_director': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
+        'event_planner': 'https://images.unsplash.com/photo-1488426862026-3ee34dd7df49?w=150&h=150&fit=crop&crop=face',
+        'pr_specialist': 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face',
         
-        'content_strategist': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-        'copywriter': 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-        'graphic_designer': 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-        'video_producer': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-        'photographer': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-        'illustrator': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
-        'animator': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
-        'web_designer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
-        'mobile_designer': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
-        '3d_artist': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face'
+        'content_strategist': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face',
+        'copywriter': 'https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=150&h=150&fit=crop&crop=face',
+        'graphic_designer': 'https://images.unsplash.com/photo-1554306274-f23873003529?w=150&h=150&fit=crop&crop=face',
+        'video_producer': 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&h=150&fit=crop&crop=face',
+        'photographer': 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&h=150&fit=crop&crop=face',
+        'illustrator': 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&h=150&fit=crop&crop=face',
+        'animator': 'https://images.unsplash.com/photo-1535874681523-38c6d25262aa?w=150&h=150&fit=crop&crop=face',
+        'web_designer': 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face',
+        'mobile_designer': 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
+        '3d_artist': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face'
     };
     
     // If agent key not found, return a random avatar from the collection
@@ -628,6 +628,8 @@ class AskMeValidator {
         this.uploadedImages = [];
         this.currentValidationResults = []; // Store current validation results
         this.previousAgentsState = null; // Store previous agents state
+        this.maxAgentCount = 28; // Maximum number of agents to display
+        this.configuredAgentCount = 28; // User-configured count
         this.initializeEventListeners();
         this.loadAgents();
         this.initializeAnimations();
@@ -648,6 +650,12 @@ class AskMeValidator {
         
         // Add back to agents button functionality
         this.initializeBackToAgentsButton();
+        
+        // Add config agents modal functionality
+        this.initializeConfigAgentsModal();
+        
+        // Add results tabs functionality
+        this.initializeResultsTabs();
     }
 
     initializeChatInput() {
@@ -692,8 +700,18 @@ class AskMeValidator {
     }
 
     adjustTextareaHeight(textarea) {
+        // Reset height to auto to get accurate scrollHeight
         textarea.style.height = 'auto';
-        textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+        // Set height with smooth transition, expanding up to max-height, then scrolling
+        const scrollHeight = textarea.scrollHeight;
+        const newHeight = Math.min(scrollHeight, 200); // Max 200px
+        textarea.style.height = newHeight + 'px';
+        
+        // Update parent container to match textarea height
+        const inputArea = textarea.closest('.chat-input-area');
+        if (inputArea) {
+            inputArea.style.minHeight = (newHeight + 24) + 'px';
+        }
     }
 
     updateSendButtonState() {
@@ -773,6 +791,9 @@ class AskMeValidator {
             return;
         }
 
+        // Add user message to chat
+        this.addUserMessage(message);
+        
         // Clear input
         chatInput.value = '';
         this.adjustTextareaHeight(chatInput);
@@ -788,13 +809,33 @@ class AskMeValidator {
         this.processContentValidation(message);
     }
 
+    addUserMessage(message) {
+        const chatMessages = document.getElementById('chatMessages');
+        if (!chatMessages || !message) return;
+
+        const messageElement = document.createElement('div');
+        messageElement.className = 'chat-message user-message';
+        messageElement.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="message-content">
+                <p>${message}</p>
+            </div>
+        `;
+
+        chatMessages.appendChild(messageElement);
+        
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
     processContentValidation(content) {
-        // Show loading modal
-        this.showLoadingModal();
+        // Show loading spinners immediately on all agent cards
+        this.resetAgentsGrid();
         
         // Simulate processing (using placeholder results - much faster)
         setTimeout(() => {
-            this.hideLoadingModal();
             this.runSimulation(content);
         }, 800); // Reduced from 2000ms to 800ms for better UX
     }
@@ -815,10 +856,8 @@ class AskMeValidator {
 
     async runSimulation(content) {
         try {
-            // Reset agents grid
-            this.resetAgentsGrid();
-            
             // Simulate API call delay (reduced for placeholder results)
+            // Spinners are already showing from processContentValidation
             await new Promise(resolve => setTimeout(resolve, 400)); // Reduced from 1000ms to 400ms
             
             // Generate mock results
@@ -919,9 +958,9 @@ class AskMeValidator {
             expandedAgents.push(agent);
         });
 
-        // Add expanded agents to fill exactly 28 slots
+        // Add expanded agents to fill exactly up to configured count
         let agentIndex = 0;
-        while (expandedAgents.length < 28 && agentIndex < agentTypes.length) {
+        while (expandedAgents.length < this.configuredAgentCount && agentIndex < agentTypes.length) {
             const type = agentTypes[agentIndex];
             // Check if this agent type is not already in baseAgents
             if (!baseAgents.find(agent => agent.key === type)) {
@@ -934,27 +973,48 @@ class AskMeValidator {
             agentIndex++;
         }
 
-        // Ensure we have exactly 28 agents
-        return expandedAgents.slice(0, 28);
+        // Return exactly the configured number of agents
+        return expandedAgents.slice(0, this.configuredAgentCount);
     }
 
     renderAgentsGrid(agents) {
         const grid = document.getElementById('agentsGrid');
         if (!grid) return;
 
-        grid.innerHTML = agents.map((agent, index) => `
-            <div class="agent-avatar" data-agent="${agent.key}" title="Click to see ${agent.name} details">
-                <img src="${getAgentAvatar(agent.key)}" alt="${agent.name}" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
+        const agentData = AGENT_DETAILS || {};
+        
+        grid.innerHTML = agents.map((agent, index) => {
+            const details = agentData[agent.key] || { name: agent.name, description: agent.description };
+            const role = agent.key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            
+            return `
+            <div class="agent-card" 
+                 data-agent="${agent.key}" 
+                 role="button" 
+                 tabindex="0"
+                 aria-label="${details.name} - Click for validation details"
+                 title="${details.name}">
                 <div class="avatar-status" style="display: none;">
-                    <i class="fas fa-spinner fa-spin"></i>
+                    <i class="fas fa-spinner"></i>
                 </div>
-                <div class="click-result" style="display: none;">
-                    <div class="click-indicator"></div>
+                <div class="agent-card-avatar">
+                    <img src="${getAgentAvatar(agent.key)}" alt="${details.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
+                    <div class="click-result" style="display: none;" aria-hidden="true">
+                        <div class="click-indicator" aria-label="Validation result"></div>
+                    </div>
+                </div>
+                <div class="agent-card-info">
+                    <div class="agent-card-name">${details.name}</div>
+                    <div class="agent-card-role">${role}</div>
+                </div>
+                <div class="agent-card-badge">
+                    <i class="fas fa-chart-line"></i>
                 </div>
             </div>
-        `).join('');
+            `;
+        }).join('');
 
-        // Add click event listeners to agent avatars
+        // Add click event listeners to agent cards
         if (typeof this.addAgentClickListeners === 'function') {
             this.addAgentClickListeners();
         } else {
@@ -963,24 +1023,42 @@ class AskMeValidator {
     }
 
     addAgentClickListeners() {
-        // Add click event listeners to agent avatars
-        const agentAvatars = document.querySelectorAll('.agent-avatar');
-        agentAvatars.forEach(avatar => {
+        // Add click event listeners to agent cards only
+        const agentCards = document.querySelectorAll('.agent-card[data-agent]');
+        agentCards.forEach(card => {
             // Remove existing listeners to avoid duplicates
-            if (avatar.clickHandler) {
-                avatar.removeEventListener('click', avatar.clickHandler);
+            if (card.clickHandler) {
+                card.removeEventListener('click', card.clickHandler);
+                card.removeEventListener('keydown', card.keyHandler);
             }
             
             // Create new click handler
-            avatar.clickHandler = () => {
-                const agentKey = avatar.dataset.agent;
+            card.clickHandler = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const agentKey = card.dataset.agent;
                 if (agentKey) {
+                    console.log('Opening modal for agent:', agentKey);
                     this.showAgentInfoModal(agentKey);
                 }
             };
             
-            // Add new listener
-            avatar.addEventListener('click', avatar.clickHandler);
+            // Create keyboard handler for accessibility
+            card.keyHandler = (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const agentKey = card.dataset.agent;
+                    if (agentKey) {
+                        console.log('Opening modal for agent:', agentKey);
+                        this.showAgentInfoModal(agentKey);
+                    }
+                }
+            };
+            
+            // Add new listeners
+            card.addEventListener('click', card.clickHandler);
+            card.addEventListener('keydown', card.keyHandler);
         });
     }
 
@@ -1035,14 +1113,28 @@ class AskMeValidator {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        return await response.json();
+        const data = await response.json();
+        
+        // Only return results for the configured number of agents
+        if (data.results && data.results.length > this.configuredAgentCount) {
+            data.results = data.results.slice(0, this.configuredAgentCount);
+            data.summary.total_personas = this.configuredAgentCount;
+            data.summary.will_click_count = data.results.filter(r => r.will_click).length;
+            data.summary.average_confidence = data.results.reduce((sum, r) => sum + r.confidence, 0) / data.results.length;
+        }
+        
+        return data;
     }
 
     resetAgentsGrid() {
-        const agentAvatars = document.querySelectorAll('.agent-avatar');
-        agentAvatars.forEach(avatar => {
-            const avatarStatus = avatar.querySelector('.avatar-status');
-            const clickResult = avatar.querySelector('.click-result');
+        const agentCards = document.querySelectorAll('.agent-card');
+        agentCards.forEach(card => {
+            // Find the avatar status at the card level (centered on card)
+            const avatarStatus = card.querySelector('.avatar-status');
+            const clickResult = card.querySelector('.agent-card-avatar .click-result');
+            
+            // Add processing state to the card
+            card.classList.add('processing');
             
             if (avatarStatus) {
                 avatarStatus.style.display = 'flex';
@@ -1051,6 +1143,11 @@ class AskMeValidator {
             if (clickResult) {
                 clickResult.style.display = 'none';
             }
+            
+            // Reset aria-label to original
+            const agentKey = card.dataset.agent;
+            const agentName = AGENT_DETAILS[agentKey]?.name || agentKey.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
+            card.setAttribute('aria-label', `${agentName} - Click to see details`);
         });
 
         // Hide summary
@@ -1064,50 +1161,124 @@ class AskMeValidator {
         // Store current validation results for agent info modal
         this.currentValidationResults = results;
         
-        // Update each agent card with animation delay
-        results.forEach((result, index) => {
+        // Render agents with results in results section immediately
+        this.renderResultsAgents(results);
+        
+        // Shuffle results array to display in random order
+        const shuffledResults = this.shuffleArray([...results]);
+        
+        // Update each agent card with animation delay in random order (only affects initial agents view)
+        shuffledResults.forEach((result, index) => {
             setTimeout(() => {
                 this.updateAgentCard(result);
             }, index * 200); // Stagger the animations
         });
 
-        // Show summary after a delay
-        setTimeout(() => {
-            this.displaySummary(summary);
-        }, results.length * 200 + 300);
+        // Show summary with results section
+        this.displaySummary(summary);
 
-        // Show results section and hide agents section after validation
-        setTimeout(() => {
-            const agentsSection = document.querySelector('.agents-section-fullscreen');
-            const resultsSection = document.getElementById('resultsSection');
+        // Keep agents section visible - don't switch to results section
+        // The tabs in the agents section will show the validation results
+        // Just mark the agents section as having completed validation
+        const agentsSection = document.querySelector('.agents-section-fullscreen');
+        if (agentsSection) {
+            agentsSection.classList.add('fade-in');
+        }
+    }
+
+    renderResultsAgents(results) {
+        const resultsGrid = document.getElementById('resultsAgentsGrid');
+        const agentsGrid = document.getElementById('agentsGrid');
+        
+        const agentData = AGENT_DETAILS || {};
+        
+        // Create a map of results by persona
+        const resultsMap = {};
+        results.forEach(result => {
+            resultsMap[result.persona] = result;
+        });
+
+        // Get all agent keys to maintain order
+        const allAgentKeys = [...new Set(results.map(r => r.persona))];
+        
+        const agentHtml = allAgentKeys.map((agentKey, index) => {
+            const result = resultsMap[agentKey];
+            const details = agentData[agentKey] || { name: agentKey, description: '' };
+            const role = agentKey.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
             
-            if (agentsSection && resultsSection) {
-                // Save current agents state before hiding
-                this.saveAgentsState();
-                
-                agentsSection.style.display = 'none';
-                resultsSection.style.display = 'block';
-                resultsSection.classList.add('fade-in');
-                
-                // Re-add click event listeners to agent avatars in results view
-                if (typeof this.addAgentClickListeners === 'function') {
-                    this.addAgentClickListeners();
-                }
-            }
-        }, results.length * 200 + 500);
+            // Determine click status
+            const clickStatus = result.will_click ? 'click-yes' : 'click-no';
+            const clickIcon = result.will_click ? '✓' : '✗';
+            
+            // Ensure we're using the correct persona key for data-agent
+            const personaKey = result.persona;
+            
+            return `
+            <div class="agent-card" 
+                 data-agent="${personaKey}" 
+                 data-index="${index}"
+                 role="button" 
+                 tabindex="0"
+                 aria-label="${details.name} - Click for validation details"
+                 title="${details.name}">
+                <div class="agent-card-avatar">
+                    <img src="${getAgentAvatar(agentKey)}" alt="${details.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
+                    <div class="click-result ${clickStatus}" style="display: flex;" aria-hidden="true">
+                        <div class="click-indicator" aria-label="Validation result">${clickIcon}</div>
+                    </div>
+                </div>
+                <div class="agent-card-info">
+                    <div class="agent-card-name">${details.name}</div>
+                    <div class="agent-card-role">${role}</div>
+                </div>
+                <div class="agent-card-badge">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+            `;
+        }).join('');
+        
+        // Update agents grid (the main one users see)
+        if (agentsGrid) {
+            agentsGrid.innerHTML = agentHtml;
+        }
+        
+        // Also update results grid if it exists (for results section)
+        if (resultsGrid) {
+            resultsGrid.innerHTML = agentHtml;
+        }
+
+        // Add click event listeners to agent cards - ONLY to the agentsGrid since that's what's visible
+        const agentCards = agentsGrid?.querySelectorAll('.agent-card[data-agent]');
+        
+        if (agentCards) {
+            agentCards.forEach((card, index) => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const agentKey = card.dataset.agent;
+                    if (agentKey) {
+                        this.showAgentInfoModal(agentKey);
+                    }
+                });
+            });
+        }
     }
 
     updateAgentCard(result) {
-        const avatar = document.querySelector(`[data-agent="${result.persona}"]`);
-        if (!avatar) return;
+        const card = document.querySelector(`.agent-card[data-agent="${result.persona}"]`);
+        if (!card) return;
 
-        const avatarStatus = avatar.querySelector('.avatar-status');
-        const clickResult = avatar.querySelector('.click-result');
+        const avatarStatus = card.querySelector('.avatar-status');
+        const clickResult = card.querySelector('.agent-card-avatar .click-result');
 
         // Hide avatar status
         if (avatarStatus) {
             avatarStatus.style.display = 'none';
         }
+
+        // Remove processing class
+        card.classList.remove('processing', 'loading');
 
         // Update click result with clean status indicator
         if (clickResult) {
@@ -1117,13 +1288,11 @@ class AskMeValidator {
                 if (result.will_click) {
                     clickResult.className = 'click-result click-yes';
                     clickIndicator.textContent = '✓';
-                    clickIndicator.style.color = 'white';
-                    console.log('Updated agent card to success:', result.persona);
+                    clickIndicator.setAttribute('aria-label', 'Will click - Positive result');
                 } else {
                     clickResult.className = 'click-result click-no';
                     clickIndicator.textContent = '✗';
-                    clickIndicator.style.color = 'white';
-                    console.log('Updated agent card to error:', result.persona);
+                    clickIndicator.setAttribute('aria-label', 'Will not click - Negative result');
                 }
                 
                 clickResult.style.display = 'flex';
@@ -1134,24 +1303,70 @@ class AskMeValidator {
             console.error('Click result not found for agent:', result.persona);
         }
 
-        // Add animation
-        avatar.classList.add('fade-in');
+        // Add animation and update aria-label
+        card.classList.add('fade-in');
+        const agentName = card.getAttribute('aria-label') || '';
+        const status = result.will_click ? 'Positive' : 'Negative';
+        card.setAttribute('aria-label', `${agentName} (${status} validation result)`);
     }
 
     displaySummary(summary) {
         const summaryElement = document.getElementById('simulationSummary');
-        if (!summaryElement) return;
+        if (!summaryElement) {
+            console.error('Summary element not found');
+            return;
+        }
 
         const totalPersonas = document.getElementById('totalPersonas');
         const willClickCount = document.getElementById('willClickCount');
         const averageConfidence = document.getElementById('averageConfidence');
 
+        // Populate results section statistics
         if (totalPersonas) totalPersonas.textContent = summary.total_personas;
         if (willClickCount) willClickCount.textContent = summary.will_click_count;
         if (averageConfidence) averageConfidence.textContent = `${summary.average_confidence.toFixed(1)}%`;
 
+        // Populate agents section statistics
+        const agentsTotalPersonas = document.getElementById('agentsTotalPersonas');
+        const agentsWillClickCount = document.getElementById('agentsWillClickCount');
+        const agentsAverageConfidence = document.getElementById('agentsAverageConfidence');
+        
+        if (agentsTotalPersonas) agentsTotalPersonas.textContent = summary.total_personas;
+        if (agentsWillClickCount) agentsWillClickCount.textContent = summary.will_click_count;
+        if (agentsAverageConfidence) agentsAverageConfidence.textContent = `${summary.average_confidence.toFixed(1)}%`;
+
+        // Hide empty state in results section
+        const emptyState = document.getElementById('emptyState');
+        if (emptyState) {
+            emptyState.style.display = 'none';
+        }
+        
+        // Hide empty state in agents section
+        const agentsEmptyState = document.querySelector('.agents-section-fullscreen .empty-state');
+        if (agentsEmptyState) {
+            agentsEmptyState.style.display = 'none';
+        }
+        
+        // Show validation summary in agents section
+        const agentsSummary = document.getElementById('agentsSectionSummary');
+        if (agentsSummary) {
+            agentsSummary.style.display = 'block';
+        }
+
+        // Show validation summary
         summaryElement.style.display = 'block';
         summaryElement.classList.add('slide-in');
+        
+        // Switch to Statistics tab by default in agents section after validation
+        const tabStatisticsView = document.getElementById('tabStatisticsView');
+        const tabAgentsView = document.getElementById('tabAgentsView');
+        const tabStatisticsViewContent = document.getElementById('tabStatisticsViewContent');
+        const tabAgentsViewContent = document.getElementById('tabAgentsViewContent');
+        
+        if (tabStatisticsView && tabAgentsView && tabStatisticsViewContent && tabAgentsViewContent) {
+            // Switch to Statistics tab in agents section to show the results
+            this.switchAgentsSectionTab('statistics', tabAgentsView, tabStatisticsView, tabAgentsViewContent, tabStatisticsViewContent);
+        }
     }
 
     resetToAgentsView() {
@@ -1254,6 +1469,30 @@ class AskMeValidator {
                 }
             });
         }
+        
+        // Tab switching functionality
+        const tabDecision = document.getElementById('tabDecision');
+        const tabDetails = document.getElementById('tabDetails');
+        
+        if (tabDecision && tabDetails) {
+            const self = this;
+            
+            tabDecision.addEventListener('click', () => {
+                const tabDecisionContent = document.getElementById('tabDecisionContent');
+                const tabDetailsContent = document.getElementById('tabDetailsContent');
+                if (tabDecisionContent && tabDetailsContent) {
+                    self.switchTab('decision', tabDecision, tabDetails, tabDecisionContent, tabDetailsContent);
+                }
+            });
+            
+            tabDetails.addEventListener('click', () => {
+                const tabDecisionContent = document.getElementById('tabDecisionContent');
+                const tabDetailsContent = document.getElementById('tabDetailsContent');
+                if (tabDecisionContent && tabDetailsContent) {
+                    self.switchTab('details', tabDecision, tabDetails, tabDecisionContent, tabDetailsContent);
+                }
+            });
+        }
     }
 
     initializeBackToAgentsButton() {
@@ -1267,12 +1506,19 @@ class AskMeValidator {
 
     showAgentInfoModal(agentKey) {
         const agentData = AGENT_DETAILS[agentKey];
-        if (!agentData) return;
+        if (!agentData) {
+            console.error('Agent data not found for key:', agentKey);
+            return;
+        }
 
         const modal = document.getElementById('agentInfoModal');
         if (!modal) return;
 
-        // Populate modal content
+        // Get validation results for the SPECIFIC clicked agent
+        const currentResults = this.getCurrentValidationResults();
+        const agentResult = currentResults ? currentResults.find(result => result.persona === agentKey) : null;
+
+        // Populate modal content with the CORRECT agent data
         const avatar = document.getElementById('agentInfoAvatar');
         const name = document.getElementById('agentInfoName');
         const description = document.getElementById('agentInfoDescription');
@@ -1283,8 +1529,6 @@ class AskMeValidator {
         const resonates = document.getElementById('agentInfoResonates');
         const deters = document.getElementById('agentInfoDeters');
         const feedback = document.getElementById('agentInfoFeedback');
-        const clickReasoningSection = document.getElementById('clickReasoningSection');
-        const clickReasoning = document.getElementById('agentInfoClickReasoning');
 
         if (avatar) avatar.src = getAgentAvatar(agentKey);
         if (name) name.textContent = agentData.name || agentKey.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
@@ -1309,14 +1553,22 @@ class AskMeValidator {
         if (feedback) {
             feedback.textContent = agentData.feedback || '';
         }
-
-        // Check if we have current validation results for this agent
-        const currentResults = this.getCurrentValidationResults();
-        const agentResult = currentResults.find(result => result.persona === agentKey);
+        
+        // Get tab elements
+        const agentTabs = document.getElementById('agentTabs');
+        const tabDecision = document.getElementById('tabDecision');
+        const tabDetails = document.getElementById('tabDetails');
+        const tabDecisionContent = document.getElementById('tabDecisionContent');
+        const tabDetailsContent = document.getElementById('tabDetailsContent');
+        const clickReasoningSection = document.getElementById('clickReasoningSection');
+        const noResultsMessage = document.getElementById('noResultsMessage');
+        
+        const clickReasoning = document.getElementById('agentInfoClickReasoning');
         
         if (agentResult && clickReasoningSection && clickReasoning) {
-            // Show click reasoning section
+            // Show click reasoning section in the decision tab
             clickReasoningSection.style.display = 'block';
+            if (noResultsMessage) noResultsMessage.style.display = 'none';
             
             const willClick = agentResult.will_click;
             const reasoning = agentResult.reasoning;
@@ -1342,13 +1594,41 @@ class AskMeValidator {
                     <span class="confidence-value">${confidence}/10</span>
                 </div>
             `;
-        } else if (clickReasoningSection) {
-            // Hide click reasoning section if no current results
-            clickReasoningSection.style.display = 'none';
+            
+            // Show tabs and set "Click Decision" as active
+            if (agentTabs) agentTabs.style.display = 'flex';
+            this.switchTab('decision', tabDecision, tabDetails, tabDecisionContent, tabDetailsContent);
+        } else {
+            // Hide click reasoning and show "no results" message
+            if (clickReasoningSection) clickReasoningSection.style.display = 'none';
+            if (noResultsMessage) noResultsMessage.style.display = 'flex';
+            
+            // Show tabs and set "Agent Details" as active
+            if (agentTabs) agentTabs.style.display = 'flex';
+            this.switchTab('details', tabDecision, tabDetails, tabDecisionContent, tabDetailsContent);
         }
 
         // Show modal
         modal.style.display = 'flex';
+    }
+    
+    switchTab(tabName, tabDecision, tabDetails, tabDecisionContent, tabDetailsContent) {
+        if (!tabDecision || !tabDetails || !tabDecisionContent || !tabDetailsContent) return;
+        
+        // Remove active class from all tabs
+        tabDecision.classList.remove('active');
+        tabDetails.classList.remove('active');
+        tabDecisionContent.classList.remove('active');
+        tabDetailsContent.classList.remove('active');
+        
+        // Add active class to selected tab and content
+        if (tabName === 'decision') {
+            tabDecision.classList.add('active');
+            tabDecisionContent.classList.add('active');
+        } else {
+            tabDetails.classList.add('active');
+            tabDetailsContent.classList.add('active');
+        }
     }
 
     getCurrentValidationResults() {
@@ -1363,6 +1643,170 @@ class AskMeValidator {
         if (modal) {
             modal.style.display = 'none';
         }
+    }
+
+    initializeConfigAgentsModal() {
+        const configBtn = document.getElementById('configAgentsBtn');
+        const modal = document.getElementById('configAgentsModal');
+        const saveBtn = document.getElementById('saveConfigBtn');
+        const cancelBtn = document.getElementById('cancelConfigBtn');
+        const slider = document.getElementById('agentCountSlider');
+        const display = document.getElementById('agentCountDisplay');
+
+        if (configBtn) {
+            configBtn.addEventListener('click', () => {
+                this.showConfigAgentsModal();
+            });
+        }
+
+        if (slider && display) {
+            slider.addEventListener('input', (e) => {
+                display.textContent = e.target.value;
+            });
+        }
+
+        if (saveBtn) {
+            saveBtn.addEventListener('click', () => {
+                const selectedCount = parseInt(slider.value);
+                this.configuredAgentCount = selectedCount;
+                this.hideConfigAgentsModal();
+                this.reloadAgents();
+                this.showNotification(`Configuration saved: ${selectedCount} agents`, 'success');
+            });
+        }
+
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', () => {
+                this.hideConfigAgentsModal();
+            });
+        }
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    this.hideConfigAgentsModal();
+                }
+            });
+        }
+    }
+
+    showConfigAgentsModal() {
+        const modal = document.getElementById('configAgentsModal');
+        const slider = document.getElementById('agentCountSlider');
+        const display = document.getElementById('agentCountDisplay');
+
+        if (modal && slider && display) {
+            slider.value = this.configuredAgentCount;
+            display.textContent = this.configuredAgentCount;
+            modal.style.display = 'flex';
+        }
+    }
+
+    hideConfigAgentsModal() {
+        const modal = document.getElementById('configAgentsModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    reloadAgents() {
+        this.loadAgents();
+    }
+
+    initializeResultsTabs() {
+        const tabStatistics = document.getElementById('tabStatistics');
+        const tabAgents = document.getElementById('tabAgents');
+        
+        if (tabStatistics && tabAgents) {
+            const self = this;
+            
+            tabStatistics.addEventListener('click', () => {
+                const tabStatisticsContent = document.getElementById('tabStatisticsContent');
+                const tabAgentsContent = document.getElementById('tabAgentsContent');
+                if (tabStatisticsContent && tabAgentsContent) {
+                    self.switchResultsTab('statistics', tabStatistics, tabAgents, tabStatisticsContent, tabAgentsContent);
+                }
+            });
+            
+            tabAgents.addEventListener('click', () => {
+                const tabStatisticsContent = document.getElementById('tabStatisticsContent');
+                const tabAgentsContent = document.getElementById('tabAgentsContent');
+                if (tabStatisticsContent && tabAgentsContent) {
+                    self.switchResultsTab('agents', tabStatistics, tabAgents, tabStatisticsContent, tabAgentsContent);
+                }
+            });
+        }
+        
+        // Initialize agents section tabs
+        const tabAgentsView = document.getElementById('tabAgentsView');
+        const tabStatisticsView = document.getElementById('tabStatisticsView');
+        
+        if (tabAgentsView && tabStatisticsView) {
+            const self = this;
+            
+            tabAgentsView.addEventListener('click', () => {
+                const tabAgentsViewContent = document.getElementById('tabAgentsViewContent');
+                const tabStatisticsViewContent = document.getElementById('tabStatisticsViewContent');
+                if (tabAgentsViewContent && tabStatisticsViewContent) {
+                    self.switchAgentsSectionTab('agents', tabAgentsView, tabStatisticsView, tabAgentsViewContent, tabStatisticsViewContent);
+                }
+            });
+            
+            tabStatisticsView.addEventListener('click', () => {
+                const tabAgentsViewContent = document.getElementById('tabAgentsViewContent');
+                const tabStatisticsViewContent = document.getElementById('tabStatisticsViewContent');
+                if (tabAgentsViewContent && tabStatisticsViewContent) {
+                    self.switchAgentsSectionTab('statistics', tabAgentsView, tabStatisticsView, tabAgentsViewContent, tabStatisticsViewContent);
+                }
+            });
+        }
+    }
+
+    switchAgentsSectionTab(tabName, tabAgentsView, tabStatisticsView, tabAgentsViewContent, tabStatisticsViewContent) {
+        if (!tabAgentsView || !tabStatisticsView || !tabAgentsViewContent || !tabStatisticsViewContent) return;
+        
+        // Remove active class from all tabs
+        tabAgentsView.classList.remove('active');
+        tabStatisticsView.classList.remove('active');
+        tabAgentsViewContent.classList.remove('active');
+        tabStatisticsViewContent.classList.remove('active');
+        
+        // Add active class to selected tab and content
+        if (tabName === 'agents') {
+            tabAgentsView.classList.add('active');
+            tabAgentsViewContent.classList.add('active');
+        } else {
+            tabStatisticsView.classList.add('active');
+            tabStatisticsViewContent.classList.add('active');
+        }
+    }
+
+    switchResultsTab(tabName, tabStatistics, tabAgents, tabStatisticsContent, tabAgentsContent) {
+        if (!tabStatistics || !tabAgents || !tabStatisticsContent || !tabAgentsContent) return;
+        
+        // Remove active class from all tabs
+        tabStatistics.classList.remove('active');
+        tabAgents.classList.remove('active');
+        tabStatisticsContent.classList.remove('active');
+        tabAgentsContent.classList.remove('active');
+        
+        // Add active class to selected tab and content
+        if (tabName === 'statistics') {
+            tabStatistics.classList.add('active');
+            tabStatisticsContent.classList.add('active');
+        } else {
+            tabAgents.classList.add('active');
+            tabAgentsContent.classList.add('active');
+        }
+    }
+
+    shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
     }
 }
 
