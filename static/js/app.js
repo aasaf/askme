@@ -1,8 +1,9 @@
-// AskMe - AI-Powered Marketing Validation Platform
-// Helper function to get agent avatar images - 25 unique avatars with no duplicates
+// Bixify - AI-Powered Marketing Validation Platform
+// Network Graph Visualization with Black Mode UI
+
+// Helper function to get agent avatar images
 function getAgentAvatar(agentKey) {
     const avatars = {
-        // Professional and diverse avatars - all unique
         'young_professional': 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face',
         'creative_freelancer': 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face',
         'small_business_owner': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
@@ -13,7 +14,6 @@ function getAgentAvatar(agentKey) {
         'entrepreneur': 'https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?w=150&h=150&fit=crop&crop=face',
         'digital_native': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
         'influencer': 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150&h=150&fit=crop&crop=face',
-        
         'marketing_manager': 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face',
         'data_analyst': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face',
         'content_creator': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=150&h=150&fit=crop&crop=face',
@@ -24,7 +24,6 @@ function getAgentAvatar(agentKey) {
         'email_marketer': 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face',
         'growth_hacker': 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=150&h=150&fit=crop&crop=face',
         'conversion_optimizer': 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=150&h=150&fit=crop&crop=face',
-        
         'ux_designer': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
         'ui_developer': 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face',
         'product_manager': 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=150&h=150&fit=crop&crop=face',
@@ -35,7 +34,6 @@ function getAgentAvatar(agentKey) {
         'competitive_analyst': 'https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?w=150&h=150&fit=crop&crop=face',
         'brand_manager': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
         'creative_director': 'https://images.unsplash.com/photo-1499996860823-5214fccb8fa8?w=150&h=150&fit=crop&crop=face',
-        
         'digital_strategist': 'https://images.unsplash.com/photo-1489424731084-a5d8b49a3d95?w=150&h=150&fit=crop&crop=face',
         'campaign_manager': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
         'lead_generation': 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face',
@@ -46,7 +44,6 @@ function getAgentAvatar(agentKey) {
         'partnership_director': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face',
         'event_planner': 'https://images.unsplash.com/photo-1488426862026-3ee34dd7df49?w=150&h=150&fit=crop&crop=face',
         'pr_specialist': 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face',
-        
         'content_strategist': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face',
         'copywriter': 'https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=150&h=150&fit=crop&crop=face',
         'graphic_designer': 'https://images.unsplash.com/photo-1554306274-f23873003529?w=150&h=150&fit=crop&crop=face',
@@ -59,7 +56,6 @@ function getAgentAvatar(agentKey) {
         '3d_artist': 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face'
     };
     
-    // If agent key not found, return a random avatar from the collection
     if (!avatars[agentKey]) {
         const avatarKeys = Object.keys(avatars);
         const randomKey = avatarKeys[Math.floor(Math.random() * avatarKeys.length)];
@@ -125,981 +121,1199 @@ const AGENT_DETAILS = {
         resonates: ['Family Safe', 'Convenient', 'Time Saving', 'Cost Effective', 'Authentic'],
         deters: ['Unsafe', 'Complicated', 'Expensive', 'Fake'],
         feedback: '"As a parent, I need solutions that are safe and convenient for my family. This feels trustworthy."'
-    },
-    'senior_executive': {
-        name: 'Senior Executive',
-        description: 'Strategic thinker, values leadership & growth',
-        age: '45-60',
-        platforms: 'LinkedIn, Industry Publications',
-        values: 'Strategic Thinking, Leadership',
-        clickRate: '70%',
-        resonates: ['Strategic Value', 'Leadership', 'Growth', 'Business Challenges', 'Credibility'],
-        deters: ['Tactical', 'Basic', 'Uncredible', 'Superficial'],
-        feedback: '"I look for content that demonstrates strategic thinking and addresses real business challenges."'
-    },
-    'millennial_shopper': {
-        name: 'Millennial Shopper',
-        description: 'Value-conscious, socially aware, mobile-first',
-        age: '28-38',
-        platforms: 'Instagram, TikTok, Mobile Apps',
-        values: 'Authenticity, Social Responsibility',
-        clickRate: '60%',
-        resonates: ['Authentic', 'Socially Responsible', 'Good Value', 'Aligned Values', 'Mobile Friendly'],
-        deters: ['Fake', 'Irresponsible', 'Overpriced', 'Misaligned'],
-        feedback: '"I want brands that align with my values and feel genuine. This content resonates with my priorities."'
-    },
-    'entrepreneur': {
-        name: 'Entrepreneur',
-        description: 'Risk-taker, values innovation & growth',
-        age: '25-45',
-        platforms: 'LinkedIn, Twitter, Startup Communities',
-        values: 'Innovation, Growth',
-        clickRate: '80%',
-        resonates: ['Innovation', 'Disruptive', 'Growth Potential', 'Bold', 'Inspiring'],
-        deters: ['Conventional', 'Safe', 'Limited Growth', 'Boring'],
-        feedback: '"I\'m drawn to content that challenges the status quo and inspires action. This feels bold and innovative."'
-    },
-    'digital_native': {
-        name: 'Digital Native',
-        description: 'Born online, values speed & connectivity',
-        age: '18-25',
-        platforms: 'TikTok, Instagram, Emerging Platforms',
-        values: 'Speed, Connectivity',
-        clickRate: '70%',
-        resonates: ['Digital Native', 'Authentic', 'Fast', 'Engaging', 'Shareable'],
-        deters: ['Forced', 'Fake', 'Slow', 'Boring', 'Unshareable'],
-        feedback: '"This feels native to digital platforms and resonates with my generation. It\'s fast and engaging."'
-    },
-    'influencer': {
-        name: 'Influencer',
-        description: 'Content creator, values engagement & authenticity',
-        age: '22-35',
-        platforms: 'Multiple Social Platforms',
-        values: 'Engagement, Authenticity',
-        clickRate: '65%',
-        resonates: ['Authentic', 'Engaging', 'Creative', 'Storytelling', 'Shareable'],
-        deters: ['Fake', 'Boring', 'Uncreative', 'Unshareable'],
-        feedback: '"I can tell this would resonate with my audience. It feels authentic and tells a compelling story."'
-    },
-    'marketing_manager': {
-        name: 'Marketing Manager',
-        description: 'Strategic marketer, values ROI & brand consistency',
-        age: '30-45',
-        platforms: 'LinkedIn, Marketing Publications, Industry Events',
-        values: 'ROI, Brand Consistency, Measurable Results',
-        clickRate: '75%',
-        resonates: ['ROI', 'Brand Consistency', 'Measurable', 'Strategic', 'Conversion', 'Targeted'],
-        deters: ['Unmeasurable', 'Off-brand', 'Unstrategic', 'Untargeted'],
-        feedback: '"This aligns with our brand guidelines and has clear conversion potential. It\'s strategic and measurable."'
-    },
-    'data_analyst': {
-        name: 'Data Analyst',
-        description: 'Data-driven, values metrics & insights',
-        age: '25-40',
-        platforms: 'LinkedIn, Data Science Communities, Analytics Platforms',
-        values: 'Data-driven Insights, Measurable Performance, Statistical Significance',
-        clickRate: '80%',
-        resonates: ['Data-driven', 'Metrics', 'Insights', 'Measurable', 'Statistical', 'Actionable'],
-        deters: ['Anecdotal', 'Unmeasurable', 'Unsubstantiated', 'Vague'],
-        feedback: '"This provides clear metrics and actionable insights. The data supports the claims effectively."'
-    },
-    'content_creator': {
-        name: 'Content Creator',
-        description: 'Creative professional, values originality & engagement',
-        age: '22-35',
-        platforms: 'Instagram, TikTok, YouTube, Content Creation Communities',
-        values: 'Originality, Creativity, Audience Engagement',
-        clickRate: '70%',
-        resonates: ['Original', 'Creative', 'Engaging', 'Storytelling', 'Fresh', 'Shareable'],
-        deters: ['Derivative', 'Uncreative', 'Boring', 'Unoriginal'],
-        feedback: '"This feels fresh and original. I can see my audience engaging with this content."'
-    },
-    'brand_strategist': {
-        name: 'Brand Strategist',
-        description: 'Brand expert, values positioning & differentiation',
-        age: '30-50',
-        platforms: 'LinkedIn, Branding Publications, Industry Conferences',
-        values: 'Brand Consistency, Differentiation, Strategic Positioning',
-        clickRate: '75%',
-        resonates: ['Differentiated', 'Strategic', 'Brand-aligned', 'Positioning', 'Unique', 'Consistent'],
-        deters: ['Generic', 'Undifferentiated', 'Inconsistent', 'Diluted'],
-        feedback: '"This strengthens our brand positioning and differentiates us from competitors effectively."'
-    },
-    'social_media_expert': {
-        name: 'Social Media Expert',
-        description: 'Platform specialist, values engagement & trends',
-        age: '25-40',
-        platforms: 'All Major Social Platforms',
-        values: 'Engagement, Platform Optimization, Trend Awareness',
-        clickRate: '70%',
-        resonates: ['Platform-optimized', 'Trending', 'Engaging', 'Shareable', 'Platform-specific', 'Viral'],
-        deters: ['Platform-agnostic', 'Outdated', 'Unengaging', 'Unshareable'],
-        feedback: '"This is perfectly optimized for the platform and leverages current trends. It will drive engagement."'
-    },
-    'seo_specialist': {
-        name: 'SEO Specialist',
-        description: 'Search expert, values visibility & optimization',
-        age: '25-40',
-        platforms: 'SEO Communities, Search Engine Blogs, Digital Marketing Forums',
-        values: 'Search Visibility, Keyword Optimization, User Intent Alignment',
-        clickRate: '75%',
-        resonates: ['Search-optimized', 'Keyword-targeted', 'User Intent', 'Valuable', 'Rankable', 'Optimized'],
-        deters: ['Unoptimized', 'Keyword-stuffed', 'Low-value', 'Unrankable'],
-        feedback: '"This targets relevant keywords and satisfies user search intent. It will rank well."'
-    },
-    'ppc_analyst': {
-        name: 'PPC Analyst',
-        description: 'Paid advertising expert, values conversion & efficiency',
-        age: '25-40',
-        platforms: 'PPC Communities, Advertising Platforms, Digital Marketing Forums',
-        values: 'Conversion Rates, Cost Efficiency, Campaign Performance',
-        clickRate: '80%',
-        resonates: ['Converting', 'Campaign-aligned', 'Relevant', 'Cost-effective', 'Targeted', 'Performance-driven'],
-        deters: ['Non-converting', 'Misaligned', 'Irrelevant', 'Expensive'],
-        feedback: '"This aligns perfectly with our campaign goals and will drive conversions cost-effectively."'
-    },
-    'email_marketer': {
-        name: 'Email Marketer',
-        description: 'Email specialist, values deliverability & engagement',
-        age: '25-40',
-        platforms: 'Email Marketing Communities, Deliverability Forums, Marketing Automation Platforms',
-        values: 'Deliverability, Open Rates, Click-through Rates',
-        clickRate: '70%',
-        resonates: ['Deliverable', 'Engaging', 'Clickable', 'Relevant', 'Personalized', 'Converting'],
-        deters: ['Undeliverable', 'Unengaging', 'Unclickable', 'Irrelevant'],
-        feedback: '"This will improve our email performance and engage subscribers effectively."'
-    },
-    'growth_hacker': {
-        name: 'Growth Hacker',
-        description: 'Growth specialist, values rapid scaling & experimentation',
-        age: '22-35',
-        platforms: 'Growth Communities, Startup Forums, Experimentation Platforms',
-        values: 'Rapid Iteration, Data-driven Decisions, Scalable Growth Tactics',
-        clickRate: '80%',
-        resonates: ['Growth-driven', 'Testable', 'Experimental', 'Scalable', 'Conversion-optimized', 'Iterative'],
-        deters: ['Growth-limiting', 'Untestable', 'Unscalable', 'Static'],
-        feedback: '"This supports our growth objectives and is perfect for A/B testing. It\'s scalable and conversion-focused."'
-    },
-    'conversion_optimizer': {
-        name: 'Conversion Optimizer',
-        description: 'CRO expert, values testing & optimization',
-        age: '25-40',
-        platforms: 'CRO Communities, Testing Platforms, User Experience Forums',
-        values: 'A/B Testing, User Experience Optimization, Conversion Improvement',
-        clickRate: '80%',
-        resonates: ['Conversion-focused', 'Testable', 'User-friendly', 'Friction-free', 'Optimized', 'Performance-driven'],
-        deters: ['Conversion-limiting', 'Untestable', 'User-unfriendly', 'Friction-heavy'],
-        feedback: '"This addresses key friction points and will improve our conversion rates significantly."'
-    },
-    'ux_designer': {
-        name: 'UX Designer',
-        description: 'User experience designer, values usability & accessibility',
-        age: '25-40',
-        platforms: 'Design Communities, UX Forums, Accessibility Platforms',
-        values: 'User Research, Usability Testing, Accessibility Standards',
-        clickRate: '75%',
-        resonates: ['User-friendly', 'Accessible', 'Usability-focused', 'Design-principled', 'Problem-solving', 'Intuitive'],
-        deters: ['User-unfriendly', 'Inaccessible', 'Usability-poor', 'Design-flawed'],
-        feedback: '"This follows UX best practices and addresses real user needs effectively."'
-    },
-    'ui_developer': {
-        name: 'UI Developer',
-        description: 'Interface developer, values functionality & performance',
-        age: '25-40',
-        platforms: 'Development Communities, Coding Forums, Performance Optimization Platforms',
-        values: 'Clean Code, Performance Optimization, Cross-platform Compatibility',
-        clickRate: '70%',
-        resonates: ['Functional', 'Performant', 'Cross-platform', 'Best Practices', 'Maintainable', 'Technically-sound'],
-        deters: ['Dysfunctional', 'Slow', 'Platform-limited', 'Poor Practices'],
-        feedback: '"This is technically feasible and follows development best practices. It will perform well."'
-    },
-    'product_manager': {
-        name: 'Product Manager',
-        description: 'Product strategist, values user value & business impact',
-        age: '28-45',
-        platforms: 'Product Management Communities, Business Forums, User Research Platforms',
-        values: 'User Value, Business Impact, Strategic Alignment',
-        clickRate: '75%',
-        resonates: ['User Value', 'Business Impact', 'Strategic', 'Measurable', 'Market Fit', 'Goal-aligned'],
-        deters: ['Low Value', 'No Impact', 'Unstrategic', 'Unmeasurable'],
-        feedback: '"This creates clear user value and aligns with our product strategy effectively."'
-    },
-    'business_analyst': {
-        name: 'Business Analyst',
-        description: 'Business strategist, values insights & decision support',
-        age: '28-45',
-        platforms: 'Business Intelligence Communities, Analytics Platforms, Strategic Planning Forums',
-        values: 'Data-driven Insights, Strategic Analysis, Decision Support',
-        clickRate: '80%',
-        resonates: ['Insightful', 'Data-driven', 'Decision Support', 'Strategic', 'Actionable', 'Analytical'],
-        deters: ['Uninsightful', 'Data-poor', 'No Decision Support', 'Unactionable'],
-        feedback: '"This provides actionable business insights that will support strategic decision-making."'
-    },
-    'sales_director': {
-        name: 'Sales Director',
-        description: 'Sales leader, values pipeline & revenue generation',
-        age: '35-55',
-        platforms: 'Sales Communities, Business Development Forums, Revenue Optimization Platforms',
-        values: 'Pipeline Growth, Conversion Rates, Revenue Generation',
-        clickRate: '80%',
-        resonates: ['Sales Support', 'Conversion-driving', 'Lead-generating', 'Pipeline-aligned', 'Revenue-focused', 'Sales Process'],
-        deters: ['Sales-limiting', 'Non-converting', 'No Leads', 'Pipeline-misaligned'],
-        feedback: '"This will support our sales objectives and improve conversion rates effectively."'
-    },
-    'customer_success': {
-        name: 'Customer Success',
-        description: 'Customer advocate, values satisfaction & retention',
-        age: '25-40',
-        platforms: 'Customer Success Communities, Support Forums, Customer Experience Platforms',
-        values: 'Customer Satisfaction, Retention Rates, Positive Experiences',
-        clickRate: '75%',
-        resonates: ['Customer-focused', 'Satisfaction-improving', 'Retention-supporting', 'Problem-solving', 'Experience-enhancing', 'Relationship-building'],
-        deters: ['Customer-ignoring', 'Satisfaction-reducing', 'Retention-hurting', 'Problem-creating'],
-        feedback: '"This will improve customer experience and support our retention goals effectively."'
-    },
-    'market_researcher': {
-        name: 'Market Researcher',
-        description: 'Research specialist, values insights & data quality',
-        age: '28-45',
-        platforms: 'Research Communities, Data Quality Forums, Market Intelligence Platforms',
-        values: 'Research Quality, Data Accuracy, Actionable Insights',
-        clickRate: '80%',
-        resonates: ['Research-based', 'High-quality Data', 'Insightful', 'Methodologically-sound', 'Actionable', 'Data-driven'],
-        deters: ['Anecdotal', 'Low-quality Data', 'Uninsightful', 'Methodologically-weak'],
-        feedback: '"This provides valuable market insights with high-quality data and sound methodology."'
-    },
-    'competitive_analyst': {
-        name: 'Competitive Analyst',
-        description: 'Competitive intelligence expert, values differentiation & positioning',
-        age: '28-45',
-        platforms: 'Competitive Intelligence Communities, Market Analysis Forums, Strategic Planning Platforms',
-        values: 'Competitive Differentiation, Market Positioning, Strategic Insights',
-        clickRate: '75%',
-        resonates: ['Differentiated', 'Competitive Advantage', 'Positioning-improving', 'Unique', 'Gap-addressing', 'Market-leading'],
-        deters: ['Undifferentiated', 'Competitive Disadvantage', 'Positioning-weak', 'Generic'],
-        feedback: '"This differentiates us from competitors and improves our market positioning effectively."'
-    },
-    'brand_manager': {
-        name: 'Brand Manager',
-        description: 'Brand custodian, values consistency & reputation',
-        age: '30-45',
-        platforms: 'Brand Management Communities, Reputation Forums, Brand Strategy Platforms',
-        values: 'Brand Consistency, Reputation Management, Strategic Positioning',
-        clickRate: '80%',
-        resonates: ['Brand-strengthening', 'Identity-consistent', 'Reputation-improving', 'Value-aligned', 'On-brand', 'Brand-building'],
-        deters: ['Brand-weakening', 'Identity-inconsistent', 'Reputation-hurting', 'Value-misaligned'],
-        feedback: '"This strengthens our brand identity and maintains consistency with our values."'
-    },
-    'creative_director': {
-        name: 'Creative Director',
-        description: 'Creative leader, values innovation & artistic excellence',
-        age: '35-55',
-        platforms: 'Creative Communities, Design Forums, Artistic Platforms',
-        values: 'Creative Innovation, Artistic Excellence, Brand Expression',
-        clickRate: '75%',
-        resonates: ['Creatively-innovative', 'Artistically-excellent', 'Brand-expressive', 'Visually-compelling', 'Inspiring', 'Creative Vision'],
-        deters: ['Creatively-uninnovative', 'Artistically-poor', 'Brand-unexpressive', 'Visually-uncompelling'],
-        feedback: '"This demonstrates creative excellence and innovative thinking that will inspire our audience."'
-    },
-    'digital_strategist': {
-        name: 'Digital Strategist',
-        description: 'Digital transformation expert, values innovation & integration',
-        age: '30-50',
-        platforms: 'Digital Strategy Communities, Transformation Forums, Technology Integration Platforms',
-        values: 'Digital Innovation, Technology Integration, Strategic Transformation',
-        clickRate: '80%',
-        resonates: ['Digitally-innovative', 'Technologically-integrated', 'Innovation-driving', 'Strategically-aligned', 'Future-ready', 'Transformation-supporting'],
-        deters: ['Digitally-uninnovative', 'Technologically-disintegrated', 'Innovation-limiting', 'Strategically-misaligned'],
-        feedback: '"This supports our digital transformation strategy and integrates technology effectively."'
-    },
-    'campaign_manager': {
-        name: 'Campaign Manager',
-        description: 'Campaign specialist, values performance & coordination',
-        age: '25-40',
-        platforms: 'Campaign Management Communities, Marketing Automation Forums, Performance Optimization Platforms',
-        values: 'Campaign Performance, Channel Coordination, Measurable Results',
-        clickRate: '75%',
-        resonates: ['Campaign-improving', 'Coordination-supporting', 'Measurable', 'Objective-aligned', 'Channel-optimized', 'Performance-driven'],
-        deters: ['Campaign-hurting', 'Coordination-limiting', 'Unmeasurable', 'Objective-misaligned'],
-        feedback: '"This will improve our campaign performance and support cross-channel coordination."'
-    },
-    'lead_generation': {
-        name: 'Lead Generation',
-        description: 'Lead specialist, values quality & conversion',
-        age: '25-40',
-        platforms: 'Lead Generation Communities, Sales Forums, Lead Nurturing Platforms',
-        values: 'Lead Quality, Conversion Rates, Pipeline Growth',
-        clickRate: '80%',
-        resonates: ['Lead-generating', 'Qualified Leads', 'Conversion-improving', 'Nurturing-supporting', 'Targeted', 'Pipeline-growing'],
-        deters: ['No Leads', 'Unqualified Leads', 'Conversion-limiting', 'Nurturing-hurting'],
-        feedback: '"This will generate qualified leads and improve our conversion rates effectively."'
-    },
-    'retention_specialist': {
-        name: 'Retention Specialist',
-        description: 'Retention expert, values loyalty & lifetime value',
-        age: '25-40',
-        platforms: 'Retention Communities, Loyalty Forums, Customer Experience Platforms',
-        values: 'Customer Loyalty, Retention Rates, Lifetime Value',
-        clickRate: '75%',
-        resonates: ['Retention-improving', 'Loyalty-building', 'Lifetime Value-increasing', 'Customer-focused', 'Relationship-supporting', 'Satisfaction-enhancing'],
-        deters: ['Retention-hurting', 'Loyalty-reducing', 'Lifetime Value-decreasing', 'Customer-ignoring'],
-        feedback: '"This will improve customer retention and build long-term loyalty effectively."'
-    },
-    'loyalty_manager': {
-        name: 'Loyalty Manager',
-        description: 'Loyalty program expert, values engagement & rewards',
-        age: '28-45',
-        platforms: 'Loyalty Communities, Engagement Forums, Rewards Platforms',
-        values: 'Customer Engagement, Loyalty Program Performance, Reward Optimization',
-        clickRate: '75%',
-        resonates: ['Loyalty-engaging', 'Satisfaction-increasing', 'Rewards-supporting', 'Engaging', 'Relationship-building', 'Loyalty-driving'],
-        deters: ['Loyalty-disengaging', 'Satisfaction-decreasing', 'Rewards-limiting', 'Unengaging'],
-        feedback: '"This will increase loyalty program engagement and improve customer satisfaction."'
-    },
-    'affiliate_coordinator': {
-        name: 'Affiliate Coordinator',
-        description: 'Affiliate program manager, values partnerships & performance',
-        age: '25-40',
-        platforms: 'Affiliate Communities, Partnership Forums, Performance Optimization Platforms',
-        values: 'Partnership Relationships, Affiliate Performance, Program Growth',
-        clickRate: '80%',
-        resonates: ['Affiliate-supporting', 'Performance-improving', 'Partnership-strengthening', 'Partner-friendly', 'Results-driving', 'Affiliate-optimized'],
-        deters: ['Affiliate-limiting', 'Performance-hurting', 'Partnership-weakening', 'Partner-unfriendly'],
-        feedback: '"This will support our affiliate partners and improve program performance effectively."'
-    },
-    'influencer_manager': {
-        name: 'Influencer Manager',
-        description: 'Influencer partnership expert, values authenticity & reach',
-        age: '25-40',
-        platforms: 'Influencer Communities, Partnership Forums, Social Media Platforms',
-        values: 'Authentic Partnerships, Reach Expansion, Engagement Quality',
-        clickRate: '75%',
-        resonates: ['Influencer-supporting', 'Collaboration-improving', 'Reach-expanding', 'Authentic', 'Audience-engaging', 'Partnership-optimized'],
-        deters: ['Influencer-limiting', 'Collaboration-hurting', 'Reach-limiting', 'Inauthentic'],
-        feedback: '"This will support our influencer partnerships and expand our reach authentically."'
-    },
-    'partnership_director': {
-        name: 'Partnership Director',
-        description: 'Strategic partnership leader, values collaboration & growth',
-        age: '35-55',
-        platforms: 'Partnership Communities, Business Development Forums, Collaboration Platforms',
-        values: 'Strategic Collaboration, Partnership Growth, Mutual Value Creation',
-        clickRate: '80%',
-        resonates: ['Partnership-supporting', 'Collaboration-improving', 'Mutual Value-creating', 'Strategic', 'Growth-driving', 'Partnership-optimized'],
-        deters: ['Partnership-limiting', 'Collaboration-hurting', 'No Mutual Value', 'Unstrategic'],
-        feedback: '"This will strengthen our strategic partnerships and create mutual value for all parties."'
-    },
-    'event_planner': {
-        name: 'Event Planner',
-        description: 'Event specialist, values engagement & experience',
-        age: '25-40',
-        platforms: 'Event Planning Communities, Experience Design Forums, Engagement Platforms',
-        values: 'Attendee Engagement, Experience Quality, Event Success',
-        clickRate: '75%',
-        resonates: ['Event-improving', 'Engagement-increasing', 'Experience-enhancing', 'Event-focused', 'Attendance-driving', 'Experience-optimized'],
-        deters: ['Event-hurting', 'Engagement-decreasing', 'Experience-limiting', 'Non-event-focused'],
-        feedback: '"This will improve our event experiences and increase attendee engagement effectively."'
-    },
-    'pr_specialist': {
-        name: 'PR Specialist',
-        description: 'Public relations expert, values reputation & media coverage',
-        age: '25-40',
-        platforms: 'PR Communities, Media Relations Forums, Reputation Management Platforms',
-        values: 'Positive Media Coverage, Reputation Management, Stakeholder Communication',
-        clickRate: '75%',
-        resonates: ['Media Coverage-improving', 'Reputation-enhancing', 'PR Objective-supporting', 'Newsworthy', 'Effective Communication', 'PR-optimized'],
-        deters: ['Media Coverage-hurting', 'Reputation-damaging', 'PR Objective-limiting', 'Unnewsworthy'],
-        feedback: '"This will improve our media coverage and enhance our reputation effectively."'
-    },
-    'content_strategist': {
-        name: 'Content Strategist',
-        description: 'Content planning expert, values strategy & consistency',
-        age: '28-45',
-        platforms: 'Content Strategy Communities, Editorial Forums, Content Planning Platforms',
-        values: 'Strategic Planning, Content Consistency, Audience Alignment',
-        clickRate: '80%',
-        resonates: ['Strategy-supporting', 'Plan-consistent', 'Audience-aligned', 'Strategic', 'Objective-driving', 'Strategy-optimized'],
-        deters: ['Strategy-limiting', 'Plan-inconsistent', 'Audience-misaligned', 'Unstrategic'],
-        feedback: '"This aligns with our content strategy and maintains consistency with our editorial plan."'
-    },
-    'copywriter': {
-        name: 'Copywriter',
-        description: 'Writing specialist, values messaging & persuasion',
-        age: '25-40',
-        platforms: 'Copywriting Communities, Writing Forums, Persuasion Platforms',
-        values: 'Compelling Messaging, Persuasive Writing, Conversion Optimization',
-        clickRate: '75%',
-        resonates: ['Compelling', 'Persuasive', 'Clear Messaging', 'Action-driving', 'Well-written', 'Copy-optimized'],
-        deters: ['Uncompelling', 'Unpersuasive', 'Unclear Messaging', 'Non-action-driving'],
-        feedback: '"The copy is compelling and persuasive. It will drive action effectively."'
-    },
-    'graphic_designer': {
-        name: 'Graphic Designer',
-        description: 'Visual designer, values aesthetics & brand consistency',
-        age: '25-40',
-        platforms: 'Design Communities, Visual Arts Forums, Brand Design Platforms',
-        values: 'Visual Aesthetics, Brand Consistency, Design Quality',
-        clickRate: '70%',
-        resonates: ['Visually-appealing', 'Brand-aligned', 'Aesthetically-pleasing', 'Objective-supporting', 'Well-designed', 'Design-optimized'],
-        deters: ['Visually-unappealing', 'Brand-misaligned', 'Aesthetically-unpleasing', 'Objective-limiting'],
-        feedback: '"The visual design is appealing and aligns perfectly with our brand guidelines."'
-    },
-    'video_producer': {
-        name: 'Video Producer',
-        description: 'Video content creator, values storytelling & production quality',
-        age: '25-40',
-        platforms: 'Video Production Communities, Storytelling Forums, Content Creation Platforms',
-        values: 'Storytelling Quality, Production Value, Audience Engagement',
-        clickRate: '75%',
-        resonates: ['Compelling Storytelling', 'High Production Quality', 'Viewer-engaging', 'Story-telling', 'Well-produced', 'Video-optimized'],
-        deters: ['Uncompelling Storytelling', 'Low Production Quality', 'Viewer-unengaging', 'Non-story-telling'],
-        feedback: '"The storytelling is compelling and the production quality is excellent. It will engage viewers effectively."'
-    },
-    'photographer': {
-        name: 'Photographer',
-        description: 'Visual storyteller, values composition & emotional impact',
-        age: '25-40',
-        platforms: 'Photography Communities, Visual Arts Forums, Storytelling Platforms',
-        values: 'Visual Composition, Emotional Impact, Storytelling Quality',
-        clickRate: '70%',
-        resonates: ['Strong Composition', 'Emotional Impact', 'Visual Storytelling', 'Compelling', 'Well-captured', 'Photography-optimized'],
-        deters: ['Weak Composition', 'No Emotional Impact', 'Non-visual Storytelling', 'Uncompelling'],
-        feedback: '"The composition is strong and creates emotional impact. It tells a compelling visual story."'
-    },
-    'illustrator': {
-        name: 'Illustrator',
-        description: 'Artistic creator, values creativity & visual expression',
-        age: '22-35',
-        platforms: 'Illustration Communities, Artistic Forums, Creative Platforms',
-        values: 'Artistic Creativity, Visual Expression, Creative Vision',
-        clickRate: '70%',
-        resonates: ['Artistically-creative', 'Visual Creativity', 'Strong Illustration', 'Vision-showing', 'Artistically-valuable', 'Illustration-optimized'],
-        deters: ['Artistically-uncreative', 'Visual Creativity-lacking', 'Weak Illustration', 'No Vision'],
-        feedback: '"The illustration shows strong artistic creativity and visual expression. It demonstrates clear creative vision."'
-    },
-    'animator': {
-        name: 'Animator',
-        description: 'Motion graphics expert, values movement & visual flow',
-        age: '22-35',
-        platforms: 'Animation Communities, Motion Graphics Forums, Creative Platforms',
-        values: 'Smooth Movement, Visual Flow, Animation Quality',
-        clickRate: '70%',
-        resonates: ['Smooth Animation', 'Good Visual Flow', 'Engaging Movement', 'Content Life-bringing', 'Well-animated', 'Animation-optimized'],
-        deters: ['Rough Animation', 'Poor Visual Flow', 'Unengaging Movement', 'Content Life-limiting'],
-        feedback: '"The animation is smooth with excellent visual flow. It brings the content to life effectively."'
-    },
-    'web_designer': {
-        name: 'Web Designer',
-        description: 'Digital interface designer, values usability & aesthetics',
-        age: '25-40',
-        platforms: 'Web Design Communities, Interface Forums, Digital Design Platforms',
-        values: 'Usability, Visual Aesthetics, Digital Functionality',
-        clickRate: '75%',
-        resonates: ['Strong Web Design', 'User-friendly', 'Good-looking', 'Functional', 'Web Principles-following', 'Web-optimized'],
-        deters: ['Weak Web Design', 'User-unfriendly', 'Bad-looking', 'Dysfunctional'],
-        feedback: '"The web design is strong and follows best practices. It\'s both functional and visually appealing."'
-    },
-    'mobile_designer': {
-        name: 'Mobile Designer',
-        description: 'Mobile interface specialist, values mobile-first & touch optimization',
-        age: '25-40',
-        platforms: 'Mobile Design Communities, Interface Forums, Mobile Optimization Platforms',
-        values: 'Mobile-first Design, Touch Optimization, Mobile User Experience',
-        clickRate: '75%',
-        resonates: ['Mobile-optimized', 'Mobile-working', 'Touch-friendly', 'Mobile User-considering', 'Mobile-first', 'Mobile-optimized'],
-        deters: ['Mobile-unoptimized', 'Mobile-not-working', 'Touch-unfriendly', 'Mobile User-ignoring'],
-        feedback: '"This is perfectly optimized for mobile users with excellent touch interaction and mobile-first design."'
-    },
-    '3d_artist': {
-        name: '3D Artist',
-        description: 'Three-dimensional creator, values depth & visual impact',
-        age: '22-35',
-        platforms: '3D Art Communities, Digital Arts Forums, Creative Platforms',
-        values: 'Three-dimensional Depth, Visual Impact, Creative Expression',
-        clickRate: '70%',
-        resonates: ['Good 3D Depth', 'Strong Visual Impact', 'High 3D Quality', 'Depth-showing', 'Well-rendered', '3D-optimized'],
-        deters: ['Poor 3D Depth', 'Weak Visual Impact', 'Low 3D Quality', 'No Depth'],
-        feedback: '"The 3D work shows excellent depth and visual impact. The rendering quality is outstanding."'
     }
 };
 
-class AskMeValidator {
-    constructor() {
-        this.uploadedImages = [];
-        this.currentValidationResults = []; // Store current validation results
-        this.previousAgentsState = null; // Store previous agents state
-        this.maxAgentCount = 28; // Maximum number of agents to display
-        this.configuredAgentCount = 28; // User-configured count
-        this.initializeEventListeners();
-        this.loadAgents();
-        this.initializeAnimations();
+// Node colors array
+const NODE_COLORS = [
+    '#3b82f6',
+    '#a855f7',
+    '#14b8a6',
+    '#f97316',
+    '#ef4444'
+];
+
+// Network Graph Class
+class NetworkGraph {
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas) return;
+        
+        this.ctx = this.canvas.getContext('2d');
+        this.nodes = [];
+        this.edges = [];
+        this.selectedNode = null;
+        this.animationId = null;
+        this.animationEnabled = true; // Enable animation for subtle movement
+        this.simulating = false; // Track if simulation is in progress
+        this.simulationStartTime = 0; // Track simulation start time
+        this.animationPhase = 'idle'; // 'idle', 'loading', 'updating', 'complete'
+        
+        this.resizeCanvas();
+        window.addEventListener('resize', () => {
+            this.resizeCanvas();
+        });
+        
+        this.canvas.addEventListener('click', (e) => this.handleClick(e));
+        this.canvas.addEventListener('mousemove', (e) => this.handleHover(e));
+        
+        this.initNetwork();
+        this.startAnimation(); // Start animation loop
     }
-
-    initializeEventListeners() {
-        // Chat input functionality
-        this.initializeChatInput();
+    
+    resizeCanvas() {
+        const container = this.canvas.parentElement;
+        if (!container) return;
         
-        // Image upload functionality
-        this.initializeImageUpload();
-
-        // Add sidebar interactions
-        this.initializeSidebar();
-
-        // Add agent info modal functionality
-        this.initializeAgentInfoModal();
+        // Calculate available width: window width minus sidebar (280px)
+        // When results panel is visible, also subtract its width (400px) to center the network
+        const sidebarWidth = 280;
+        const resultsPanelWidth = 400;
+        const resultsPanel = document.getElementById('resultsPanel');
+        const isResultsVisible = resultsPanel && resultsPanel.style.display !== 'none';
         
-        // Add back to agents button functionality
-        this.initializeBackToAgentsButton();
+        // Center network between sidebars when results panel is visible
+        const availableWidth = isResultsVisible 
+            ? window.innerWidth - sidebarWidth - resultsPanelWidth
+            : window.innerWidth - sidebarWidth;
+        const availableHeight = window.innerHeight;
         
-        // Add config agents modal functionality
-        this.initializeConfigAgentsModal();
+        // Store old dimensions BEFORE any changes (in CSS pixels)
+        const oldWidth = this.canvas.width || availableWidth;
+        const oldHeight = this.canvas.height || availableHeight;
         
-        // Add results tabs functionality
-        this.initializeResultsTabs();
+        // Only resize if dimensions actually changed significantly (more than 10px difference)
+        // This prevents unnecessary resizing when results panel appears/disappears
+        const widthDiff = Math.abs(oldWidth - availableWidth);
+        const heightDiff = Math.abs(oldHeight - availableHeight);
+        
+        if (widthDiff < 10 && heightDiff < 10 && this.nodes.length > 0) {
+            // No significant change - just redraw
+            this.draw();
+            return;
+        }
+        
+        // Set canvas size directly (1:1 with CSS pixels to avoid scaling issues)
+        // This ensures node sizes remain constant visually
+        this.canvas.width = availableWidth;
+        this.canvas.height = availableHeight;
+        
+        // If this is the first initialization, create nodes
+        if (this.nodes.length === 0) {
+            this.initNetwork();
+        } else {
+            // Canvas was resized - reposition nodes but PRESERVE all properties including radius
+            if (oldWidth > 0 && oldHeight > 0 && (widthDiff >= 10 || heightDiff >= 10)) {
+                this.repositionNodes(oldWidth, oldHeight, availableWidth, availableHeight);
+            }
+        }
+        
+        this.draw();
     }
-
-    initializeChatInput() {
-        const chatInput = document.getElementById('chatInput');
-        const sendBtn = document.getElementById('sendBtn');
-
-        if (chatInput && sendBtn) {
-            // Auto-resize textarea
-            chatInput.addEventListener('input', () => {
-                this.adjustTextareaHeight(chatInput);
-                this.updateSendButtonState();
-            });
-
-            // Handle Enter key (Shift+Enter for new line, Enter to send)
-            chatInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    this.handleSendMessage();
+    
+    repositionNodes(oldWidth, oldHeight, newWidth, newHeight) {
+        // Reposition nodes proportionally when canvas resizes
+        // CRITICAL: Only change positions, NEVER change radius or any other node properties
+        const scaleX = newWidth / oldWidth;
+        const scaleY = newHeight / oldHeight;
+        
+        this.nodes.forEach(node => {
+            // Store original radius if not already stored
+            if (!node.originalRadius) {
+                node.originalRadius = node.radius;
+            }
+            
+            // Scale positions proportionally
+            node.x = node.x * scaleX;
+            node.y = node.y * scaleY;
+            
+            // Ensure nodes stay in bounds
+            node.x = Math.max(node.radius, Math.min(newWidth - node.radius, node.x));
+            node.y = Math.max(node.radius, Math.min(newHeight - node.radius, node.y));
+            
+            // CRITICAL: Never change radius - restore original if somehow modified
+            if (node.originalRadius && node.radius !== node.originalRadius) {
+                node.radius = node.originalRadius;
+            }
+        });
+        
+        // Recreate edges based on new positions (but don't change node properties)
+        this.edges = [];
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const distance = Math.sqrt(
+                    Math.pow(this.nodes[i].x - this.nodes[j].x, 2) +
+                    Math.pow(this.nodes[i].y - this.nodes[j].y, 2)
+                );
+                
+                // Connect nodes that are close to each other (within 150px)
+                // More connections - 80% chance to connect nearby nodes
+                if (distance < 150 && Math.random() > 0.2) {
+                    this.edges.push({
+                        source: this.nodes[i],
+                        target: this.nodes[j]
+                    });
                 }
-            });
-
-            // Send button click
-            sendBtn.addEventListener('click', () => {
-                this.handleSendMessage();
-            });
+            }
         }
     }
-
-    initializeImageUpload() {
-        const uploadBtn = document.getElementById('uploadBtn');
-        const imageInput = document.getElementById('imageInput');
-
-        if (uploadBtn && imageInput) {
-            uploadBtn.addEventListener('click', () => {
-                imageInput.click();
+    
+    initNetwork() {
+        // Create fewer nodes with more connections
+        const nodeCount = 80; // Fewer nodes for clearer network
+        
+        // Use a grid-like distribution with some randomness for natural look
+        const cols = Math.ceil(Math.sqrt(nodeCount * (this.canvas.width / this.canvas.height)));
+        const rows = Math.ceil(nodeCount / cols);
+        const cellWidth = this.canvas.width / cols;
+        const cellHeight = this.canvas.height / rows;
+        
+        for (let i = 0; i < nodeCount; i++) {
+            const color = NODE_COLORS[Math.floor(Math.random() * NODE_COLORS.length)];
+            const col = i % cols;
+            const row = Math.floor(i / cols);
+            
+            // Add randomness to grid positions for natural distribution
+            const x = col * cellWidth + (Math.random() - 0.5) * cellWidth * 0.6 + cellWidth / 2;
+            const y = row * cellHeight + (Math.random() - 0.5) * cellHeight * 0.6 + cellHeight / 2;
+            
+            // Keep nodes in bounds
+            const finalX = Math.max(6, Math.min(this.canvas.width - 6, x));
+            const finalY = Math.max(6, Math.min(this.canvas.height - 6, y));
+            
+            const nodeRadius = 4 + Math.random() * 2; // Small nodes (4-6px) - fixed size
+            // Add subtle random velocity for gentle animation
+            const speed = 0.1 + Math.random() * 0.1; // Very slow movement
+            const angle = Math.random() * Math.PI * 2;
+            this.nodes.push({
+                id: i,
+                x: finalX,
+                y: finalY,
+                vx: Math.cos(angle) * speed, // Subtle horizontal movement
+                vy: Math.sin(angle) * speed, // Subtle vertical movement
+                radius: nodeRadius, // Fixed size - never changes
+                originalRadius: nodeRadius, // Store original for safety
+                color: color,
+                agentKey: Object.keys(AGENT_DETAILS)[i % Object.keys(AGENT_DETAILS).length]
             });
+        }
+        
+        // Create edges (connections between nodes) - create a dense network
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const distance = Math.sqrt(
+                    Math.pow(this.nodes[i].x - this.nodes[j].x, 2) +
+                    Math.pow(this.nodes[i].y - this.nodes[j].y, 2)
+                );
+                
+                // Connect nodes that are close to each other (within 150px)
+                // More connections - 80% chance to connect nearby nodes
+                if (distance < 150 && Math.random() > 0.2) {
+                    this.edges.push({
+                        source: this.nodes[i],
+                        target: this.nodes[j]
+                    });
+                }
+            }
+        }
+    }
+    
+    update() {
+        // Only update if animation is enabled
+        if (!this.animationEnabled) return;
+        
+        // Update node positions (simple physics simulation with gentle movement)
+        this.nodes.forEach(node => {
+            // Store original position bounds for gentle oscillation
+            if (!node.originalX) {
+                node.originalX = node.x;
+                node.originalY = node.y;
+                node.maxDistance = 20 + Math.random() * 30; // Max distance from origin (20-50px)
+            }
+            
+            // Update position
+            node.x += node.vx;
+            node.y += node.vy;
+            
+            // Calculate distance from original position
+            const distance = Math.sqrt(
+                Math.pow(node.x - node.originalX, 2) + 
+                Math.pow(node.y - node.originalY, 2)
+            );
+            
+            // If too far from original position, reverse direction
+            if (distance > node.maxDistance) {
+                const angle = Math.atan2(node.y - node.originalY, node.x - node.originalX);
+                node.vx = -Math.cos(angle) * (0.1 + Math.random() * 0.1);
+                node.vy = -Math.sin(angle) * (0.1 + Math.random() * 0.1);
+            }
+            
+            // Bounce off canvas edges
+            if (node.x < node.radius || node.x > this.canvas.width - node.radius) {
+                node.vx *= -1;
+            }
+            if (node.y < node.radius || node.y > this.canvas.height - node.radius) {
+                node.vy *= -1;
+            }
+            
+            // Keep nodes in bounds
+            node.x = Math.max(node.radius, Math.min(this.canvas.width - node.radius, node.x));
+            node.y = Math.max(node.radius, Math.min(this.canvas.height - node.radius, node.y));
+        });
+    }
+    
+    stopAnimation() {
+        this.animationEnabled = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+    }
+    
+    startAnimation() {
+        this.animationEnabled = true;
+        if (!this.animationId) {
+            this.animate();
+        }
+    }
+    
+    startSimulation() {
+        this.simulating = true;
+        this.animationPhase = 'loading';
+        this.simulationStartTime = Date.now();
+    }
+    
+    stopSimulation() {
+        this.simulating = false;
+        this.animationPhase = 'idle';
+        this.simulationStartTime = 0;
+    }
+    
+    draw() {
+        // Clear entire canvas (in device pixels)
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Draw edges with gradient - more visible connections
+        this.edges.forEach(edge => {
+            const gradient = this.ctx.createLinearGradient(
+                edge.source.x, edge.source.y,
+                edge.target.x, edge.target.y
+            );
+            
+            // Animate edges during simulation - more visible pulsing
+            let edgeOpacity = 0.25;
+            if (this.animationPhase === 'loading' || this.animationPhase === 'updating') {
+                const time = Date.now() - this.simulationStartTime;
+                // Stronger pulse for all edges
+                const pulse = Math.sin(time / 300) * 0.25 + 0.25;
+                edgeOpacity = 0.2 + pulse;
+            }
+            
+            gradient.addColorStop(0, `rgba(255, 255, 255, ${edgeOpacity})`);
+            gradient.addColorStop(0.5, `rgba(255, 255, 255, ${edgeOpacity * 0.6})`);
+            gradient.addColorStop(1, `rgba(255, 255, 255, ${edgeOpacity * 0.4})`);
+            
+            this.ctx.strokeStyle = gradient;
+            this.ctx.lineWidth = 2;
+            this.ctx.beginPath();
+            this.ctx.moveTo(edge.source.x, edge.source.y);
+            this.ctx.lineTo(edge.target.x, edge.target.y);
+            this.ctx.stroke();
+        });
+        
+        // Draw nodes (colored circles without icons)
+        this.nodes.forEach((node, index) => {
+            // Ensure radius never changes - restore original if modified
+            if (node.originalRadius && node.radius !== node.originalRadius) {
+                node.radius = node.originalRadius;
+            }
+            
+            const nodeRadius = node.radius;
+            let drawRadius = nodeRadius;
+            let glowIntensity = 8;
+            let pulseIntensity = 0;
+            
+            // Animation effects during simulation - ALL nodes animate
+            if (this.animationPhase === 'loading') {
+                const time = Date.now() - this.simulationStartTime;
+                // All nodes pulse together with slight variation for wave effect
+                const waveOffset = (index * 0.1) % (Math.PI * 2);
+                const pulse = Math.sin((time / 400) + waveOffset) * 0.4 + 0.6;
+                pulseIntensity = (1 - pulse) * 20;
+                drawRadius = nodeRadius * (1 + (1 - pulse) * 0.4);
+                glowIntensity = 12 + pulseIntensity;
+            } else if (this.animationPhase === 'updating') {
+                // Pulsing effect when updating colors - all nodes
+                const time = Date.now() - this.simulationStartTime;
+                const waveOffset = (index * 0.1) % (Math.PI * 2);
+                const pulse = Math.sin((time / 200) + waveOffset) * 0.3 + 0.7;
+                pulseIntensity = (1 - pulse) * 15;
+                drawRadius = nodeRadius * (1 + (1 - pulse) * 0.3);
+                glowIntensity = 10 + pulseIntensity;
+            }
+            
+            // Draw glow effect for selected node or during simulation
+            if (this.selectedNode === node || this.animationPhase !== 'idle') {
+                this.ctx.shadowBlur = glowIntensity;
+                this.ctx.shadowColor = node.color;
+            } else {
+                this.ctx.shadowBlur = 8;
+                this.ctx.shadowColor = node.color;
+            }
+            
+            // Draw node circle with gradient
+            const gradient = this.ctx.createRadialGradient(
+                node.x - drawRadius * 0.3, node.y - drawRadius * 0.3, 0,
+                node.x, node.y, drawRadius
+            );
+            
+            // Brighten color during simulation
+            let baseColor = node.color;
+            if (this.animationPhase === 'loading' || this.animationPhase === 'updating') {
+                baseColor = this.lightenColor(node.color, 15);
+            }
+            
+            gradient.addColorStop(0, this.lightenColor(baseColor, 20));
+            gradient.addColorStop(1, baseColor);
+            
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, drawRadius, 0, Math.PI * 2);
+            this.ctx.fillStyle = gradient;
+            this.ctx.fill();
+            
+            // Draw border with glow
+            this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+            this.ctx.lineWidth = 1.5;
+            this.ctx.stroke();
+            
+            // Draw pulsing ring during simulation - all nodes get rings
+            if (this.animationPhase === 'loading' || this.animationPhase === 'updating') {
+                const time = Date.now() - this.simulationStartTime;
+                // Create wave effect with slight offset per node
+                const waveOffset = (index * 0.15) % 1000;
+                const ringProgress = ((time - waveOffset) % 1200) / 1200;
+                if (ringProgress < 0.6) {
+                    const ringRadius = drawRadius + ringProgress * 25;
+                    const ringOpacity = (0.6 - ringProgress) * 0.8;
+                    this.ctx.strokeStyle = `rgba(168, 85, 247, ${ringOpacity})`;
+                    this.ctx.lineWidth = 2;
+                    this.ctx.beginPath();
+                    this.ctx.arc(node.x, node.y, ringRadius, 0, Math.PI * 2);
+                    this.ctx.stroke();
+                }
+            }
+            
+            // Reset shadow
+            this.ctx.shadowBlur = 0;
+        });
+    }
+    
+    lightenColor(color, percent) {
+        const num = parseInt(color.replace("#",""), 16);
+        const amt = Math.round(2.55 * percent);
+        const R = Math.min(255, (num >> 16) + amt);
+        const G = Math.min(255, (num >> 8 & 0x00FF) + amt);
+        const B = Math.min(255, (num & 0x0000FF) + amt);
+        return "#" + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
+    }
+    
+    animate() {
+        this.update();
+        this.draw();
+        // Continue animation loop
+        if (this.animationEnabled) {
+            this.animationId = requestAnimationFrame(() => this.animate());
+        } else {
+            this.animationId = null;
+        }
+    }
+    
+    handleClick(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        // Get click coordinates relative to canvas
+        // Account for any CSS scaling
+        const scaleX = this.canvas.width / rect.width;
+        const scaleY = this.canvas.height / rect.height;
+        
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+        
+        // Find clicked node - check with a slightly larger hit area for easier clicking
+        for (let node of this.nodes) {
+            const distance = Math.sqrt(
+                Math.pow(x - node.x, 2) + Math.pow(y - node.y, 2)
+            );
+            
+            // Use a slightly larger hit area (1.5x radius) for easier clicking
+            const hitRadius = node.radius * 1.5;
+            
+            if (distance < hitRadius) {
+                this.selectedNode = node;
+                // Trigger node details modal via validator
+                if (window.bixifyValidator) {
+                    window.bixifyValidator.showNodeDetails(node);
+                }
+                return;
+            }
+        }
+        
+        this.selectedNode = null;
+    }
+    
+    handleHover(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        // Account for CSS scaling
+        const scaleX = this.canvas.width / rect.width;
+        const scaleY = this.canvas.height / rect.height;
+        
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+        
+        // Change cursor if hovering over node
+        let hovering = false;
+        for (let node of this.nodes) {
+            const distance = Math.sqrt(
+                Math.pow(x - node.x, 2) + Math.pow(y - node.y, 2)
+            );
+            
+            // Use slightly larger hit area for hover detection too
+            const hitRadius = node.radius * 1.5;
+            
+            if (distance < hitRadius) {
+                hovering = true;
+                break;
+            }
+        }
+        
+        this.canvas.style.cursor = hovering ? 'pointer' : 'default';
+    }
+}
 
+// Main Bixify Validator Class
+class BixifyValidator {
+    constructor() {
+        this.uploadedImages = [];
+        this.currentValidationResults = [];
+        this.networkGraph = null;
+        this.currentSelectedAgentKey = null;
+        this.currentFollowUpAgent = null;
+        
+        this.initializeEventListeners();
+        this.initializeNetworkGraph();
+    }
+    
+    initializeEventListeners() {
+        // Chat input functionality
+        const chatInput = document.getElementById('chatInput');
+        const simulateBtn = document.getElementById('simulateBtn');
+        const imageInput = document.getElementById('imageInput');
+        
+        if (chatInput) {
+            chatInput.addEventListener('input', () => {
+                this.adjustTextareaHeight(chatInput);
+            });
+            
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                    this.handleSimulate();
+                }
+            });
+        }
+        
+        if (simulateBtn) {
+            simulateBtn.addEventListener('click', () => this.handleSimulate());
+        }
+        
+        if (imageInput) {
             imageInput.addEventListener('change', (e) => {
                 this.handleImageUpload(e.target.files);
             });
         }
-    }
-
-    adjustTextareaHeight(textarea) {
-        // Reset height to auto to get accurate scrollHeight
-        textarea.style.height = 'auto';
-        // Set height with smooth transition, expanding up to max-height, then scrolling
-        const scrollHeight = textarea.scrollHeight;
-        const newHeight = Math.min(scrollHeight, 200); // Max 200px
-        textarea.style.height = newHeight + 'px';
         
-        // Update parent container to match textarea height
-        const inputArea = textarea.closest('.chat-input-area');
-        if (inputArea) {
-            inputArea.style.minHeight = (newHeight + 24) + 'px';
+        // Share button
+        const shareBtn = document.getElementById('shareBtn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                this.shareResults();
+            });
         }
-    }
-
-    updateSendButtonState() {
-        const chatInput = document.getElementById('chatInput');
-        const sendBtn = document.getElementById('sendBtn');
         
-        if (chatInput && sendBtn) {
-            const hasText = chatInput.value.trim().length > 0;
-            const hasImages = this.uploadedImages.length > 0;
+        // Generate variants button
+        const generateVariantsBtn = document.getElementById('generateVariantsBtn');
+        if (generateVariantsBtn) {
+            generateVariantsBtn.addEventListener('click', () => {
+                this.regenerateVariants();
+            });
+        }
+        
+        // Close results button
+        const closeResultsBtn = document.getElementById('closeResultsBtn');
+        if (closeResultsBtn) {
+            closeResultsBtn.addEventListener('click', () => {
+                this.closeResultsPanel();
+            });
+        }
+        
+        // Target Audience Modal
+        this.initializeTargetAudienceModal();
+        
+        // Node Details Modal
+        this.initializeNodeDetailsModal();
+        
+        // Sidebar Tabs
+        this.initializeSidebarTabs();
+        
+    }
+    
+    initializeSidebarTabs() {
+        const tabs = document.querySelectorAll('.sidebar-tab');
+        const tabContents = document.querySelectorAll('.sidebar-tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const targetContent = document.getElementById(targetTab + 'Tab');
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+        
+        // Make test items clickable
+        const testItems = document.querySelectorAll('.test-item');
+        testItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // In a real app, this would load the test results
+                this.showNotification('Loading test results...', 'info');
+            });
+        });
+    }
+    
+    initializeTargetAudienceModal() {
+        // Target Audience button click
+        const targetAudienceBtn = document.getElementById('targetAudienceBtn');
+        if (targetAudienceBtn) {
+            targetAudienceBtn.addEventListener('click', () => {
+                this.showTargetAudienceModal();
+            });
+        }
+        
+        // Close target audience modal
+        const targetAudienceClose = document.getElementById('targetAudienceClose');
+        if (targetAudienceClose) {
+            targetAudienceClose.addEventListener('click', () => {
+                this.hideTargetAudienceModal();
+            });
+        }
+        
+        // Create Target Audience button
+        const createTargetAudienceBtn = document.getElementById('createTargetAudienceBtn');
+        if (createTargetAudienceBtn) {
+            createTargetAudienceBtn.addEventListener('click', () => {
+                this.showCreateTargetAudienceModal();
+            });
+        }
+        
+        // Back button in create modal
+        const createAudienceBack = document.getElementById('createAudienceBack');
+        if (createAudienceBack) {
+            createAudienceBack.addEventListener('click', () => {
+                this.hideCreateTargetAudienceModal();
+                this.showTargetAudienceModal();
+            });
+        }
+        
+        // Create Society button
+        const createSocietyBtn = document.getElementById('createSocietyBtn');
+        if (createSocietyBtn) {
+            createSocietyBtn.addEventListener('click', () => {
+                this.handleCreateSociety();
+            });
+        }
+        
+        // Existing audience items click
+        const audienceItems = document.querySelectorAll('.audience-item');
+        audienceItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const audienceName = item.getAttribute('data-audience');
+                this.selectTargetAudience(audienceName);
+            });
+        });
+        
+        // Close modal when clicking outside (but not when clicking inside modal content)
+        const targetAudienceModal = document.getElementById('targetAudienceModal');
+        if (targetAudienceModal) {
+            targetAudienceModal.addEventListener('click', (e) => {
+                if (e.target === targetAudienceModal) {
+                    this.hideTargetAudienceModal();
+                }
+            });
             
-            sendBtn.disabled = !(hasText || hasImages);
+            // Prevent clicks inside modal-content from closing the modal
+            const modalContent = targetAudienceModal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+        }
+            
+        const createTargetAudienceModal = document.getElementById('createTargetAudienceModal');
+        if (createTargetAudienceModal) {
+            createTargetAudienceModal.addEventListener('click', (e) => {
+                if (e.target === createTargetAudienceModal) {
+                    this.hideCreateTargetAudienceModal();
+                }
+            });
+            
+            // Prevent clicks inside modal-content from closing the modal
+            const modalContent = createTargetAudienceModal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
         }
     }
-
+    
+    showTargetAudienceModal() {
+        const modal = document.getElementById('targetAudienceModal');
+        if (modal) {
+            modal.style.display = 'flex';
+        }
+    }
+    
+    hideTargetAudienceModal() {
+        const modal = document.getElementById('targetAudienceModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+    
+    showCreateTargetAudienceModal() {
+        this.hideTargetAudienceModal();
+        const modal = document.getElementById('createTargetAudienceModal');
+        if (modal) {
+            modal.style.display = 'flex';
+        }
+    }
+    
+    hideCreateTargetAudienceModal() {
+        const modal = document.getElementById('createTargetAudienceModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+    
+    selectTargetAudience(audienceName) {
+        const selectedElement = document.getElementById('selectedTargetAudience');
+        if (selectedElement) {
+            selectedElement.textContent = audienceName;
+        }
+        this.hideTargetAudienceModal();
+    }
+    
+    handleCreateSociety() {
+        const input = document.getElementById('createAudienceInput');
+        const description = input?.value.trim();
+        
+        if (!description) {
+            this.showNotification('Please enter a description for your society', 'error');
+            return;
+        }
+        
+        // Here you would typically send the data to your backend
+        // For now, we'll just show a success message and update the UI
+        this.showNotification('Society created successfully!', 'success');
+        
+        // Update the selected target audience
+        const selectedElement = document.getElementById('selectedTargetAudience');
+        if (selectedElement) {
+            // Extract a short name from the description
+            const shortName = description.length > 30 ? description.substring(0, 30) + '...' : description;
+            selectedElement.textContent = shortName;
+        }
+        
+        // Clear input and close modal
+        if (input) {
+            input.value = '';
+        }
+        this.hideCreateTargetAudienceModal();
+    }
+    
+    
+    closeResultsPanel() {
+        const resultsPanel = document.getElementById('resultsPanel');
+        const chatInputContainer = document.getElementById('chatInputContainer');
+        const networkContentArea = document.querySelector('.network-content-area');
+        
+        if (resultsPanel) {
+            resultsPanel.style.display = 'none';
+        }
+        
+        if (chatInputContainer) {
+            chatInputContainer.classList.remove('hidden');
+        }
+        
+        // Remove margin adjustment
+        if (networkContentArea) {
+            networkContentArea.classList.remove('has-results');
+        }
+        
+        // DON'T resize canvas - just redraw to ensure everything is visible
+        // The network should remain unchanged visually
+        // Animation should already be running, but ensure it continues
+        if (this.networkGraph) {
+            this.networkGraph.draw();
+            if (!this.networkGraph.animationEnabled) {
+                this.networkGraph.startAnimation();
+            }
+        }
+    }
+    
+    shareResults() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Bixify Validation Results',
+                text: 'Check out my content validation results!',
+                url: window.location.href
+            }).catch(err => {
+                this.showNotification('Results copied to clipboard!', 'success');
+            });
+        } else {
+            // Fallback: copy to clipboard
+            const resultsText = `Bixify Validation Results\nImpact Score: ${document.getElementById('impactScore')?.textContent || 'N/A'}`;
+            navigator.clipboard.writeText(resultsText).then(() => {
+                this.showNotification('Results copied to clipboard!', 'success');
+            });
+        }
+    }
+    
+    regenerateVariants() {
+        const variantInstructions = document.getElementById('variantInstructions')?.value || '';
+        if (this.currentValidationResults && this.currentValidationResults.length > 0) {
+            this.generateVariants(this.currentValidationResults);
+            this.showNotification('New variants generated!', 'success');
+        }
+    }
+    
+    initializeNetworkGraph() {
+        this.networkGraph = new NetworkGraph('networkCanvas');
+    }
+    
+    adjustTextareaHeight(textarea) {
+        textarea.style.height = 'auto';
+        const scrollHeight = textarea.scrollHeight;
+        const newHeight = Math.min(scrollHeight, 200);
+        textarea.style.height = newHeight + 'px';
+    }
+    
     handleImageUpload(files) {
         Array.from(files).forEach(file => {
             if (file.type.startsWith('image/')) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
-                    this.addUploadedImage(e.target.result, file.name);
+                    this.uploadedImages.push({
+                        id: 'img_' + Date.now(),
+                        data: e.target.result,
+                        name: file.name
+                    });
+                    this.showNotification('Image uploaded successfully', 'success');
                 };
                 reader.readAsDataURL(file);
             }
         });
     }
-
-    addUploadedImage(imageData, fileName) {
-        const imageId = 'img_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        
-        this.uploadedImages.push({
-            id: imageId,
-            data: imageData,
-            name: fileName
-        });
-
-        this.renderUploadedImages();
-        this.updateSendButtonState();
-    }
-
-    removeUploadedImage(imageId) {
-        this.uploadedImages = this.uploadedImages.filter(img => img.id !== imageId);
-        this.renderUploadedImages();
-        this.updateSendButtonState();
-    }
-
-    renderUploadedImages() {
-        const container = document.getElementById('uploadedImages');
-        if (!container) return;
-
-        container.innerHTML = '';
-        
-        this.uploadedImages.forEach(image => {
-            const imageElement = document.createElement('div');
-            imageElement.className = 'uploaded-image';
-            imageElement.innerHTML = `
-                <img src="${image.data}" alt="${image.name}" title="${image.name}">
-                <button type="button" class="remove-btn" data-image-id="${image.id}">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
-
-            // Add remove button event listener
-            const removeBtn = imageElement.querySelector('.remove-btn');
-            removeBtn.addEventListener('click', () => {
-                this.removeUploadedImage(image.id);
-            });
-
-            container.appendChild(imageElement);
-        });
-    }
-
-    handleSendMessage() {
+    
+    async handleSimulate() {
         const chatInput = document.getElementById('chatInput');
-        const message = chatInput.value.trim();
+        const message = chatInput?.value.trim();
         
         if (!message && this.uploadedImages.length === 0) {
+            this.showNotification('Please enter some content or upload an image', 'error');
             return;
         }
-
-        // Add user message to chat
-        this.addUserMessage(message);
         
-        // Clear input
-        chatInput.value = '';
-        this.adjustTextareaHeight(chatInput);
+        // Show loading overlay and lock chat input
+        this.showSimulationLoading();
         
-        // Clear images
-        this.uploadedImages = [];
-        this.renderUploadedImages();
-        
-        // Update button state
-        this.updateSendButtonState();
-        
-        // Process the message (this would integrate with your existing validation logic)
-        this.processContentValidation(message);
-    }
-
-    addUserMessage(message) {
-        const chatMessages = document.getElementById('chatMessages');
-        if (!chatMessages || !message) return;
-
-        const messageElement = document.createElement('div');
-        messageElement.className = 'chat-message user-message';
-        messageElement.innerHTML = `
-            <div class="message-avatar">
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="message-content">
-                <p>${message}</p>
-            </div>
-        `;
-
-        chatMessages.appendChild(messageElement);
-        
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    processContentValidation(content) {
-        // Show loading spinners immediately on all agent cards
-        this.resetAgentsGrid();
-        
-        // Simulate processing (using placeholder results - much faster)
-        setTimeout(() => {
-            this.runSimulation(content);
-        }, 800); // Reduced from 2000ms to 800ms for better UX
-    }
-
-    showLoadingModal() {
-        const modal = document.getElementById('loadingModal');
-        if (modal) {
-            modal.style.display = 'flex';
+        // Start simulation animations
+        if (this.networkGraph) {
+            this.networkGraph.startSimulation();
         }
-    }
-
-    hideLoadingModal() {
-        const modal = document.getElementById('loadingModal');
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    async runSimulation(content) {
+        
         try {
-            // Simulate API call delay (reduced for placeholder results)
-            // Spinners are already showing from processContentValidation
-            await new Promise(resolve => setTimeout(resolve, 400)); // Reduced from 1000ms to 400ms
+            // Add minimum delay to show loading animation (at least 1.5 seconds)
+            const minDelay = 1500;
+            const startTime = Date.now();
             
-            // Generate mock results
             const results = await this.simulateAgents({
-                text: content,
+                text: message || '',
                 image_description: this.uploadedImages.length > 0 ? `${this.uploadedImages.length} image(s) uploaded` : ''
             });
             
-            // Display results
-            this.displayResults(results);
+            // Ensure minimum delay has passed
+            const elapsed = Date.now() - startTime;
+            if (elapsed < minDelay) {
+                await new Promise(resolve => setTimeout(resolve, minDelay - elapsed));
+            }
             
-            // Show success notification
-            this.showNotification('Content validation completed successfully!', 'success');
+            this.currentValidationResults = results.results;
+            
+            // Update network graph with results (with animation)
+            // Loading overlay will be hidden after results are displayed in updateNetworkWithResults
+            if (this.networkGraph) {
+                await this.updateNetworkWithResults(results.results);
+            }
             
         } catch (error) {
             console.error('Simulation error:', error);
             this.showNotification('An error occurred during validation. Please try again.', 'error');
+            
+            // Stop simulation animations on error
+            if (this.networkGraph) {
+                this.networkGraph.stopSimulation();
+            }
+            
+            // Hide loading overlay on error
+            this.hideSimulationLoading();
         }
     }
+    
+    showSimulationLoading() {
+        const loadingOverlay = document.getElementById('chatLoadingOverlay');
+        const chatInputContainer = document.getElementById('chatInputContainer');
+        const chatInput = document.getElementById('chatInput');
+        const simulateBtn = document.getElementById('simulateBtn');
+        const allActionBtns = document.querySelectorAll('.action-btn');
+        
+        if (loadingOverlay) {
+            loadingOverlay.style.display = 'flex';
+        }
+        
+        // Disable chat input
+        if (chatInput) {
+            chatInput.disabled = true;
+            chatInput.style.opacity = '0.5';
+            chatInput.style.cursor = 'not-allowed';
+        }
+        
+        // Disable all action buttons
+        allActionBtns.forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'not-allowed';
+            btn.style.pointerEvents = 'none';
+        });
+        
+        // Add disabled class to container
+        if (chatInputContainer) {
+            chatInputContainer.classList.add('simulating');
+        }
+    }
+    
+    hideSimulationLoading() {
+        const loadingOverlay = document.getElementById('chatLoadingOverlay');
+        const chatInputContainer = document.getElementById('chatInputContainer');
+        const chatInput = document.getElementById('chatInput');
+        const allActionBtns = document.querySelectorAll('.action-btn');
+        
+        if (loadingOverlay) {
+            loadingOverlay.style.display = 'none';
+        }
+        
+        // Re-enable chat input
+        if (chatInput) {
+            chatInput.disabled = false;
+            chatInput.style.opacity = '1';
+            chatInput.style.cursor = 'text';
+        }
+        
+        // Re-enable all action buttons
+        allActionBtns.forEach(btn => {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+            btn.style.pointerEvents = 'auto';
+        });
+        
+        // Remove disabled class from container
+        if (chatInputContainer) {
+            chatInputContainer.classList.remove('simulating');
+        }
+    }
+    
+    async updateNetworkWithResults(results) {
+        // Update node colors based on validation results (ONLY colors, NOT sizes)
+        if (!this.networkGraph) return;
+        
+        const resultsMap = {};
+        results.forEach(result => {
+            resultsMap[result.persona] = result;
+        });
 
-
-
-    initializeSidebar() {
-        // Sidebar menu interactions
-        const sidebarItems = document.querySelectorAll('.sidebar-item');
-        sidebarItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                sidebarItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
+        // Switch to updating phase
+        this.networkGraph.animationPhase = 'updating';
+        this.networkGraph.simulationStartTime = Date.now(); // Reset timer for update phase
+        
+        // Animate nodes changing colors progressively
+        const nodesToUpdate = this.networkGraph.nodes.filter(node => {
+            const agentKey = node.agentKey;
+            return resultsMap[agentKey];
+        });
+        
+        // Update nodes in batches with delay for visual effect
+        const batchSize = 10;
+        const delayBetweenBatches = 50;
+        
+        for (let i = 0; i < nodesToUpdate.length; i += batchSize) {
+            const batch = nodesToUpdate.slice(i, i + batchSize);
+            
+            batch.forEach(node => {
+                const agentKey = node.agentKey;
+                const result = resultsMap[agentKey];
                 
-                // Show notification for non-active items
-                if (!item.classList.contains('active') || !item.textContent.includes('Content Validation')) {
-                    this.showNotification(`${item.textContent.trim()} feature coming soon!`, 'info');
+                if (result) {
+                    // Store target color for smooth transition
+                    const targetColor = result.will_click ? '#22c55e' : '#ef4444';
+                    node.targetColor = targetColor;
+                    node.transitionStartTime = Date.now();
+                    node.transitionDuration = 800; // 800ms transition
+                    node.originalColor = node.color;
                 }
             });
-        });
-    }
-
-    initializeAnimations() {
-        // Add entrance animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe cards and sections
-        document.querySelectorAll('.section-card, .sidebar-stats').forEach(el => {
-            observer.observe(el);
-        });
-    }
-
-    async loadAgents() {
-        try {
-            const response = await fetch('/personas');
-            const data = await response.json();
             
-            // Generate 50 agents with unique keys and names
-            const expandedAgents = this.generateExpandedAgents(data.personas);
-            this.renderAgentsGrid(expandedAgents);
-        } catch (error) {
-            console.error('Error loading agents:', error);
-            this.showNotification('Failed to load agents. Please refresh the page.', 'error');
-            
-            // Fallback: try to render with default agents if API fails
-            try {
-                const fallbackAgents = this.generateExpandedAgents([]);
-                this.renderAgentsGrid(fallbackAgents);
-            } catch (fallbackError) {
-                console.error('Fallback agent loading also failed:', fallbackError);
+            // Wait before next batch
+            if (i + batchSize < nodesToUpdate.length) {
+                await new Promise(resolve => setTimeout(resolve, delayBetweenBatches));
             }
         }
-    }
-
-    generateExpandedAgents(baseAgents) {
-        const expandedAgents = [];
-        const agentTypes = [
-            'marketing_manager', 'data_analyst', 'content_creator', 'brand_strategist', 'social_media_expert',
-            'seo_specialist', 'ppc_analyst', 'email_marketer', 'growth_hacker', 'conversion_optimizer',
-            'ux_designer', 'ui_developer', 'product_manager', 'business_analyst', 'sales_director',
-            'customer_success', 'market_researcher', 'competitive_analyst', 'brand_manager', 'creative_director',
-            'digital_strategist', 'campaign_manager', 'lead_generation', 'retention_specialist', 'loyalty_manager',
-            'affiliate_coordinator', 'influencer_manager', 'partnership_director', 'event_planner', 'pr_specialist',
-            'content_strategist', 'copywriter', 'graphic_designer', 'video_producer', 'photographer',
-            'illustrator', 'animator', 'web_designer', 'mobile_designer', '3d_artist'
-        ];
-
-        // Add base agents from backend first
-        baseAgents.forEach(agent => {
-            expandedAgents.push(agent);
-        });
-
-        // Add expanded agents to fill exactly up to configured count
-        let agentIndex = 0;
-        while (expandedAgents.length < this.configuredAgentCount && agentIndex < agentTypes.length) {
-            const type = agentTypes[agentIndex];
-            // Check if this agent type is not already in baseAgents
-            if (!baseAgents.find(agent => agent.key === type)) {
-                expandedAgents.push({
-                    key: type,
-                    name: type.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
-                    description: `Professional ${type.split('_').join(' ')} with expertise in their field`
+        
+        // Animate color transitions
+        const transitionDuration = 1000;
+        const startTime = Date.now();
+        
+        const animateTransition = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / transitionDuration, 1);
+            
+            this.networkGraph.nodes.forEach(node => {
+                if (node.targetColor && node.originalColor) {
+                    const t = this.easeInOutCubic(progress);
+                    node.color = this.interpolateColor(node.originalColor, node.targetColor, t);
+                }
+            });
+            
+            this.networkGraph.draw();
+            
+            if (progress < 1) {
+                requestAnimationFrame(animateTransition);
+            } else {
+                // Finalize colors
+                this.networkGraph.nodes.forEach(node => {
+                    if (node.targetColor) {
+                        node.color = node.targetColor;
+                        delete node.targetColor;
+                        delete node.originalColor;
+                        delete node.transitionStartTime;
+                        delete node.transitionDuration;
+                    }
                 });
-            }
-            agentIndex++;
-        }
-
-        // Return exactly the configured number of agents
-        return expandedAgents.slice(0, this.configuredAgentCount);
-    }
-
-    renderAgentsGrid(agents) {
-        const grid = document.getElementById('agentsGrid');
-        if (!grid) return;
-
-        const agentData = AGENT_DETAILS || {};
-        
-        grid.innerHTML = agents.map((agent, index) => {
-            const details = agentData[agent.key] || { name: agent.name, description: agent.description };
-            const role = agent.key.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-            
-            return `
-            <div class="agent-card" 
-                 data-agent="${agent.key}" 
-                 role="button" 
-                 tabindex="0"
-                 aria-label="${details.name} - Click for validation details"
-                 title="${details.name}">
-                <div class="avatar-status" style="display: none;">
-                    <i class="fas fa-spinner"></i>
-                </div>
-                <div class="agent-card-avatar">
-                    <img src="${getAgentAvatar(agent.key)}" alt="${details.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
-                    <div class="click-result" style="display: none;" aria-hidden="true">
-                        <div class="click-indicator" aria-label="Validation result"></div>
-                    </div>
-                </div>
-                <div class="agent-card-info">
-                    <div class="agent-card-name">${details.name}</div>
-                    <div class="agent-card-role">${role}</div>
-                </div>
-                <div class="agent-card-badge">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-            </div>
-            `;
-        }).join('');
-
-        // Add click event listeners to agent cards
-        if (typeof this.addAgentClickListeners === 'function') {
-            this.addAgentClickListeners();
-        } else {
-            console.error('addAgentClickListeners method not found');
-        }
-    }
-
-    addAgentClickListeners() {
-        // Add click event listeners to agent cards only
-        const agentCards = document.querySelectorAll('.agent-card[data-agent]');
-        agentCards.forEach(card => {
-            // Remove existing listeners to avoid duplicates
-            if (card.clickHandler) {
-                card.removeEventListener('click', card.clickHandler);
-                card.removeEventListener('keydown', card.keyHandler);
-            }
-            
-            // Create new click handler
-            card.clickHandler = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const agentKey = card.dataset.agent;
-                if (agentKey) {
-                    console.log('Opening modal for agent:', agentKey);
-                    this.showAgentInfoModal(agentKey);
-                }
-            };
-            
-            // Create keyboard handler for accessibility
-            card.keyHandler = (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const agentKey = card.dataset.agent;
-                    if (agentKey) {
-                        console.log('Opening modal for agent:', agentKey);
-                        this.showAgentInfoModal(agentKey);
-                    }
-                }
-            };
-            
-            // Add new listeners
-            card.addEventListener('click', card.clickHandler);
-            card.addEventListener('keydown', card.keyHandler);
-        });
-    }
-
-    saveAgentsState() {
-        // Save the current state of all agent avatars
-        const agentAvatars = document.querySelectorAll('.agent-avatar');
-        this.previousAgentsState = Array.from(agentAvatars).map(avatar => {
-            const clickResult = avatar.querySelector('.click-result');
-            return {
-                agentKey: avatar.dataset.agent,
-                hasClickResult: clickResult && clickResult.style.display !== 'none',
-                clickResultHTML: clickResult ? clickResult.outerHTML : null,
-                className: avatar.className
-            };
-        });
-    }
-
-    restoreAgentsState() {
-        // Restore the previous state of all agent avatars
-        if (!this.previousAgentsState) return;
-        
-        const agentAvatars = document.querySelectorAll('.agent-avatar');
-        agentAvatars.forEach(avatar => {
-            const agentKey = avatar.dataset.agent;
-            const savedState = this.previousAgentsState.find(state => state.agentKey === agentKey);
-            
-            if (savedState) {
-                // Restore click result if it existed
-                if (savedState.hasClickResult && savedState.clickResultHTML) {
-                    const existingClickResult = avatar.querySelector('.click-result');
-                    if (existingClickResult) {
-                        existingClickResult.outerHTML = savedState.clickResultHTML;
-                    }
-                }
                 
-                // Restore avatar class
-                avatar.className = savedState.className;
+                // Complete simulation
+                this.networkGraph.animationPhase = 'complete';
+                
+                // Wait a bit before showing results
+                setTimeout(() => {
+                    this.networkGraph.animationPhase = 'idle';
+                    this.displayResultsPanel(results);
+                    // Hide loading overlay after results are displayed
+                    this.hideSimulationLoading();
+                }, 500);
             }
-        });
+        };
+        
+        animateTransition();
     }
-
+    
+    // Helper function for smooth color interpolation
+    interpolateColor(color1, color2, t) {
+        const hex1 = color1.replace('#', '');
+        const hex2 = color2.replace('#', '');
+        
+        const r1 = parseInt(hex1.substr(0, 2), 16);
+        const g1 = parseInt(hex1.substr(2, 2), 16);
+        const b1 = parseInt(hex1.substr(4, 2), 16);
+        
+        const r2 = parseInt(hex2.substr(0, 2), 16);
+        const g2 = parseInt(hex2.substr(2, 2), 16);
+        const b2 = parseInt(hex2.substr(4, 2), 16);
+        
+        const r = Math.round(r1 + (r2 - r1) * t);
+        const g = Math.round(g1 + (g2 - g1) * t);
+        const b = Math.round(b1 + (b2 - b1) * t);
+        
+        return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+    }
+    
+    // Easing function for smooth animation
+    easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    
+    displayResultsPanel(results) {
+        const resultsPanel = document.getElementById('resultsPanel');
+        const chatInputContainer = document.getElementById('chatInputContainer');
+        
+        if (!resultsPanel) return;
+        
+        // Calculate metrics
+        const total = results.length;
+        const wouldClick = results.filter(r => r.will_click).length;
+        const interested = Math.floor(total * 0.3); // 30% interested
+        const wouldSkip = total - wouldClick - interested;
+        
+        const clickPercent = Math.round((wouldClick / total) * 100);
+        const interestedPercent = Math.round((interested / total) * 100);
+        const skipPercent = Math.round((wouldSkip / total) * 100);
+        
+        // Calculate impact score (0-100)
+        const avgConfidence = results.reduce((sum, r) => sum + r.confidence, 0) / total;
+        const impactScore = Math.round((clickPercent * 0.6 + avgConfidence * 4) / 10);
+        
+        // Update impact score
+        const impactScoreEl = document.getElementById('impactScore');
+        const impactLabelEl = document.getElementById('impactLabel');
+        const impactBarFillEl = document.getElementById('impactBarFill');
+        
+        if (impactScoreEl) impactScoreEl.textContent = impactScore;
+        if (impactLabelEl) {
+            let label = 'Low';
+            if (impactScore >= 70) label = 'Excellent';
+            else if (impactScore >= 50) label = 'Good';
+            else if (impactScore >= 30) label = 'Moderate';
+            else if (impactScore >= 15) label = 'Low';
+            else label = 'Very Low';
+            impactLabelEl.textContent = label;
+        }
+        if (impactBarFillEl) {
+            impactBarFillEl.style.width = impactScore + '%';
+        }
+        
+        // Update engagement metrics
+        const clickBar = document.getElementById('clickBar');
+        const clickValue = document.getElementById('clickValue');
+        const interestedBar = document.getElementById('interestedBar');
+        const interestedValue = document.getElementById('interestedValue');
+        const skipBar = document.getElementById('skipBar');
+        const skipValue = document.getElementById('skipValue');
+        
+        if (clickBar) {
+            clickBar.style.width = clickPercent + '%';
+            setTimeout(() => clickBar.style.width = clickPercent + '%', 100);
+        }
+        if (clickValue) clickValue.textContent = clickPercent + '%';
+        
+        if (interestedBar) {
+            interestedBar.style.width = interestedPercent + '%';
+            setTimeout(() => interestedBar.style.width = interestedPercent + '%', 100);
+        }
+        if (interestedValue) interestedValue.textContent = interestedPercent + '%';
+        
+        if (skipBar) {
+            skipBar.style.width = skipPercent + '%';
+            setTimeout(() => skipBar.style.width = skipPercent + '%', 100);
+        }
+        if (skipValue) skipValue.textContent = skipPercent + '%';
+        
+        // Generate variants
+        this.generateVariants(results);
+        
+        // Show results panel and hide chat input
+        resultsPanel.style.display = 'block';
+        if (chatInputContainer) {
+            chatInputContainer.classList.add('hidden');
+        }
+        
+        // Adjust network content area margin for results panel
+        const networkContentArea = document.querySelector('.network-content-area');
+        if (networkContentArea) {
+            networkContentArea.classList.add('has-results');
+        }
+        
+        // DON'T resize canvas - results panel is fixed/overlay, so canvas should stay the same
+        // The network should remain unchanged visually
+        if (this.networkGraph) {
+            // Just redraw to ensure everything is visible (no resize, no repositioning)
+            // Keep animation running for visual appeal
+            this.networkGraph.draw();
+        }
+    }
+    
+    generateVariants(results) {
+        const variantList = document.getElementById('variantList');
+        if (!variantList) return;
+        
+        // Get original content
+        const chatInput = document.getElementById('chatInput');
+        const originalText = chatInput?.value || 'Your content';
+        
+        // Generate variants based on results
+        const variants = [
+            {
+                text: originalText,
+                score: Math.round(results.filter(r => r.will_click).length / results.length * 100)
+            },
+            {
+                text: this.generateVariantText(originalText, 1),
+                score: Math.min(100, Math.round(results.filter(r => r.will_click).length / results.length * 100) + 20)
+            },
+            {
+                text: this.generateVariantText(originalText, 2),
+                score: Math.min(100, Math.round(results.filter(r => r.will_click).length / results.length * 100) + 15)
+            },
+            {
+                text: this.generateVariantText(originalText, 3),
+                score: Math.min(100, Math.round(results.filter(r => r.will_click).length / results.length * 100) + 18)
+            }
+        ];
+        
+        variantList.innerHTML = variants.map((variant, index) => `
+            <div class="variant-item">
+                <div class="variant-text">${variant.text}</div>
+                <div class="variant-score">${variant.score}</div>
+            </div>
+        `).join('');
+    }
+    
+    generateVariantText(original, type) {
+        // Generate unique variants based on type
+        const text = original.trim();
+        
+        if (type === 1) {
+            // More engaging opener
+            return `🚀 ${text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()} - What are you building today?`;
+        } else if (type === 2) {
+            // Question format
+            return `Hey founders! ${text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()} - Ship one tiny feature today.`;
+        } else if (type === 3) {
+            // Story format
+            return `Just shipped our MVP after 72 hours. ${text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()} - Let's make it happen!`;
+        }
+        
+        return original;
+    }
+    
     async simulateAgents(content) {
         const response = await fetch('/simulate', {
             method: 'POST',
@@ -1108,286 +1322,377 @@ class AskMeValidator {
             },
             body: JSON.stringify(content)
         });
-
+        
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-
-        const data = await response.json();
         
-        // Only return results for the configured number of agents
-        if (data.results && data.results.length > this.configuredAgentCount) {
-            data.results = data.results.slice(0, this.configuredAgentCount);
-            data.summary.total_personas = this.configuredAgentCount;
-            data.summary.will_click_count = data.results.filter(r => r.will_click).length;
-            data.summary.average_confidence = data.results.reduce((sum, r) => sum + r.confidence, 0) / data.results.length;
-        }
-        
-        return data;
+        return await response.json();
     }
 
-    resetAgentsGrid() {
-        const agentCards = document.querySelectorAll('.agent-card');
-        agentCards.forEach(card => {
-            // Find the avatar status at the card level (centered on card)
-            const avatarStatus = card.querySelector('.avatar-status');
-            const clickResult = card.querySelector('.agent-card-avatar .click-result');
-            
-            // Add processing state to the card
-            card.classList.add('processing');
-            
-            if (avatarStatus) {
-                avatarStatus.style.display = 'flex';
-            }
-            
-            if (clickResult) {
-                clickResult.style.display = 'none';
-            }
-            
-            // Reset aria-label to original
-            const agentKey = card.dataset.agent;
-            const agentName = AGENT_DETAILS[agentKey]?.name || agentKey.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
-            card.setAttribute('aria-label', `${agentName} - Click to see details`);
-        });
-
-        // Hide summary
-        const summary = document.getElementById('simulationSummary');
-        if (summary) summary.style.display = 'none';
-    }
-
-    displayResults(data) {
-        const { results, summary } = data;
-        
-        // Store current validation results for agent info modal
-        this.currentValidationResults = results;
-        
-        // Render agents with results in results section immediately
-        this.renderResultsAgents(results);
-        
-        // Shuffle results array to display in random order
-        const shuffledResults = this.shuffleArray([...results]);
-        
-        // Update each agent card with animation delay in random order (only affects initial agents view)
-        shuffledResults.forEach((result, index) => {
-            setTimeout(() => {
-                this.updateAgentCard(result);
-            }, index * 200); // Stagger the animations
-        });
-
-        // Show summary with results section
-        this.displaySummary(summary);
-
-        // Keep agents section visible - don't switch to results section
-        // The tabs in the agents section will show the validation results
-        // Just mark the agents section as having completed validation
-        const agentsSection = document.querySelector('.agents-section-fullscreen');
-        if (agentsSection) {
-            agentsSection.classList.add('fade-in');
-        }
-    }
-
-    renderResultsAgents(results) {
-        const resultsGrid = document.getElementById('resultsAgentsGrid');
-        const agentsGrid = document.getElementById('agentsGrid');
-        
-        const agentData = AGENT_DETAILS || {};
-        
-        // Create a map of results by persona
-        const resultsMap = {};
-        results.forEach(result => {
-            resultsMap[result.persona] = result;
-        });
-
-        // Get all agent keys to maintain order
-        const allAgentKeys = [...new Set(results.map(r => r.persona))];
-        
-        const agentHtml = allAgentKeys.map((agentKey, index) => {
-            const result = resultsMap[agentKey];
-            const details = agentData[agentKey] || { name: agentKey, description: '' };
-            const role = agentKey.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-            
-            // Determine click status
-            const clickStatus = result.will_click ? 'click-yes' : 'click-no';
-            const clickIcon = result.will_click ? '✓' : '✗';
-            
-            // Ensure we're using the correct persona key for data-agent
-            const personaKey = result.persona;
-            
-            return `
-            <div class="agent-card" 
-                 data-agent="${personaKey}" 
-                 data-index="${index}"
-                 role="button" 
-                 tabindex="0"
-                 aria-label="${details.name} - Click for validation details"
-                 title="${details.name}">
-                <div class="agent-card-avatar">
-                    <img src="${getAgentAvatar(agentKey)}" alt="${details.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop&crop=face'" />
-                    <div class="click-result ${clickStatus}" style="display: flex;" aria-hidden="true">
-                        <div class="click-indicator" aria-label="Validation result">${clickIcon}</div>
-                    </div>
-                </div>
-                <div class="agent-card-info">
-                    <div class="agent-card-name">${details.name}</div>
-                    <div class="agent-card-role">${role}</div>
-                </div>
-                <div class="agent-card-badge">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-            </div>
-            `;
-        }).join('');
-        
-        // Update agents grid (the main one users see)
-        if (agentsGrid) {
-            agentsGrid.innerHTML = agentHtml;
+    initializeNodeDetailsModal() {
+        // Close button
+        const nodeDetailsClose = document.getElementById('nodeDetailsClose');
+        if (nodeDetailsClose) {
+            nodeDetailsClose.addEventListener('click', () => {
+                this.hideNodeDetailsModal();
+            });
         }
         
-        // Also update results grid if it exists (for results section)
-        if (resultsGrid) {
-            resultsGrid.innerHTML = agentHtml;
-        }
-
-        // Add click event listeners to agent cards - ONLY to the agentsGrid since that's what's visible
-        const agentCards = agentsGrid?.querySelectorAll('.agent-card[data-agent]');
-        
-        if (agentCards) {
-            agentCards.forEach((card, index) => {
-                card.addEventListener('click', (e) => {
-                    e.preventDefault();
+        // Close when clicking outside (but not when clicking inside modal content)
+        const nodeDetailsModal = document.getElementById('nodeDetailsModal');
+        if (nodeDetailsModal) {
+            nodeDetailsModal.addEventListener('click', (e) => {
+                // Only close if clicking directly on the modal backdrop, not on modal-content
+                if (e.target === nodeDetailsModal) {
+                    this.hideNodeDetailsModal();
+                }
+            });
+            
+            // Prevent clicks inside modal-content from closing the modal
+            const modalContent = nodeDetailsModal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const agentKey = card.dataset.agent;
-                    if (agentKey) {
-                        this.showAgentInfoModal(agentKey);
-                    }
                 });
+            }
+        }
+        
+        // Follow-up button
+        const nodeDetailsFollowupBtn = document.getElementById('nodeDetailsFollowupBtn');
+        if (nodeDetailsFollowupBtn) {
+            nodeDetailsFollowupBtn.addEventListener('click', () => {
+                this.openFollowUpChat();
+            });
+        }
+        
+        // Follow-up modal close button
+        const followUpClose = document.getElementById('followUpClose');
+        if (followUpClose) {
+            followUpClose.addEventListener('click', () => {
+                this.closeFollowUpChat();
+            });
+        }
+        
+        // Follow-up modal - close when clicking outside (but not when clicking inside modal content)
+        const followUpModal = document.getElementById('followUpModal');
+        if (followUpModal) {
+            followUpModal.addEventListener('click', (e) => {
+                // Only close if clicking directly on the modal backdrop, not on modal-content
+                if (e.target === followUpModal) {
+                    this.closeFollowUpChat();
+                }
+            });
+            
+            // Prevent clicks inside modal-content from closing the modal
+            const modalContent = followUpModal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+        }
+        
+        // Follow-up send button
+        const followUpSendBtn = document.getElementById('followUpSendBtn');
+        const followUpInput = document.getElementById('followUpInput');
+        if (followUpSendBtn && followUpInput) {
+            followUpSendBtn.addEventListener('click', () => {
+                this.sendFollowUpMessage();
+            });
+            
+            // Send on Enter key
+            followUpInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    this.sendFollowUpMessage();
+                }
+            });
+            
+            // Auto-resize textarea
+            followUpInput.addEventListener('input', () => {
+                followUpInput.style.height = 'auto';
+                followUpInput.style.height = Math.min(followUpInput.scrollHeight, 120) + 'px';
             });
         }
     }
-
-    updateAgentCard(result) {
-        const card = document.querySelector(`.agent-card[data-agent="${result.persona}"]`);
-        if (!card) return;
-
-        const avatarStatus = card.querySelector('.avatar-status');
-        const clickResult = card.querySelector('.agent-card-avatar .click-result');
-
-        // Hide avatar status
-        if (avatarStatus) {
-            avatarStatus.style.display = 'none';
+    
+    showNodeDetails(node) {
+        if (!node) return;
+        
+        const modal = document.getElementById('nodeDetailsModal');
+        if (!modal) return;
+        
+        // Get agent details
+        const agentKey = node.agentKey;
+        const agentDetails = AGENT_DETAILS[agentKey] || {
+            name: 'Unknown Persona',
+            description: 'No description available',
+            age: 'N/A',
+            platforms: 'N/A',
+            values: 'N/A',
+            feedback: 'No feedback available'
+        };
+        
+        // Get validation result if available
+        let validationResult = null;
+        if (this.currentValidationResults && this.currentValidationResults.length > 0) {
+            validationResult = this.currentValidationResults.find(r => r.persona === agentKey);
         }
-
-        // Remove processing class
-        card.classList.remove('processing', 'loading');
-
-        // Update click result with clean status indicator
-        if (clickResult) {
-            const clickIndicator = clickResult.querySelector('.click-indicator');
+        
+        // Update avatar
+        const avatarImg = document.getElementById('nodeDetailsAvatar');
+        if (avatarImg) {
+            avatarImg.src = getAgentAvatar(agentKey);
+        }
+        
+        // Update name and description
+        const nameEl = document.getElementById('nodeDetailsName');
+        if (nameEl) nameEl.textContent = agentDetails.name;
+        
+        const descEl = document.getElementById('nodeDetailsDescription');
+        if (descEl) descEl.textContent = agentDetails.description;
+        
+        // Update attributes
+        const attributesEl = document.getElementById('nodeDetailsAttributes');
+        if (attributesEl) {
+            const attributes = [
+                { icon: 'fa-user', label: 'Age', value: agentDetails.age },
+                { icon: 'fa-share-alt', label: 'Platforms', value: agentDetails.platforms },
+                { icon: 'fa-heart', label: 'Values', value: agentDetails.values }
+            ];
             
-            if (clickIndicator) {
-                if (result.will_click) {
-                    clickResult.className = 'click-result click-yes';
-                    clickIndicator.textContent = '✓';
-                    clickIndicator.setAttribute('aria-label', 'Will click - Positive result');
-                } else {
-                    clickResult.className = 'click-result click-no';
-                    clickIndicator.textContent = '✗';
-                    clickIndicator.setAttribute('aria-label', 'Will not click - Negative result');
-                }
-                
-                clickResult.style.display = 'flex';
-            } else {
-                console.error('Click indicator not found for agent:', result.persona);
-            }
-        } else {
-            console.error('Click result not found for agent:', result.persona);
+            attributesEl.innerHTML = attributes.map(attr => `
+                <div class="node-attribute-tag">
+                    <i class="fas ${attr.icon}"></i>
+                    <span class="attribute-label">${attr.label}:</span>
+                    <span class="attribute-value">${attr.value}</span>
+                </div>
+            `).join('');
         }
-
-        // Add animation and update aria-label
-        card.classList.add('fade-in');
-        const agentName = card.getAttribute('aria-label') || '';
-        const status = result.will_click ? 'Positive' : 'Negative';
-        card.setAttribute('aria-label', `${agentName} (${status} validation result)`);
+        
+        // Update attention status
+        const attentionEl = document.getElementById('nodeDetailsAttention');
+        if (attentionEl) {
+            if (validationResult) {
+                if (validationResult.will_click) {
+                    attentionEl.innerHTML = '<i class="fas fa-check-circle" style="color: #22c55e;"></i> Clicked';
+                    attentionEl.style.color = '#22c55e';
+                } else {
+                    attentionEl.innerHTML = '<i class="fas fa-times-circle" style="color: #ef4444;"></i> Ignored it';
+                    attentionEl.style.color = '#ef4444';
+                }
+            } else {
+                attentionEl.textContent = 'Not yet evaluated';
+                attentionEl.style.color = '#a0a0a0';
+            }
+        }
+        
+        // Update comment
+        const commentEl = document.getElementById('nodeDetailsComment');
+        if (commentEl) {
+            if (validationResult && validationResult.reasoning) {
+                commentEl.textContent = `"${validationResult.reasoning}"`;
+            } else if (agentDetails.feedback) {
+                commentEl.textContent = agentDetails.feedback;
+            } else {
+                commentEl.textContent = 'No comment available';
+            }
+        }
+        
+        // Store the selected agent key for follow-up chat
+        this.currentSelectedAgentKey = agentKey;
+        
+        // Show modal
+        modal.style.display = 'flex';
     }
-
-    displaySummary(summary) {
-        const summaryElement = document.getElementById('simulationSummary');
-        if (!summaryElement) {
-            console.error('Summary element not found');
+    
+    hideNodeDetailsModal() {
+        const modal = document.getElementById('nodeDetailsModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+    
+    openFollowUpChat() {
+        // Store the current persona being chatted with
+        if (!this.currentSelectedAgentKey) {
+            this.showNotification('Please select a persona first', 'error');
             return;
         }
-
-        const totalPersonas = document.getElementById('totalPersonas');
-        const willClickCount = document.getElementById('willClickCount');
-        const averageConfidence = document.getElementById('averageConfidence');
-
-        // Populate results section statistics
-        if (totalPersonas) totalPersonas.textContent = summary.total_personas;
-        if (willClickCount) willClickCount.textContent = summary.will_click_count;
-        if (averageConfidence) averageConfidence.textContent = `${summary.average_confidence.toFixed(1)}%`;
-
-        // Populate agents section statistics
-        const agentsTotalPersonas = document.getElementById('agentsTotalPersonas');
-        const agentsWillClickCount = document.getElementById('agentsWillClickCount');
-        const agentsAverageConfidence = document.getElementById('agentsAverageConfidence');
         
-        if (agentsTotalPersonas) agentsTotalPersonas.textContent = summary.total_personas;
-        if (agentsWillClickCount) agentsWillClickCount.textContent = summary.will_click_count;
-        if (agentsAverageConfidence) agentsAverageConfidence.textContent = `${summary.average_confidence.toFixed(1)}%`;
-
-        // Hide empty state in results section
-        const emptyState = document.getElementById('emptyState');
-        if (emptyState) {
-            emptyState.style.display = 'none';
+        const modal = document.getElementById('followUpModal');
+        if (!modal) return;
+        
+        // Get agent details
+        const agentKey = this.currentSelectedAgentKey;
+        const agentDetails = AGENT_DETAILS[agentKey] || {
+            name: 'Unknown Persona',
+            description: 'No description available'
+        };
+        
+        // Update header
+        const avatarImg = document.getElementById('followUpAvatar');
+        if (avatarImg) {
+            avatarImg.src = getAgentAvatar(agentKey);
         }
         
-        // Hide empty state in agents section
-        const agentsEmptyState = document.querySelector('.agents-section-fullscreen .empty-state');
-        if (agentsEmptyState) {
-            agentsEmptyState.style.display = 'none';
+        const nameEl = document.getElementById('followUpName');
+        if (nameEl) nameEl.textContent = agentDetails.name;
+        
+        // Clear messages and add welcome message
+        const messagesEl = document.getElementById('conversationMessages');
+        if (messagesEl) {
+            messagesEl.innerHTML = `
+                <div class="message agent-message">
+                    <div class="message-avatar">
+                        <img src="${getAgentAvatar(agentKey)}" alt="${agentDetails.name}">
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm ${agentDetails.name}. ${agentDetails.description}. How can I help you today?</p>
+                    </div>
+                </div>
+            `;
         }
         
-        // Show validation summary in agents section
-        const agentsSummary = document.getElementById('agentsSectionSummary');
-        if (agentsSummary) {
-            agentsSummary.style.display = 'block';
+        // Clear input
+        const inputEl = document.getElementById('followUpInput');
+        if (inputEl) {
+            inputEl.value = '';
+            inputEl.style.height = 'auto';
         }
-
-        // Show validation summary
-        summaryElement.style.display = 'block';
-        summaryElement.classList.add('slide-in');
         
-        // Switch to Statistics tab by default in agents section after validation
-        const tabStatisticsView = document.getElementById('tabStatisticsView');
-        const tabAgentsView = document.getElementById('tabAgentsView');
-        const tabStatisticsViewContent = document.getElementById('tabStatisticsViewContent');
-        const tabAgentsViewContent = document.getElementById('tabAgentsViewContent');
+        // Hide node details modal and show chat modal
+        this.hideNodeDetailsModal();
+        modal.style.display = 'flex';
         
-        if (tabStatisticsView && tabAgentsView && tabStatisticsViewContent && tabAgentsViewContent) {
-            // Switch to Statistics tab in agents section to show the results
-            this.switchAgentsSectionTab('statistics', tabAgentsView, tabStatisticsView, tabAgentsViewContent, tabStatisticsViewContent);
+        // Focus input
+        setTimeout(() => {
+            if (inputEl) inputEl.focus();
+        }, 100);
+    }
+    
+    closeFollowUpChat() {
+        const modal = document.getElementById('followUpModal');
+        if (modal) {
+            modal.style.display = 'none';
         }
     }
-
-    resetToAgentsView() {
-        const agentsSection = document.querySelector('.agents-section-fullscreen');
-        const resultsSection = document.getElementById('resultsSection');
+    
+    async sendFollowUpMessage() {
+        const inputEl = document.getElementById('followUpInput');
+        const messagesEl = document.getElementById('conversationMessages');
         
-        if (agentsSection && resultsSection) {
-            resultsSection.style.display = 'none';
-            agentsSection.style.display = 'block';
-            agentsSection.classList.add('fade-in');
+        if (!inputEl || !messagesEl || !this.currentSelectedAgentKey) return;
+        
+        const message = inputEl.value.trim();
+        if (!message) return;
+        
+        // Add user message
+        const userMessage = document.createElement('div');
+        userMessage.className = 'message user-message';
+        userMessage.innerHTML = `
+            <div class="message-avatar">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="You">
+            </div>
+            <div class="message-content">
+                <p>${this.escapeHtml(message)}</p>
+            </div>
+        `;
+        messagesEl.appendChild(userMessage);
+        
+        // Clear input
+        inputEl.value = '';
+        inputEl.style.height = 'auto';
+        
+        // Scroll to bottom
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        
+        // Show typing indicator
+        const typingIndicator = document.createElement('div');
+        typingIndicator.className = 'message agent-message';
+        typingIndicator.innerHTML = `
+            <div class="message-avatar">
+                <img src="${getAgentAvatar(this.currentSelectedAgentKey)}" alt="Agent">
+            </div>
+            <div class="message-content">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        `;
+        messagesEl.appendChild(typingIndicator);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        
+        // Get agent response (simulated)
+        try {
+            const response = await this.getAgentResponse(message, this.currentSelectedAgentKey);
             
-            // Restore previous agents state instead of resetting
-            this.restoreAgentsState();
+            // Remove typing indicator
+            typingIndicator.remove();
             
-            // Re-add click listeners to agents
-            if (typeof this.addAgentClickListeners === 'function') {
-                this.addAgentClickListeners();
-            }
+            // Add agent response
+            const agentMessage = document.createElement('div');
+            agentMessage.className = 'message agent-message';
+            agentMessage.innerHTML = `
+                <div class="message-avatar">
+                    <img src="${getAgentAvatar(this.currentSelectedAgentKey)}" alt="Agent">
+                </div>
+                <div class="message-content">
+                    <p>${this.escapeHtml(response)}</p>
+                </div>
+            `;
+            messagesEl.appendChild(agentMessage);
+            
+            // Scroll to bottom
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+        } catch (error) {
+            console.error('Error getting agent response:', error);
+            typingIndicator.remove();
+            
+            // Show error message
+            const errorMessage = document.createElement('div');
+            errorMessage.className = 'message agent-message';
+            errorMessage.innerHTML = `
+                <div class="message-avatar">
+                    <img src="${getAgentAvatar(this.currentSelectedAgentKey)}" alt="Agent">
+                </div>
+                <div class="message-content">
+                    <p>I apologize, but I'm having trouble processing your message right now. Please try again.</p>
+                </div>
+            `;
+            messagesEl.appendChild(errorMessage);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
         }
     }
-
+    
+    async getAgentResponse(message, agentKey) {
+        // Simulate API call with delay
+        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000));
+        
+        // Get agent details for context
+        const agentDetails = AGENT_DETAILS[agentKey] || {};
+        
+        // Generate a contextual response based on agent persona
+        const responses = [
+            `That's an interesting question. Based on my perspective as ${agentDetails.name}, I'd say that ${message.toLowerCase().includes('why') ? 'it depends on the context and how it aligns with my values.' : 'I appreciate you asking. Let me think about this...'}`,
+            `From my experience, ${message.toLowerCase().includes('how') ? 'the approach matters a lot. ' : ''}I'd recommend considering the practical implications first.`,
+            `I understand your concern. As someone who values ${agentDetails.values || 'authenticity'}, I think it's important to ${message.toLowerCase().includes('should') ? 'evaluate all options carefully.' : 'consider the long-term impact.'}`,
+            `That's a great point. ${agentDetails.description || 'I appreciate thoughtful questions.'} What specific aspect are you most interested in?`,
+            `Based on what I know, ${message.toLowerCase().includes('what') ? 'there are several factors to consider. ' : ''}I'd suggest looking at this from multiple angles.`
+        ];
+        
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+    
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
     showNotification(message, type = 'info') {
         // Remove existing notifications
         const existingNotifications = document.querySelectorAll('.notification');
@@ -1408,18 +1713,21 @@ class AskMeValidator {
         `;
         
         // Add styles
+        const bgColor = type === 'success' ? 'rgba(34, 197, 94, 0.2)' : type === 'error' ? 'rgba(239, 68, 68, 0.2)' : 'rgba(59, 130, 246, 0.2)';
+        const textColor = type === 'success' ? '#22c55e' : type === 'error' ? '#ef4444' : '#3b82f6';
+        
         notification.style.cssText = `
             position: fixed;
             top: 90px;
             right: 20px;
-            background: ${type === 'success' ? '#dcfce7' : type === 'error' ? '#fee2e2' : '#dbeafe'};
-            color: ${type === 'success' ? '#166534' : type === 'error' ? '#991b1b' : '#1e40af'};
+            background: ${bgColor};
+            color: ${textColor};
             padding: 16px 20px;
             border-radius: 12px;
-            border: 1px solid ${type === 'success' ? '#bbf7d0' : type === 'error' ? '#fecaca' : '#bfdbfe'};
+            border: 1px solid ${textColor}40;
             z-index: 1001;
             max-width: 400px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -1451,446 +1759,9 @@ class AskMeValidator {
         }, 5000);
     }
 
-    initializeAgentInfoModal() {
-        // Close button functionality
-        const closeBtn = document.getElementById('agentInfoClose');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                this.hideAgentInfoModal();
-            });
-        }
-
-        // Close modal when clicking outside
-        const modal = document.getElementById('agentInfoModal');
-        if (modal) {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    this.hideAgentInfoModal();
-                }
-            });
-        }
-        
-        // Tab switching functionality
-        const tabDecision = document.getElementById('tabDecision');
-        const tabDetails = document.getElementById('tabDetails');
-        
-        if (tabDecision && tabDetails) {
-            const self = this;
-            
-            tabDecision.addEventListener('click', () => {
-                const tabDecisionContent = document.getElementById('tabDecisionContent');
-                const tabDetailsContent = document.getElementById('tabDetailsContent');
-                if (tabDecisionContent && tabDetailsContent) {
-                    self.switchTab('decision', tabDecision, tabDetails, tabDecisionContent, tabDetailsContent);
-                }
-            });
-            
-            tabDetails.addEventListener('click', () => {
-                const tabDecisionContent = document.getElementById('tabDecisionContent');
-                const tabDetailsContent = document.getElementById('tabDetailsContent');
-                if (tabDecisionContent && tabDetailsContent) {
-                    self.switchTab('details', tabDecision, tabDetails, tabDecisionContent, tabDetailsContent);
-                }
-            });
-        }
-    }
-
-    initializeBackToAgentsButton() {
-        const backBtn = document.getElementById('backToAgentsBtn');
-        if (backBtn) {
-            backBtn.addEventListener('click', () => {
-                this.resetToAgentsView();
-            });
-        }
-    }
-
-    showAgentInfoModal(agentKey) {
-        const agentData = AGENT_DETAILS[agentKey];
-        if (!agentData) {
-            console.error('Agent data not found for key:', agentKey);
-            return;
-        }
-
-        const modal = document.getElementById('agentInfoModal');
-        if (!modal) return;
-
-        // Get validation results for the SPECIFIC clicked agent
-        const currentResults = this.getCurrentValidationResults();
-        const agentResult = currentResults ? currentResults.find(result => result.persona === agentKey) : null;
-
-        // Populate modal content with the CORRECT agent data
-        const avatar = document.getElementById('agentInfoAvatar');
-        const name = document.getElementById('agentInfoName');
-        const description = document.getElementById('agentInfoDescription');
-        const age = document.getElementById('agentInfoAge');
-        const platforms = document.getElementById('agentInfoPlatforms');
-        const values = document.getElementById('agentInfoValues');
-        const clickRate = document.getElementById('agentInfoClickRate');
-        const resonates = document.getElementById('agentInfoResonates');
-        const deters = document.getElementById('agentInfoDeters');
-        const feedback = document.getElementById('agentInfoFeedback');
-
-        if (avatar) avatar.src = getAgentAvatar(agentKey);
-        if (name) name.textContent = agentData.name || agentKey.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
-        if (description) description.textContent = agentData.description || '';
-        if (age) age.textContent = agentData.age || '';
-        if (platforms) platforms.textContent = agentData.platforms || '';
-        if (values) values.textContent = agentData.values || '';
-        if (clickRate) clickRate.textContent = agentData.clickRate || '';
-        
-        if (resonates) {
-            resonates.innerHTML = agentData.resonates.map(tag => 
-                `<span class="tag">${tag}</span>`
-            ).join('');
-        }
-        
-        if (deters) {
-            deters.innerHTML = agentData.deters.map(tag => 
-                `<span class="tag">${tag}</span>`
-            ).join('');
-        }
-        
-        if (feedback) {
-            feedback.textContent = agentData.feedback || '';
-        }
-        
-        // Get tab elements
-        const agentTabs = document.getElementById('agentTabs');
-        const tabDecision = document.getElementById('tabDecision');
-        const tabDetails = document.getElementById('tabDetails');
-        const tabDecisionContent = document.getElementById('tabDecisionContent');
-        const tabDetailsContent = document.getElementById('tabDetailsContent');
-        const clickReasoningSection = document.getElementById('clickReasoningSection');
-        const noResultsMessage = document.getElementById('noResultsMessage');
-        
-        const clickReasoning = document.getElementById('agentInfoClickReasoning');
-        
-        if (agentResult && clickReasoningSection && clickReasoning) {
-            // Show click reasoning section in the decision tab
-            clickReasoningSection.style.display = 'block';
-            if (noResultsMessage) noResultsMessage.style.display = 'none';
-            
-            const willClick = agentResult.will_click;
-            const reasoning = agentResult.reasoning;
-            const confidence = agentResult.confidence;
-            
-            clickReasoning.innerHTML = `
-                <div class="click-analysis-content">
-                    <div class="click-indicator ${willClick ? 'will-click' : 'wont-click'}">
-                        <div class="decision-circle ${willClick ? 'yes' : 'no'}">
-                            ${willClick ? '✓' : '✗'}
-                        </div>
-                    </div>
-                    <div class="click-reasoning">
-                        <strong>${willClick ? 'Would Click' : 'Would Not Click'}</strong><br>
-                        ${reasoning}
-                    </div>
-                </div>
-                <div class="click-confidence">
-                    <span class="confidence-label">Confidence:</span>
-                    <div class="confidence-bar">
-                        <div class="confidence-fill" style="width: ${(confidence / 10) * 100}%"></div>
-                    </div>
-                    <span class="confidence-value">${confidence}/10</span>
-                </div>
-            `;
-            
-            // Show tabs and set "Click Decision" as active
-            if (agentTabs) agentTabs.style.display = 'flex';
-            this.switchTab('decision', tabDecision, tabDetails, tabDecisionContent, tabDetailsContent);
-        } else {
-            // Hide click reasoning and show "no results" message
-            if (clickReasoningSection) clickReasoningSection.style.display = 'none';
-            if (noResultsMessage) noResultsMessage.style.display = 'flex';
-            
-            // Show tabs and set "Agent Details" as active
-            if (agentTabs) agentTabs.style.display = 'flex';
-            this.switchTab('details', tabDecision, tabDetails, tabDecisionContent, tabDetailsContent);
-        }
-
-        // Show modal
-        modal.style.display = 'flex';
-    }
-    
-    switchTab(tabName, tabDecision, tabDetails, tabDecisionContent, tabDetailsContent) {
-        if (!tabDecision || !tabDetails || !tabDecisionContent || !tabDetailsContent) return;
-        
-        // Remove active class from all tabs
-        tabDecision.classList.remove('active');
-        tabDetails.classList.remove('active');
-        tabDecisionContent.classList.remove('active');
-        tabDetailsContent.classList.remove('active');
-        
-        // Add active class to selected tab and content
-        if (tabName === 'decision') {
-            tabDecision.classList.add('active');
-            tabDecisionContent.classList.add('active');
-        } else {
-            tabDetails.classList.add('active');
-            tabDetailsContent.classList.add('active');
-        }
-    }
-
-    getCurrentValidationResults() {
-        // This method would return the current validation results
-        // For now, we'll return an empty array - this would be populated
-        // when the user runs a validation and we want to show the results
-        return this.currentValidationResults;
-    }
-
-    hideAgentInfoModal() {
-        const modal = document.getElementById('agentInfoModal');
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    initializeConfigAgentsModal() {
-        const configBtn = document.getElementById('configAgentsBtn');
-        const modal = document.getElementById('configAgentsModal');
-        const saveBtn = document.getElementById('saveConfigBtn');
-        const cancelBtn = document.getElementById('cancelConfigBtn');
-        const slider = document.getElementById('agentCountSlider');
-        const display = document.getElementById('agentCountDisplay');
-
-        if (configBtn) {
-            configBtn.addEventListener('click', () => {
-                this.showConfigAgentsModal();
-            });
-        }
-
-        if (slider && display) {
-            slider.addEventListener('input', (e) => {
-                display.textContent = e.target.value;
-            });
-        }
-
-        if (saveBtn) {
-            saveBtn.addEventListener('click', () => {
-                const selectedCount = parseInt(slider.value);
-                this.configuredAgentCount = selectedCount;
-                this.hideConfigAgentsModal();
-                this.reloadAgents();
-                this.showNotification(`Configuration saved: ${selectedCount} agents`, 'success');
-            });
-        }
-
-        if (cancelBtn) {
-            cancelBtn.addEventListener('click', () => {
-                this.hideConfigAgentsModal();
-            });
-        }
-
-        if (modal) {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    this.hideConfigAgentsModal();
-                }
-            });
-        }
-    }
-
-    showConfigAgentsModal() {
-        const modal = document.getElementById('configAgentsModal');
-        const slider = document.getElementById('agentCountSlider');
-        const display = document.getElementById('agentCountDisplay');
-
-        if (modal && slider && display) {
-            slider.value = this.configuredAgentCount;
-            display.textContent = this.configuredAgentCount;
-            modal.style.display = 'flex';
-        }
-    }
-
-    hideConfigAgentsModal() {
-        const modal = document.getElementById('configAgentsModal');
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    reloadAgents() {
-        this.loadAgents();
-    }
-
-    initializeResultsTabs() {
-        const tabStatistics = document.getElementById('tabStatistics');
-        const tabAgents = document.getElementById('tabAgents');
-        
-        if (tabStatistics && tabAgents) {
-            const self = this;
-            
-            tabStatistics.addEventListener('click', () => {
-                const tabStatisticsContent = document.getElementById('tabStatisticsContent');
-                const tabAgentsContent = document.getElementById('tabAgentsContent');
-                if (tabStatisticsContent && tabAgentsContent) {
-                    self.switchResultsTab('statistics', tabStatistics, tabAgents, tabStatisticsContent, tabAgentsContent);
-                }
-            });
-            
-            tabAgents.addEventListener('click', () => {
-                const tabStatisticsContent = document.getElementById('tabStatisticsContent');
-                const tabAgentsContent = document.getElementById('tabAgentsContent');
-                if (tabStatisticsContent && tabAgentsContent) {
-                    self.switchResultsTab('agents', tabStatistics, tabAgents, tabStatisticsContent, tabAgentsContent);
-                }
-            });
-        }
-        
-        // Initialize agents section tabs
-        const tabAgentsView = document.getElementById('tabAgentsView');
-        const tabStatisticsView = document.getElementById('tabStatisticsView');
-        
-        if (tabAgentsView && tabStatisticsView) {
-            const self = this;
-            
-            tabAgentsView.addEventListener('click', () => {
-                const tabAgentsViewContent = document.getElementById('tabAgentsViewContent');
-                const tabStatisticsViewContent = document.getElementById('tabStatisticsViewContent');
-                if (tabAgentsViewContent && tabStatisticsViewContent) {
-                    self.switchAgentsSectionTab('agents', tabAgentsView, tabStatisticsView, tabAgentsViewContent, tabStatisticsViewContent);
-                }
-            });
-            
-            tabStatisticsView.addEventListener('click', () => {
-                const tabAgentsViewContent = document.getElementById('tabAgentsViewContent');
-                const tabStatisticsViewContent = document.getElementById('tabStatisticsViewContent');
-                if (tabAgentsViewContent && tabStatisticsViewContent) {
-                    self.switchAgentsSectionTab('statistics', tabAgentsView, tabStatisticsView, tabAgentsViewContent, tabStatisticsViewContent);
-                }
-            });
-        }
-    }
-
-    switchAgentsSectionTab(tabName, tabAgentsView, tabStatisticsView, tabAgentsViewContent, tabStatisticsViewContent) {
-        if (!tabAgentsView || !tabStatisticsView || !tabAgentsViewContent || !tabStatisticsViewContent) return;
-        
-        // Remove active class from all tabs
-        tabAgentsView.classList.remove('active');
-        tabStatisticsView.classList.remove('active');
-        tabAgentsViewContent.classList.remove('active');
-        tabStatisticsViewContent.classList.remove('active');
-        
-        // Add active class to selected tab and content
-        if (tabName === 'agents') {
-            tabAgentsView.classList.add('active');
-            tabAgentsViewContent.classList.add('active');
-        } else {
-            tabStatisticsView.classList.add('active');
-            tabStatisticsViewContent.classList.add('active');
-        }
-    }
-
-    switchResultsTab(tabName, tabStatistics, tabAgents, tabStatisticsContent, tabAgentsContent) {
-        if (!tabStatistics || !tabAgents || !tabStatisticsContent || !tabAgentsContent) return;
-        
-        // Remove active class from all tabs
-        tabStatistics.classList.remove('active');
-        tabAgents.classList.remove('active');
-        tabStatisticsContent.classList.remove('active');
-        tabAgentsContent.classList.remove('active');
-        
-        // Add active class to selected tab and content
-        if (tabName === 'statistics') {
-            tabStatistics.classList.add('active');
-            tabStatisticsContent.classList.add('active');
-        } else {
-            tabAgents.classList.add('active');
-            tabAgentsContent.classList.add('active');
-        }
-    }
-
-    shuffleArray(array) {
-        const shuffled = [...array];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        return shuffled;
-    }
 }
 
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new AskMeValidator();
-});
-
-// Enhanced utility functions
-document.addEventListener('DOMContentLoaded', () => {
-    // Auto-resize textareas with smooth animation
-    const textareas = document.querySelectorAll('textarea');
-    textareas.forEach(textarea => {
-        textarea.addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = Math.max(120, this.scrollHeight) + 'px';
-        });
-    });
-
-    // Add character count with better styling
-    const creativeText = document.getElementById('creativeText');
-    if (creativeText) {
-        const charCount = document.createElement('div');
-        charCount.className = 'char-count';
-        charCount.style.cssText = `
-            text-align: right;
-            font-size: 12px;
-            color: #64748b;
-            margin-top: 8px;
-            font-weight: 500;
-        `;
-        creativeText.parentNode.appendChild(charCount);
-
-        const updateCharCount = () => {
-            const count = creativeText.value.length;
-            const maxCount = 1000;
-            const percentage = (count / maxCount) * 100;
-            
-            charCount.textContent = `${count}/${maxCount} characters`;
-            
-            // Change color based on usage
-            if (percentage > 80) {
-                charCount.style.color = '#dc2626';
-            } else if (percentage > 60) {
-                charCount.style.color = '#f59e0b';
-            } else {
-                charCount.style.color = '#64748b';
-            }
-        };
-
-        creativeText.addEventListener('input', updateCharCount);
-        updateCharCount();
-    }
-
-    // Add smooth scrolling for better UX
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Add keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
-        // Ctrl/Cmd + Enter to submit form
-        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-            const form = document.getElementById('creativeForm');
-            if (form) {
-                form.dispatchEvent(new Event('submit'));
-            }
-        }
-        
-        // Escape to close modals
-        if (e.key === 'Escape') {
-            const modal = document.getElementById('loadingModal');
-            if (modal && modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            }
-        }
-    });
+    window.bixifyValidator = new BixifyValidator();
 });

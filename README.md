@@ -1,4 +1,4 @@
-# AskMe - AI-Powered Marketing Validation Platform
+# Bixify - AI-Powered Marketing Validation Platform
 
 A modern, enterprise-grade web application that validates marketing content using AI-powered persona simulations. Get instant insights from diverse perspectives to optimize your campaigns before launch.
 
@@ -214,4 +214,4 @@ For support and questions:
 
 ---
 
-**AskMe** - Transform your marketing content with AI-powered insights. 🚀
+**Bixify** - Transform your marketing content with AI-powered insights. 🚀

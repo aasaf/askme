@@ -6,445 +6,472 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>AskMe - AI-Powered Marketing Validation Platform</title>
+    <title>Bixify - AI-Powered Marketing Validation Platform</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/styles.css') }}?v={{ range(1, 10000) | random }}" rel="stylesheet">
 </head>
 <body>
-
-
     <!-- Main Container -->
     <div class="main-container">
-        <!-- Left Sidebar - AskMe Chat -->
-        <aside class="chat-sidebar">
-            <div class="chat-sidebar-header">
-                <div class="chat-brand">
-                    <div class="chat-logo">
-                        <i class="fas fa-comments"></i>
+        <!-- Left Sidebar -->
+        <aside class="config-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="logo-icon">B</div>
+                    <div class="logo-text">Bixify</div>
+                </div>
+                <button class="sidebar-profile-btn" title="Profile">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-credits-card">
+                <div class="credits-content">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Credits: 2</span>
+                </div>
+            </div>
+            
+            <!-- Sidebar Tabs -->
+            <div class="sidebar-tabs">
+                <button class="sidebar-tab active" data-tab="tests">
+                    <i class="fas fa-flask"></i>
+                    <span>Tests</span>
+                </button>
+                <button class="sidebar-tab" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+            </div>
+            
+            <!-- Tests Tab Content -->
+            <div class="sidebar-tab-content active" id="testsTab">
+                <div class="sidebar-config">
+                    <div class="config-group">
+                        <label class="config-label">Target Audience</label>
+                        <div class="config-select-wrapper">
+                            <div class="config-select-clickable" id="targetAudienceBtn">
+                                <span id="selectedTargetAudience">Founders and...</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="chat-title">
-                        <h3>AskMe</h3>
-                        <p>AI Marketing Validation</p>
+                    
+                    <button class="btn-create-test" id="createTestBtn">
+                        <i class="fas fa-plus"></i>
+                        <span>Create a new test</span>
+                    </button>
+                </div>
+                
+                <!-- Test History -->
+                <div class="test-history-section">
+                    <div class="section-header">
+                        <h4>Recent Tests</h4>
+                        <button class="btn-view-all" title="View all tests">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="test-list">
+                        <div class="test-item">
+                            <div class="test-item-header">
+                                <div class="test-item-title">Launch Campaign Post</div>
+                                <div class="test-item-date">2h ago</div>
+                            </div>
+                            <div class="test-item-metrics">
+                                <div class="test-metric">
+                                    <span class="metric-label">Impact</span>
+                                    <span class="metric-value high">78</span>
+                                </div>
+                                <div class="test-metric">
+                                    <span class="metric-label">Clicks</span>
+                                    <span class="metric-value">65%</span>
+                                </div>
+                            </div>
+                            <div class="test-item-preview">"Just shipped our MVP after 72 hours..."</div>
+                        </div>
+                        
+                        <div class="test-item">
+                            <div class="test-item-header">
+                                <div class="test-item-title">Product Announcement</div>
+                                <div class="test-item-date">5h ago</div>
+                            </div>
+                            <div class="test-item-metrics">
+                                <div class="test-metric">
+                                    <span class="metric-label">Impact</span>
+                                    <span class="metric-value medium">52</span>
+                                </div>
+                                <div class="test-metric">
+                                    <span class="metric-label">Clicks</span>
+                                    <span class="metric-value">42%</span>
+                                </div>
+                            </div>
+                            <div class="test-item-preview">"Introducing our new feature..."</div>
+                        </div>
+                        
+                        <div class="test-item">
+                            <div class="test-item-header">
+                                <div class="test-item-title">Community Update</div>
+                                <div class="test-item-date">1d ago</div>
+                            </div>
+                            <div class="test-item-metrics">
+                                <div class="test-metric">
+                                    <span class="metric-label">Impact</span>
+                                    <span class="metric-value high">84</span>
+                                </div>
+                                <div class="test-metric">
+                                    <span class="metric-label">Clicks</span>
+                                    <span class="metric-value">72%</span>
+                                </div>
+                            </div>
+                            <div class="test-item-preview">"We're excited to share..."</div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="chat-messages" id="chatMessages">
-                <!-- Chat messages will appear here -->
-                <div class="chat-message ai-message">
-                    <div class="message-avatar">
-                        <i class="fas fa-robot"></i>
+            <!-- Settings Tab Content -->
+            <div class="sidebar-tab-content" id="settingsTab">
+                <div class="sidebar-config">
+                    <div class="config-group">
+                        <label class="config-label">Default Audience</label>
+                        <div class="config-select-wrapper">
+                            <div class="config-select-clickable">
+                                <span>Founders and Marketers</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="message-content">
-                        <p>Hi! I'm AskMe, your AI marketing validation assistant. Describe your creative content, ad copy, or marketing message, and I'll help you validate it with our team of AI personas.</p>
+                    
+                    <div class="config-group">
+                        <label class="config-label">Notifications</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="notificationsToggle" checked>
+                            <label for="notificationsToggle"></label>
+                            <span>Email notifications</span>
+                        </div>
+                    </div>
+                    
+                    <div class="config-group">
+                        <label class="config-label">Auto-save</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="autosaveToggle" checked>
+                            <label for="autosaveToggle"></label>
+                            <span>Save tests automatically</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="chat-input-section">
-                <div class="chat-input-area">
-                    <div class="input-controls">
-                        <button type="button" class="upload-btn" id="uploadBtn" title="Upload image">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
-                    </div>
-                    <div class="text-input-container">
-                        <textarea 
-                            id="chatInput" 
-                            placeholder="Describe your creative content, ad copy, or marketing message..."
-                            rows="3"
-                            maxlength="4000"
-                        ></textarea>
-                        <button type="button" class="send-btn" id="sendBtn" disabled>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="uploaded-images" id="uploadedImages"></div>
             </div>
         </aside>
 
         <!-- Main Content Area -->
-        <main class="content-area">
-            <!-- AI Validation Agents Section - Full Screen -->
-            <div class="agents-section-fullscreen">
-                <div class="section-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="title-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div>
-                                <h2>AI Validation Agents</h2>
-                                <p>Get insights from diverse perspectives</p>
+        <main class="network-content-area">
+            <!-- Network Graph Container -->
+            <div class="network-graph-container">
+                
+                <!-- Network Graph Canvas -->
+                <canvas id="networkCanvas"></canvas>
+            </div>
+            
+            <!-- Results Panel (Hidden Initially) -->
+            <div class="results-panel" id="resultsPanel" style="display: none;">
+                <div class="results-header">
+                    <h2>Validation Results</h2>
+                    <div class="results-actions">
+                        <button class="btn-close-results" id="closeResultsBtn" title="Close results">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <button class="btn-share" id="shareBtn">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Share Results</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="results-grid">
+                    <!-- Impact Score Card -->
+                    <div class="result-card impact-card">
+                        <div class="card-header">
+                            <div class="header-title">
+                                <h3>Impact Score</h3>
+                                <i class="fas fa-info-circle" title="Overall impact rating"></i>
                             </div>
                         </div>
-                        <div class="card-actions">
-                            <button class="btn-icon" id="configAgentsBtn" title="Configure Agent Count">
-                                <i class="fas fa-cog"></i>
+                        <div class="impact-content">
+                            <div class="impact-score-wrapper">
+                                <div class="impact-score-large" id="impactScore">0</div>
+                                <span class="impact-score-max">/100</span>
+                            </div>
+                            <div class="impact-label" id="impactLabel">Calculating...</div>
+                            <div class="impact-bar-container">
+                                <div class="impact-bar" id="impactBar">
+                                    <div class="impact-bar-fill" id="impactBarFill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Engagement Metrics Card -->
+                    <div class="result-card engagement-card">
+                        <div class="card-header">
+                            <div class="header-title">
+                                <h3>Engagement Metrics</h3>
+                                <i class="fas fa-info-circle" title="How audiences engaged"></i>
+                            </div>
+                        </div>
+                        <div class="engagement-content">
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Would Click</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill positive" id="clickBar">
+                                        <span class="metric-value" id="clickValue">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Interested</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill neutral" id="interestedBar">
+                                        <span class="metric-value" id="interestedValue">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-header">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Would Skip</span>
+                                </div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill negative" id="skipBar">
+                                        <span class="metric-value" id="skipValue">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Variants Card -->
+                    <div class="result-card variants-card">
+                        <div class="card-header">
+                            <div class="header-title">
+                                <h3>Content Variants</h3>
+                                <i class="fas fa-info-circle" title="AI-generated alternatives"></i>
+                            </div>
+                        </div>
+                        <div class="variants-content">
+                            <div class="variant-list" id="variantList">
+                                <!-- Variants will be populated here -->
+                            </div>
+                            <div class="variants-input">
+                                <input 
+                                    type="text" 
+                                    id="variantInstructions" 
+                                    placeholder="Add instructions for variants... (optional)"
+                                    class="variant-input-field"
+                                >
+                            </div>
+                            <button class="btn-generate-variants" id="generateVariantsBtn">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Generate New Variants</span>
                             </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Tabs Navigation in Agents Section -->
-                    <div class="agents-tabs-section" id="agentsTabsSection">
-                        <button class="results-tab active" data-tab="agents" id="tabAgentsView">
-                            <i class="fas fa-robot"></i>
-                            <span>Agents</span>
-                        </button>
-                        <button class="results-tab" data-tab="statistics" id="tabStatisticsView">
-                            <i class="fas fa-chart-pie"></i>
-                            <span>Statistics</span>
-                        </button>
-                    </div>
-                    
-                    <div class="agents-tab-content-section">
-                        <!-- Agents Tab Content -->
-                        <div class="tab-content active" id="tabAgentsViewContent">
-                            <div class="agents-container">
-                                <div class="floating-agents-section">
-                                    <div class="floating-agents" id="agentsGrid">
-                                        <!-- AI Agents will be populated here -->
-                                    </div>
-                                    <div class="agents-instruction">
-                                        <p><i class="fas fa-info-circle"></i> Click on any agent to see detailed validation insights</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Statistics Tab Content -->
-                        <div class="tab-content" id="tabStatisticsViewContent">
-                            <div class="results-content" style="padding: var(--spacing-6);">
-                                <!-- Empty State for Statistics -->
-                                <div class="empty-state" style="display: block; text-align: center; padding: var(--spacing-8);">
-                                    <div style="font-size: 3rem; color: var(--secondary-300); margin-bottom: var(--spacing-4);">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                    <h3 style="color: var(--secondary-700); margin-bottom: var(--spacing-2);">No Validation Yet</h3>
-                                    <p style="color: var(--secondary-500);">Submit your content to see statistics here</p>
-                                </div>
-                                
-                                <!-- Validation Summary -->
-                                <div class="validation-summary" id="agentsSectionSummary" style="display: none;">
-                                    <div class="summary-header">
-                                        <h3>Current Validation</h3>
-                                        <div class="summary-badge success">
-                                            <i class="fas fa-check-circle"></i>
-                                            <span>Ready for Launch</span>
-                                        </div>
-                                    </div>
-                                    <div class="summary-stats">
-                                        <div class="summary-stat">
-                                            <div class="stat-header">
-                                                <span class="stat-label">Total Agents</span>
-                                                <i class="fas fa-robot"></i>
-                                            </div>
-                                            <span class="stat-value" id="agentsTotalPersonas">0</span>
-                                        </div>
-                                        <div class="summary-stat">
-                                            <div class="stat-header">
-                                                <span class="stat-label">Would Click</span>
-                                                <i class="fas fa-thumbs-up"></i>
-                                            </div>
-                                            <span class="stat-value" id="agentsWillClickCount">0</span>
-                                        </div>
-                                        <div class="summary-stat">
-                                            <div class="stat-header">
-                                                <span class="stat-label">Confidence</span>
-                                                <i class="fas fa-chart-line"></i>
-                                            </div>
-                                            <span class="stat-value" id="agentsAverageConfidence">0%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Validation Results Section - Hidden Initially -->
-            <div class="results-section-fullscreen" id="resultsSection" style="display: none;">
-                <div class="section-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <div class="title-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <div>
-                                <h2>Validation Results</h2>
-                                <p>Real-time performance insights</p>
-                            </div>
+            
+            <!-- Centered Chat Input -->
+            <div class="center-chat-input" id="chatInputContainer">
+                <!-- Loading Overlay -->
+                <div class="chat-loading-overlay" id="chatLoadingOverlay" style="display: none;">
+                    <div class="loading-content">
+                        <div class="loading-spinner">
+                            <div class="spinner-ring"></div>
+                            <div class="spinner-ring"></div>
+                            <div class="spinner-ring"></div>
                         </div>
-                        <button class="btn-back-to-agents" id="backToAgentsBtn">
-                            <i class="fas fa-arrow-left"></i>
-                            Back to Agents
-                        </button>
-                    </div>
-                    
-                    <!-- Results Tabs Navigation -->
-                    <div class="results-tabs" id="resultsTabs">
-                        <button class="results-tab active" data-tab="statistics" id="tabStatistics">
-                            <i class="fas fa-chart-pie"></i>
-                            <span>Statistics</span>
-                        </button>
-                        <button class="results-tab" data-tab="agents" id="tabAgents">
-                            <i class="fas fa-robot"></i>
-                            <span>Agents</span>
-                        </button>
-                    </div>
-                    
-                    <div class="results-tab-content">
-                        <!-- Statistics Tab -->
-                        <div class="tab-content active" id="tabStatisticsContent">
-                            <div class="results-content" style="padding: var(--spacing-6);">
-                                <!-- Empty State -->
-                                <div class="empty-state" id="emptyState" style="display: block; text-align: center; padding: var(--spacing-8);">
-                                    <div style="font-size: 3rem; color: var(--secondary-300); margin-bottom: var(--spacing-4);">
-                                        <i class="fas fa-chart-bar"></i>
-                                    </div>
-                                    <h3 style="color: var(--secondary-700); margin-bottom: var(--spacing-2);">No Validation Yet</h3>
-                                    <p style="color: var(--secondary-500);">Submit your content to see statistics here</p>
-                                </div>
-                                
-                                <!-- Validation Summary -->
-                                <div class="validation-summary" id="simulationSummary" style="display: none;">
-                                    <div class="summary-header">
-                                        <h3>Current Validation</h3>
-                                        <div class="summary-badge success">
-                                            <i class="fas fa-check-circle"></i>
-                                            <span>Ready for Launch</span>
-                                        </div>
-                                    </div>
-                                    <div class="summary-stats">
-                                        <div class="summary-stat">
-                                            <div class="stat-header">
-                                                <span class="stat-label">Total Agents</span>
-                                                <i class="fas fa-robot"></i>
-                                            </div>
-                                            <span class="stat-value" id="totalPersonas">0</span>
-                                        </div>
-                                        <div class="summary-stat">
-                                            <div class="stat-header">
-                                                <span class="stat-label">Would Click</span>
-                                                <i class="fas fa-thumbs-up"></i>
-                                            </div>
-                                            <span class="stat-value" id="willClickCount">0</span>
-                                        </div>
-                                        <div class="summary-stat">
-                                            <div class="stat-header">
-                                                <span class="stat-label">Confidence</span>
-                                                <i class="fas fa-chart-line"></i>
-                                            </div>
-                                            <span class="stat-value" id="averageConfidence">0%</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Recent Activity -->
-                                <div class="recent-activity">
-                                    <h3>Recent Activity</h3>
-                                    <div class="activity-list">
-                                        <div class="activity-item">
-                                            <div class="activity-icon">
-                                                <i class="fas fa-upload"></i>
-                                            </div>
-                                            <div class="activity-content">
-                                                <div class="activity-text">New campaign uploaded</div>
-                                                <div class="activity-time">2 min ago</div>
-                                            </div>
-                                        </div>
-                                        <div class="activity-item">
-                                            <div class="activity-icon">
-                                                <i class="fas fa-check"></i>
-                                            </div>
-                                            <div class="activity-content">
-                                                <div class="activity-text">Validation completed</div>
-                                                <div class="activity-time">5 min ago</div>
-                                            </div>
-                                        </div>
-                                        <div class="activity-item">
-                                            <div class="activity-icon">
-                                                <i class="fas fa-share"></i>
-                                            </div>
-                                            <div class="activity-content">
-                                                <div class="activity-text">Results shared with team</div>
-                                                <div class="activity-time">12 min ago</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Agents Tab -->
-                        <div class="tab-content" id="tabAgentsContent">
-                            <div class="agents-container" style="padding: var(--spacing-6);">
-                                <div class="agents-grid" id="resultsAgentsGrid">
-                                    <!-- AI Agents with validation results will be populated here -->
-                                </div>
-                                <div class="agents-instruction">
-                                    <p><i class="fas fa-info-circle"></i> Click on any agent to see detailed validation insights</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="loading-text">Simulating responses...</div>
+                        <div class="loading-subtext">Analyzing content with AI personas</div>
                     </div>
                 </div>
+                
+                <div class="chat-input-box">
+                    <textarea 
+                        id="chatInput" 
+                        placeholder="Write your post..."
+                        rows="1"
+                        maxlength="4000"
+                    ></textarea>
+                    <div class="chat-action-buttons">
+                        <button class="action-btn simulate-btn" id="simulateBtn">
+                            <i class="fas fa-bolt"></i>
+                            <span>Simulate</span>
+                        </button>
+                    </div>
+                </div>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
             </div>
         </main>
     </div>
 
-    <!-- Loading Modal -->
-    <div id="loadingModal" class="modal" style="display: none;">
-        <div class="modal-content">
+    <!-- Target Audience Modal -->
+    <div id="targetAudienceModal" class="modal" style="display: none;">
+        <div class="modal-content target-audience-modal">
             <div class="modal-header">
-                <div class="loading-animation">
-                    <div class="loading-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                <h3>Running AI Validation</h3>
-                <p>Our 10 AI agents are analyzing your content from multiple perspectives</p>
-            </div>
-            <div class="modal-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-                <span class="progress-text">Analyzing with AI agents...</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Config Agents Modal -->
-    <div id="configAgentsModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Configure Agent Count</h3>
-                <p>Select how many agents will participate in validation (max 28)</p>
-            </div>
-            <div class="config-content">
-                <div class="agent-count-selector">
-                    <label for="agentCountSlider">Number of Agents: <strong id="agentCountDisplay">28</strong></label>
-                    <input 
-                        type="range" 
-                        id="agentCountSlider" 
-                        min="5" 
-                        max="28" 
-                        value="28"
-                        step="1"
-                    >
-                    <div class="slider-labels">
-                        <span>5</span>
-                        <span>28</span>
-                    </div>
-                    <p class="config-note">
-                        <i class="fas fa-info-circle"></i>
-                        Validation performance is optimized for all agents
-                    </p>
-                </div>
-            </div>
-            <div class="modal-actions">
-                <button class="btn-primary" id="saveConfigBtn">
-                    <span>Save Configuration</span>
-                </button>
-                <button class="btn-outline" id="cancelConfigBtn">
-                    Cancel
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Agent Info Modal -->
-    <div id="agentInfoModal" class="modal" style="display: none;">
-        <div class="modal-content agent-info-modal">
-            <div class="modal-header">
-                <div class="agent-info-header">
-                    <div class="agent-avatar-large">
-                        <img id="agentInfoAvatar" src="" alt="Agent">
-                    </div>
-                    <div class="agent-info-text">
-                        <h3 id="agentInfoName">Agent Name</h3>
-                        <p id="agentInfoDescription">Agent description</p>
-                    </div>
-                </div>
-                <button class="modal-close" id="agentInfoClose">
+                <h3>Select Target Audience</h3>
+                <button class="modal-close" id="targetAudienceClose">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <!-- Tab Navigation -->
-            <div class="agent-tabs" id="agentTabs" style="display: none;">
-                <button class="agent-tab active" data-tab="decision" id="tabDecision">
-                    <i class="fas fa-mouse-pointer"></i>
-                    <span>Click Decision</span>
-                </button>
-                <button class="agent-tab" data-tab="details" id="tabDetails">
-                    <i class="fas fa-user"></i>
-                    <span>Agent Details</span>
-                </button>
-            </div>
             
-            <div class="agent-info-content">
-                <!-- Click Decision Tab -->
-                <div class="tab-content active" id="tabDecisionContent">
-                    <div class="click-analysis-section" id="clickReasoningSection" style="display: none;">
-                        <div class="click-analysis" id="agentInfoClickReasoning">
-                            <!-- Click reasoning will be populated here -->
+            <div class="target-audience-content">
+                <button class="btn-create-target-audience" id="createTargetAudienceBtn">
+                    <i class="fas fa-plus"></i>
+                    <span>Create Target Audience</span>
+                </button>
+                
+                <div class="existing-audiences-section">
+                    <h4>Existing Target Audiences</h4>
+                    <div class="audience-list" id="audienceList">
+                        <div class="audience-item" data-audience="Founders and Marketers">
+                            <div class="audience-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <div class="audience-info">
+                                <div class="audience-name">Founders and Marketers</div>
+                                <div class="audience-description">Individuals launching companies and promoting products.</div>
+                            </div>
+                            <div class="audience-badge">Custom</div>
                         </div>
-                    </div>
-                    <div class="no-results-message" id="noResultsMessage" style="display: none;">
-                        <i class="fas fa-info-circle"></i>
-                        <p>No validation results available yet. Submit content to see click analysis.</p>
+                        <div class="audience-item" data-audience="Corporate Executives">
+                            <div class="audience-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="audience-info">
+                                <div class="audience-name">Corporate Executives</div>
+                                <div class="audience-description">Top-level decision-makers in major corporations, such as CEOs, CFOs, and board members.</div>
+                            </div>
+                            <div class="audience-badge example">Example</div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Target Audience Modal -->
+    <div id="createTargetAudienceModal" class="modal" style="display: none;">
+        <div class="modal-content create-audience-modal">
+            <button class="modal-back" id="createAudienceBack">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            
+            <div class="create-audience-content">
+                <h2 class="create-audience-title">Who do you want in your society?</h2>
+                <p class="create-audience-description">Describe the people you want in your society. We'll match your description with AI personas from our database. Every AI persona is based on a real person.</p>
                 
-                <!-- Agent Details Tab -->
-                <div class="tab-content" id="tabDetailsContent">
-                    <div class="agent-details">
-                        <div class="detail-section">
-                            <h4><i class="fas fa-user"></i> Persona Details</h4>
-                            <div class="detail-grid">
-                                <div class="detail-item">
-                                    <span class="detail-label">Age Range:</span>
-                                    <span id="agentInfoAge" class="detail-value">25-35</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Platforms:</span>
-                                    <span id="agentInfoPlatforms" class="detail-value">LinkedIn, Instagram</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Values:</span>
-                                    <span id="agentInfoValues" class="detail-value">Efficiency, Quality</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="detail-label">Click Rate:</span>
-                                    <span id="agentInfoClickRate" class="detail-value">70%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detail-section">
-                            <h4><i class="fas fa-lightbulb"></i> What Resonates</h4>
-                            <div class="resonance-tags" id="agentInfoResonates">
-                                <!-- Tags will be populated here -->
-                            </div>
-                        </div>
-                        <div class="detail-section">
-                            <h4><i class="fas fa-exclamation-triangle"></i> What Deters</h4>
-                            <div class="deterrent-tags" id="agentInfoDeters">
-                                <!-- Tags will be populated here -->
-                            </div>
-                        </div>
-                        <div class="detail-section">
-                            <h4><i class="fas fa-comment"></i> Recent Feedback</h4>
-                            <div class="feedback-example" id="agentInfoFeedback">
-                                <!-- Feedback will be populated here -->
-                            </div>
-                        </div>
+                <div class="create-audience-input-wrapper">
+                    <textarea 
+                        id="createAudienceInput" 
+                        class="create-audience-input"
+                        placeholder="e.g. Founders in London..."
+                        rows="4"
+                    ></textarea>
+                </div>
+                
+                <button class="btn-create-society" id="createSocietyBtn">
+                    Create your society
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Node Details Modal -->
+    <div id="nodeDetailsModal" class="modal" style="display: none;">
+        <div class="modal-content node-details-modal">
+            <button class="modal-close" id="nodeDetailsClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="node-details-header">
+                <div class="node-details-avatar">
+                    <img id="nodeDetailsAvatar" src="" alt="Persona Avatar">
+                </div>
+                <div class="node-details-title">
+                    <h3 id="nodeDetailsName">Persona Name</h3>
+                    <p id="nodeDetailsDescription">Persona description</p>
+                </div>
+            </div>
+            
+            <div class="node-details-attributes" id="nodeDetailsAttributes">
+                <!-- Attributes will be populated here -->
+            </div>
+            
+            <div class="node-details-section attention-section">
+                <div class="attention-header">
+                    <i class="fas fa-eye"></i>
+                    <span>Attention</span>
+                </div>
+                <div class="attention-status" id="nodeDetailsAttention">Calculating...</div>
+            </div>
+            
+            <div class="node-details-section comment-section">
+                <div class="comment-header">
+                    <i class="fas fa-comment"></i>
+                    <span>Comment</span>
+                </div>
+                <div class="comment-text" id="nodeDetailsComment">No comment available</div>
+            </div>
+            
+            <div class="node-details-button-container">
+                <button class="btn-ask-followup" id="nodeDetailsFollowupBtn">
+                    <i class="fas fa-comments"></i>
+                    <span>Ask Follow-up</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Follow-up Chat Modal -->
+    <div id="followUpModal" class="modal" style="display: none;">
+        <div class="modal-content follow-up-modal">
+            <button class="modal-close" id="followUpClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <div class="follow-up-header">
+                    <div class="agent-avatar-small">
+                        <img id="followUpAvatar" src="" alt="Persona Avatar">
                     </div>
+                    <div class="follow-up-header-text">
+                        <h3 id="followUpName">Persona Name</h3>
+                        <p class="follow-up-subtitle">You are chatting with a simulated persona. All thoughts, views, and opinions are purely fictional.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="follow-up-content">
+                <div class="conversation-messages" id="conversationMessages">
+                    <!-- Messages will be populated here -->
+                </div>
+                
+                <div class="conversation-input-container">
+                    <textarea 
+                        id="followUpInput" 
+                        placeholder="Type a message..."
+                        rows="1"
+                    ></textarea>
+                    <button class="btn-send-followup" id="followUpSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Send</span>
+                    </button>
                 </div>
             </div>
         </div>
