@@ -1057,41 +1057,50 @@ class BixifyValidator {
         // Update node colors based on validation results (ONLY colors, NOT sizes)
         if (!this.networkGraph) return;
         
-        const resultsMap = {};
-        results.forEach(result => {
-            resultsMap[result.persona] = result;
-        });
-
+        // Calculate metrics to match results panel exactly
+        const total = results.length;
+        const wouldClick = results.filter(r => r.will_click).length;
+        const wouldSkip = total - wouldClick;
+        
+        const clickPercent = wouldClick / total;
+        const skipPercent = wouldSkip / total;
+        
+        // Calculate exact counts for all nodes to match percentages from results panel
+        const totalNodes = this.networkGraph.nodes.length;
+        const greenCount = Math.round(totalNodes * clickPercent); // Would Click
+        const redCount = totalNodes - greenCount; // Would Skip (remaining nodes)
+        
+        // Shuffle nodes randomly to distribute colors evenly
+        const shuffledNodes = [...this.networkGraph.nodes].sort(() => Math.random() - 0.5);
+        
         // Switch to updating phase
         this.networkGraph.animationPhase = 'updating';
         this.networkGraph.simulationStartTime = Date.now(); // Reset timer for update phase
         
-        // Animate nodes changing colors progressively
-        const nodesToUpdate = this.networkGraph.nodes.filter(node => {
-            const agentKey = node.agentKey;
-            return resultsMap[agentKey];
+        // Assign colors to match the exact percentages - only red and green
+        shuffledNodes.forEach((node, index) => {
+            let targetColor;
+            if (index < greenCount) {
+                // Green for would click
+                targetColor = '#22c55e';
+            } else {
+                // Red for would skip
+                targetColor = '#ef4444';
+            }
+            
+            node.targetColor = targetColor;
+            node.transitionStartTime = Date.now();
+            node.transitionDuration = 800; // 800ms transition
+            node.originalColor = node.color;
         });
         
         // Update nodes in batches with delay for visual effect
         const batchSize = 10;
         const delayBetweenBatches = 50;
+        const nodesToUpdate = shuffledNodes;
         
         for (let i = 0; i < nodesToUpdate.length; i += batchSize) {
             const batch = nodesToUpdate.slice(i, i + batchSize);
-            
-            batch.forEach(node => {
-                const agentKey = node.agentKey;
-                const result = resultsMap[agentKey];
-                
-                if (result) {
-                    // Store target color for smooth transition
-                    const targetColor = result.will_click ? '#22c55e' : '#ef4444';
-                    node.targetColor = targetColor;
-                    node.transitionStartTime = Date.now();
-                    node.transitionDuration = 800; // 800ms transition
-                    node.originalColor = node.color;
-                }
-            });
             
             // Wait before next batch
             if (i + batchSize < nodesToUpdate.length) {
