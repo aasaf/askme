@@ -855,9 +855,11 @@ def generate_placeholder_response(content: str, persona_key: str) -> Dict[str, A
     negative_score = sum(1 for word in pattern["negative_keywords"] if word in content_lower)
     
     # Base probability with content influence
-    base_probability = pattern["click_probability"]
-    content_modifier = (positive_score - negative_score) * 0.1
-    final_probability = max(0.1, min(0.9, base_probability + content_modifier))
+    # Scale down click probabilities to achieve ~12% average click rate
+    # Most personas should have very low click probability
+    base_probability = pattern["click_probability"] * 0.12  # Scale down from 0.6-0.8 to 0.07-0.10
+    content_modifier = (positive_score - negative_score) * 0.015  # Very small modifier
+    final_probability = max(0.05, min(0.20, base_probability + content_modifier))
     
     will_click = random.random() < final_probability
     

@@ -828,13 +828,13 @@ class BixifyValidator {
         const description = input?.value.trim();
         
         if (!description) {
-            this.showNotification('Please enter a description for your society', 'error');
+            this.showNotification('Please enter a description for your audince', 'error');
             return;
         }
         
         // Here you would typically send the data to your backend
         // For now, we'll just show a success message and update the UI
-        this.showNotification('Society created successfully!', 'success');
+        this.showNotification('Audience created successfully!', 'success');
         
         // Update the selected target audience
         const selectedElement = document.getElementById('selectedTargetAudience');
@@ -1060,14 +1060,17 @@ class BixifyValidator {
         // Calculate metrics to match results panel exactly
         const total = results.length;
         const wouldClick = results.filter(r => r.will_click).length;
-        const wouldSkip = total - wouldClick;
+        const clickPercent = Math.round((wouldClick / total) * 100);
         
-        const clickPercent = wouldClick / total;
-        const skipPercent = wouldSkip / total;
+        // Calculate impact score (same formula as in displayResultsPanel)
+        const avgConfidence = results.reduce((sum, r) => sum + r.confidence, 0) / total;
+        const confidenceAdjustment = ((avgConfidence - 5) / 5) * 2; // Small adjustment: ±2 based on confidence
+        const impactScore = Math.max(0, Math.min(100, Math.round(clickPercent * 0.9 + confidenceAdjustment)));
         
-        // Calculate exact counts for all nodes to match percentages from results panel
+        // Calculate exact counts for all nodes based on impact score
+        // Impact score 2/100 = 2 green dots out of 100 nodes (or proportionally)
         const totalNodes = this.networkGraph.nodes.length;
-        const greenCount = Math.round(totalNodes * clickPercent); // Would Click
+        const greenCount = Math.round(totalNodes * (impactScore / 100)); // Green dots = impact score percentage
         const redCount = totalNodes - greenCount; // Would Skip (remaining nodes)
         
         // Shuffle nodes randomly to distribute colors evenly
@@ -1189,16 +1192,36 @@ class BixifyValidator {
         // Calculate metrics
         const total = results.length;
         const wouldClick = results.filter(r => r.will_click).length;
-        const interested = Math.floor(total * 0.3); // 30% interested
-        const wouldSkip = total - wouldClick - interested;
-        
         const clickPercent = Math.round((wouldClick / total) * 100);
-        const interestedPercent = Math.round((interested / total) * 100);
-        const skipPercent = Math.round((wouldSkip / total) * 100);
         
-        // Calculate impact score (0-100)
+        // Calculate impact score (0-100) - based primarily on click rate
+        // Impact score should reflect click rate: 12% click rate = ~12/100 impact score
         const avgConfidence = results.reduce((sum, r) => sum + r.confidence, 0) / total;
-        const impactScore = Math.round((clickPercent * 0.6 + avgConfidence * 4) / 10);
+        // Impact score = click rate (90% weight) + small confidence adjustment (10% weight)
+        // This ensures low click rates (8-12%) result in low impact scores (8-12)
+        const confidenceAdjustment = ((avgConfidence - 5) / 5) * 2; // Small adjustment: ±2 based on confidence
+        const impactScore = Math.max(0, Math.min(100, Math.round(clickPercent * 0.9 + confidenceAdjustment)));
+        
+        // Calculate Interested and Would Skip to add up to 100%
+        // Interested = portion of non-clickers (20-30% of those who didn't click)
+        const nonClickers = total - wouldClick;
+        const interestedCount = Math.round(nonClickers * 0.25); // 25% of non-clickers are interested
+        const wouldSkipCount = nonClickers - interestedCount; // Rest skip
+        
+        let interestedPercent = Math.round((interestedCount / total) * 100);
+        let skipPercent = Math.round((wouldSkipCount / total) * 100);
+        
+        // Ensure percentages add up to 100% (handle rounding)
+        const totalPercent = clickPercent + interestedPercent + skipPercent;
+        if (totalPercent !== 100) {
+            // Adjust skip percent to make it exactly 100%
+            skipPercent = 100 - clickPercent - interestedPercent;
+            // Ensure skip percent is not negative
+            if (skipPercent < 0) {
+                skipPercent = 0;
+                interestedPercent = 100 - clickPercent;
+            }
+        }
         
         // Update impact score
         const impactScoreEl = document.getElementById('impactScore');
